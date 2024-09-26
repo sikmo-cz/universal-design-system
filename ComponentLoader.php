@@ -126,3 +126,7 @@
 			}
 		}
 	}
+
+	function ComponentLoader() {
+		return ComponentLoader::get_instance();
+	}

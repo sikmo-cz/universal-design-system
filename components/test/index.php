@@ -1,7 +1,7 @@
 <?php
 
 	// Get the singleton instance of ComponentLoader
-	$ComponentLoader = ComponentLoader::get_instance();
+	$ComponentLoader = ComponentLoader();
 
 	// Register CSS/JS for this component (no need to specify full path)
 	$ComponentLoader->register_css( 'style' );

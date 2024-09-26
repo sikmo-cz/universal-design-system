@@ -1,7 +1,7 @@
 <?php
 
 	// Get the singleton instance of ComponentLoader
-	$ComponentLoader = ComponentLoader::get_instance();
+	$ComponentLoader = ComponentLoader();
 
 	// Preload dependencies
 	$ComponentLoader->prepare_dependencies([

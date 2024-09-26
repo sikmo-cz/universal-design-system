@@ -1,7 +1,7 @@
 <?php
 
 	// Get the singleton instance of ComponentLoader
-	$ComponentLoader = ComponentLoader::get_instance();
+	$ComponentLoader = ComponentLoader();
 
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;
