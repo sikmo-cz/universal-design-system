@@ -6,11 +6,26 @@
 	// Get the singleton instance of ComponentLoader
 	$ComponentLoader = ComponentLoader::get_instance();
 
-	// Load the component and pass arguments
-	$ComponentLoader->load( 'navigation/breadcrumbs', [], true );
+	// Preload CSS/JS + dependendices
+	$ComponentLoader->preload( 'navigation/breadcrumbs' );
+?>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Design System</title>
 
-	// Output the registered CSS files (to be placed in <head>)
-	$ComponentLoader->output_css();
+		<!-- Output registered CSS here -->
+		<?php $ComponentLoader->output_css(); ?>
+	</head>
+	<body>
 
-	// Output the registered JS files (to be placed at the bottom before </body>)
-	$ComponentLoader->output_js();
+	<!-- Render the component content -->
+	<?php $ComponentLoader->load( 'navigation/breadcrumbs', [], true ); ?>
+
+	<!-- Output registered JS here (if any) -->
+	<?php $ComponentLoader->output_js(); ?>
+
+	</body>
+</html>
