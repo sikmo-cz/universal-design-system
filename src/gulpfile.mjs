@@ -1,131 +1,71 @@
 import gulp from 'gulp';
-import chalk from 'chalk';
-import webpack from 'webpack-stream';
-import autoprefixer from 'autoprefixer';
-import cssnano from 'cssnano';
-import sourcemaps from 'gulp-sourcemaps';
-import livereload from 'gulp-livereload';
-import uglify from 'gulp-uglify';
-import rename from 'gulp-rename';
-import path from 'path';
-import * as glob from 'glob';
-import postcss from 'gulp-postcss';
-import concat from 'gulp-concat';
+const { src, dest, watch, series, parallel } = gulp;
+import * as dartSass from 'sass';
 import gulpSass from 'gulp-sass';
-import * as sass from 'sass';
-import plumber from 'gulp-plumber';  // Add plumber
+const sass = gulpSass(dartSass);
+import autoprefixer from 'gulp-autoprefixer';
+import cssnano from 'gulp-cssnano';
+import babel from 'gulp-babel';
+import uglify from 'gulp-uglify';
+import sourcemaps from 'gulp-sourcemaps';
+import * as browserSync from 'browser-sync';
+import { deleteAsync } from 'del';
+import path from 'path';
 
-// Assign Dart Sass as the compiler
-const sassCompiler = gulpSass(sass);
-
-function notify( message ) {
-    console.log( chalk.blue( message ) );
+// File paths
+const srcDir = './';
+const distDir = '../dist';
+const files = {
+    scssPath: path.join(srcDir, 'sass/**/*.scss'),
+    jsPath: path.join(srcDir, 'js/**/*.js')
 }
 
-// Let's create single style.css file
-function globalSCSS() {
-    return gulp.src(['./sass/style.scss'])
+// Sass task
+function scssTask() {
+    return src(files.scssPath)
         .pipe(sourcemaps.init())
-        .pipe(sassCompiler({  // Use sassCompiler here, not sass()
-            outputStyle: 'expanded'
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
+        .pipe(cssnano())
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(path.join(distDir, 'css')))
+        .pipe(browserSync.stream());
+}
+
+// JS task
+function jsTask() {
+    return src(files.jsPath)
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/env']
         }))
-        .pipe(postcss([
-            autoprefixer(),
-            cssnano()
-        ]))
-        .pipe(concat('style.css'))
-        .pipe(sourcemaps.write('../dist/maps'))
-        .pipe(gulp.dest('../dist/'))
-        .pipe(livereload())
+        .pipe(uglify())
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(path.join(distDir, 'js')))
+        .pipe(browserSync.stream());
 }
 
-// SCSS task for each folder with a /css/ directory
-function componentsSCSS() {
-    const scssFiles = glob.sync( '../components/**/css/*.scss' ); // Find all SCSS files in /css/ folders
-    return gulp.src( scssFiles )
-        .pipe( sourcemaps.init() )
-        .pipe( sass( {
-            outputStyle: 'expanded'
-        } ).on( 'error', sassCompiler.logError ) )
-        .pipe( postcss( [
-            autoprefixer(),
-            cssnano()
-        ] ) )
-        .pipe( sourcemaps.write( '.' ) ) // Write map in the same folder
-        .pipe( gulp.dest( function( file ) {
-            return path.dirname( file.path ); // Output to the same folder
-        } ) )
-        .pipe( livereload() )
+// Clean task
+async function clean() {
+    await deleteAsync([distDir], { force: true });
 }
 
-// Minify theme.js file
-function globalJS() {
-    return gulp.src( './js/script.js' )
-        .pipe( webpack( {
-            mode: 'production',
-            devtool: 'source-map',
-            output: {
-                filename: 'theme.js',
-                sourceMapFilename: '../maps/theme.js.map'
-            },
-            module: {
-                rules: [ {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    use: {
-                        loader: 'babel-loader',
-                        options: {
-                            "presets": [
-                                '@babel/preset-env'
-                            ],
-                            "plugins": [
-                                "@babel/plugin-proposal-class-properties"
-                            ]
-                        }
-                    }
-                } ]
-            },
-            stats: 'errors-only'
-        } ) )
-        .pipe( gulp.dest( '../dist/js/' ) )
-        .pipe( livereload() )
-};
-
-
-// JS task for each folder with a /js/ directory
-function componentsJS() {
-    const jsFiles = glob.sync( '../components/**/js/*.js', {
-        ignore: [ '**/*.min.js' ] // Exclude .min.js files
+// Watch task
+function watchTask() {
+    browserSync.init({
+        server: {
+            baseDir: distDir
+        }
     });
-
-    return gulp.src( jsFiles )
-        .pipe( sourcemaps.init() )
-        .pipe( uglify() ) // Minify JS
-        // .pipe( rename( { suffix: '-min' } ) ) // Add -min suffix
-        .pipe( sourcemaps.write( '.' ) ) // Write map in the same folder
-        .pipe( gulp.dest( function( file ) {
-            return path.dirname( file.path ); // Output to the same folder
-        } ) )
-        .pipe( livereload() )
+    watch(
+        [files.scssPath, files.jsPath],
+        series(parallel(scssTask, jsTask))
+    ).on('change', browserSync.reload);
 }
 
-// Minify theme.js file
-function updateBrowser() {
-    return gulp.src( './' )
-        .pipe( livereload() )
-};
-
-// Watcher function to monitor file changes
-function watchFiles() {
-    livereload.listen({ port: 1122 });  // Start livereload server on port 1122
-
-    gulp.watch( 'src/sass/**/*.scss', globalSCSS );
-    gulp.watch( 'src/js/**/*.js', globalJS );
-    gulp.watch( 'components/**/css/**/*.scss', componentsSCSS );
-    gulp.watch( 'components/**/js/**/*.js', componentsJS );
-	 // gulp.watch( [ './**/*.php' ], gulp.series( updateBrowser ) );
-}
-
-
-// Export the default task with the watcher
-export default gulp.series( globalSCSS, globalJS, componentsSCSS, componentsJS, watchFiles );
+// Default task
+export default series(
+    clean,
+    parallel(scssTask, jsTask),
+    watchTask
+);

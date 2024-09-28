@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/example.js"],"names":["_helpers","require","example","exports","init"],"mappings":"8EAAA,IAAAA,SAAAC,QAAA,cAAA,EAEIC,QAAOC,QAAAD,QAAG,CACbE,KAAM,YADP","file":"example.js","sourcesContent":["import { helpers } from './helpers.js';\n\nvar example = {\n\tinit: function () {\n\t\tconst self = this;\n\n\t},\n};\n\nexport { example };"]}
