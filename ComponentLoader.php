@@ -1,7 +1,5 @@
 <?php
 
-	define('ABSPATH', __DIR__);  // Define the absolute base path
-
 	class ComponentLoader {
 		private static $instance 	= null; // Singleton instance
 		private $base_path 			= ''; // Base path for components
@@ -13,7 +11,7 @@
 
 		// Private constructor to prevent direct instantiation
 		private function __construct() {
-			$this->base_path = rtrim( ABSPATH, '/' ); // Set base path
+			$this->base_path = rtrim( __DIR__, '/' ); // Define the absolute base path
 		}
 
 		/**
