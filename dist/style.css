@@ -1,0 +1,12 @@
+/*!
+Theme Name: {{ themeName }}
+Theme URI: {{ themeURL }}
+Author: metait.
+Author URI: metait.cz
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: {{ themeTextdomain }}, minimal, flexible, simple
+Text Domain: {{ themeTextdomain }}
+*/abbr,acronym,address,applet,article,aside,audio,b,big,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,input,ins,kbd,label,legend,li,mark,menu,nav,object,output,p,pre,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,tbody,td,textarea,tfoot,th,thead,time,tr,tt,u,var,video{border:0;box-sizing:border-box;font:inherit;margin:0;padding:0;vertical-align:initial}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1;margin:0;padding:0}ol,ul{list-style:none}blockquote,ol,ul{border:0;box-sizing:border-box;font:inherit;margin:0;padding:0;vertical-align:initial}blockquote{quotes:none}blockquote:after,blockquote:before{content:"";content:none}q{border:0;box-sizing:border-box;font:inherit;margin:0;padding:0;quotes:none;vertical-align:initial}q:after,q:before{content:"";content:none}button,input,select,span{border:none;color:inherit;font-family:inherit}button:focus,input:focus,select:focus,span:focus{outline:0}table{border-collapse:collapse;border-spacing:0;width:100%}a,table{border:0;box-sizing:border-box;font:inherit;margin:0;padding:0;vertical-align:initial}a{color:inherit;text-decoration:none}b{font-weight:700}sub{font-size:.8em;vertical-align:sub}
+/*# sourceMappingURL=../dist/maps/style.css.map */
