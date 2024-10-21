@@ -79,7 +79,7 @@
 		 * @param string $css_file The name of the CSS file (e.g., 'style').
 		 */
 		public function register_css($css_file) {
-			$css_path = "/components/{$this->current_component}/css/{$css_file}.css";
+			$css_path = "/components/{$this->current_component}/dist/{$css_file}.css";
 
 			if ( ! in_array( $css_path, $this->css_files ) ) {
 				$this->css_files[] = $css_path;

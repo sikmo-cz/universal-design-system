@@ -1,0 +1,35 @@
+@import 'variables';
+
+.avatars-avatar {
+	position: relative;
+	overflow: hidden;
+	display: flex;
+	border-radius: 50%;
+	width: rem( 48px );
+	height: rem( 48px );
+	background-color: white;
+
+	span {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--Colors-Dark-1000, #E8E8EE);
+	}
+
+	img {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-position: center;
+		z-index: 3;;
+	}
+}

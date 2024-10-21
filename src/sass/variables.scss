@@ -1,6 +1,221 @@
+@function rem( $size ) {
+    @return ($size / 16px) * 1rem;
+}
+body {
+    background-color: silver !important;
+}
+:root {
+    --mainFont: "SF Pro", "Arial", sans-serif;
+
+    --Colors-Primary-1: #655BFF;
+    --Colors-Primary-2: #FFF;
+    --Colors-Primary-3: #30303EFF;
+    --Colors-Primary-4: #DBDBE4;
+
+    --Colors-Dark-200: #646482FF;
+    --Colors-Dark-300: #8E8EA8FF;
+    --Colors-Dark-1000: #E8E8EEFF;
+
+    --Colors-Purple-1000: #F4F4FFFF;
+   
+
+    --Colors-States-Info: #1C70D3FF;
+    --Colors-States-Success: #48B55AFF;
+    --Colors-States-Warning: #D26C21FF;
+    --Colors-States-Danger: #B5213BFF;
+
+    --Radius-and-Spacing-xs: 2px;
+    --Radius-and-Spacing-s: 4px;
+    --Radius-and-Spacing-s-m: 6px;
+    --Radius-and-Spacing-m: 8px;
+    --Radius-and-Spacing-m-l: 12px;
+    --Radius-and-Spacing-l: 16px;
+    --Radius-and-Spacing-xl: 24px;
+   
+    --Radius-and-Spacing-Ultra: 500px;
+
+    --Shadow-Level-1: 0px 2px 4px 0px rgba(48, 48, 62, 0.12);
+}
+
+
+
+
+@mixin typo-H1 {
+    font-family: var( --mainFont );
+    font-size: rem( 28px );
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 39.2px */
+    letter-spacing: -0.84px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+@mixin typo-H2 {
+    font-family: var( --mainFont );
+    font-size: rem( 22px );
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 30.8px */
+    letter-spacing: -0.66px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+@mixin typo-H3 {
+    font-family: var( --mainFont );
+    font-size: rem( 18px );
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 25.2px */
+    letter-spacing: -0.54px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+@mixin typo-H4 {
+    font-family: var( --mainFont );
+    font-size: rem( 16px );
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 22.4px */
+    letter-spacing: -0.48px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+@mixin typo-H5 {
+    font-family: var( --mainFont );
+    font-size: rem( 14px );
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: -0.42px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+@mixin typo-BodyLarge {
+    font-family: var( --mainFont );
+    font-size: rem( 16px );
+    font-style: normal;
+    font-weight: 510;
+    line-height: 145%; /* 23.2px */
+    letter-spacing: -0.32px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+@mixin typo-BodyLarge-Bold {
+    font-family: var( --mainFont );
+    font-size: rem( 16px );
+    font-style: normal;
+    font-weight: 700;
+    line-height: 145%; /* 23.2px */
+    letter-spacing: -0.32px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+
+@mixin typo-BodySmall {
+    font-family: var( --mainFont );
+    font-size: rem( 14px );
+    font-style: normal;
+    font-weight: 510;
+    line-height: 145%; /* 20.3px */
+    letter-spacing: -0.28px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+@mixin typo-BodySmall-Bold {
+    font-family: var( --mainFont );
+    font-size: rem( 14px );
+    font-style: normal;
+    font-weight: 700;
+    line-height: 145%; /* 20.3px */
+    letter-spacing: -0.28px;    
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+
+@mixin typo-BodyExtraSmall {
+    font-family: var( --mainFont );
+    font-size: rem( 12px );
+    font-style: normal;
+    font-weight: 510;
+    line-height: 145%; /* 17.4px */
+    letter-spacing: -0.24px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+@mixin typo-BodyExtraSmall-Bold {
+    font-family: var( --mainFont );
+    font-size: rem( 12px );
+    font-style: normal;
+    font-weight: 700;
+    line-height: 145%; /* 17.4px */
+    letter-spacing: -0.24px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+@mixin typo-CaptionBig {
+    font-family: var( --mainFont );
+    font-size: rem( 13px );
+    font-style: normal;
+    font-weight: 590;
+    line-height: 145%; /* 18.85px */
+    letter-spacing: -0.26px;
+    text-transform: uppercase;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+
+@mixin typo-Caption {
+    font-family: var( --mainFont );
+    font-size: rem( 11px );
+    font-style: normal;
+    font-weight: 590;
+    line-height: 145%; /* 15.95px */
+    letter-spacing: -0.22px;
+    text-transform: uppercase;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+
+@mixin typo-CodeSnippets {
+    color: var(--Colors-Primary-3, #30303E);
+    font-family: "DM Mono";
+    font-size: rem( 14px );
+    font-style: normal;
+    font-weight: 400;
+    line-height: 145%; /* 20.3px */
+    letter-spacing: 0.28px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+@mixin typo-ButtonLarge {
+    font-family: var( --mainFont );
+    font-size: rem( 15px );
+    font-style: normal;
+    font-weight: 590;
+    line-height: 145%; /* 21.75px */
+    letter-spacing: -0.3px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+
+@mixin typo-ButtonSmall {
+    font-family: var( --mainFont );
+    font-size: rem( 13px );
+    font-style: normal;
+    font-weight: 590;
+    line-height: 145%; /* 18.85px */
+    letter-spacing: -0.26px;
+    color: var(--Colors-Primary-3, #30303E);
+}
+
+
+
+
+
 //  -----------------------------
 //  Shades of grey
 //  -----------------------------
+
 
 $color-white: #ffffff;
 $color-very-light-grey: #E2E2E2;

@@ -11,11 +11,69 @@ import path from 'path';
 import webpack from 'webpack-stream';
 import uglify from 'gulp-uglify';
 import rename from 'gulp-rename'; // Přidání gulp-rename
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import fs from 'fs';
+
+
+
+// Vypočítání __dirname pro ES6 moduly
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// console.log( "=========================================");
+// console.log( "=========================================");
+// console.log( "=========================================");
+const variablesPath = './sass/variables.scss'; // Opravená cesta
+
+// //const variablesPath = './src/sass/variables.scss'; // Cesta k souboru s proměnnými
+// console.log('Current working directory:', process.cwd());
+// console.log( "=========================================");
+// console.log( "=========================================");
+// console.log( "=========================================");
+
 
 // Assign Dart Sass as the compiler
 const sassCompiler = gulpSass(sass);
 
-// Let's create single style.css file
+function componentsSCSS() {
+    const scssFiles = glob.sync('../components/**/**/scss/style.scss'); // Find specific SCSS files
+
+    // console.log('Found SCSS files:', scssFiles); // Log found SCSS files
+    // console.log('Variables path:', variablesPath); // Debugging line
+
+    if (scssFiles.length === 0) {
+        console.error('No SCSS files found. Please check your glob pattern.');
+        return Promise.resolve(); // Return a resolved promise to avoid breaking the Gulp pipeline
+    }
+
+    const variablesContent = fs.readFileSync(variablesPath, 'utf8');
+    console.log( variablesContent)
+    
+    return gulp.src(scssFiles)
+        .pipe(sourcemaps.init())
+        .pipe(sassCompiler({
+            importer: (url) => {
+                if (url === 'variables') { // Ověř, zda se jedná o import proměnných
+                    console.log('Using variables file content');
+                    return {
+                        contents: variablesContent // Přidá obsah proměnných
+                    };
+                }
+            }
+        }).on('error', sassCompiler.logError))
+        .pipe(postcss([
+            autoprefixer(),
+            cssnano()
+        ]))
+        .pipe(gulp.dest(file => {
+            const componentDir = path.dirname(file.path);
+            return path.join(componentDir, '../dist');
+        }))
+        .pipe(livereload());
+}
+
+
 function globalSCSS() {
     return gulp.src(['./sass/style.scss'])
         .pipe(sourcemaps.init())
@@ -31,33 +89,7 @@ function globalSCSS() {
         .pipe(livereload());
 }
 
-// SCSS task for each folder with a /css/ directory
-function componentsSCSS() {
-    const scssFiles = glob.sync('../components/**/**/scss/style.scss'); // Find specific SCSS files
 
-    console.log('Found SCSS files:', scssFiles); // Log found SCSS files
-
-    if (scssFiles.length === 0) {
-        console.error('No SCSS files found. Please check your glob pattern.');
-        return Promise.resolve(); // Return a resolved promise to avoid breaking the Gulp pipeline
-    }
-
-    return gulp.src(scssFiles)
-        .pipe(sourcemaps.init())
-        .pipe(sassCompiler({
-            outputStyle: 'expanded'
-        }).on('error', sassCompiler.logError)) // Error handler
-        .pipe(postcss([
-            autoprefixer(),
-            cssnano()
-        ]))
-        .pipe(sourcemaps.write('.')) // Write map in the same folder
-        .pipe(gulp.dest((file) => {
-            // Save generated CSS in the dist folder of the component
-            return path.join(path.dirname(file.path), '../dist'); // Change the output to the component's dist folder
-        }))
-        .pipe(livereload());
-}
 
 // Minify and bundle global JavaScript file
 function globalJS() {

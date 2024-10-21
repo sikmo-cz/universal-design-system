@@ -1,0 +1,24 @@
+@import 'variables';
+
+.button-secondary {
+	@include typo-ButtonLarge();
+	display: flex;
+	gap: var(--Radius-and-Spacing-xs, 2px);
+	padding: var(--Radius-and-Spacing-m-l, 12px) var(--Radius-and-Spacing-xl, 24px);
+	justify-content: center;
+	align-items: center;
+	color: var(--Colors-Primary-3, #30303E);
+	border-radius: var(--Radius-and-Spacing-s, 4px);
+	border: 1px solid var(--Colors-Primary-4, #DBDBE4);
+	background: var(--Colors-Primary-2, #FFF);
+	cursor: pointer;
+	box-shadow: var( --Shadow-Level-1 );
+	
+	//TODO: ikonky
+
+	&--small {
+		@include typo-ButtonSmall();
+		padding: var(--Radius-and-Spacing-s, 4px) var(--Radius-and-Spacing-s-m, 6px);
+		gap: var(--Radius-and-Spacing-xs, 2px);
+	}
+}

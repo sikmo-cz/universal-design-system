@@ -1,0 +1,23 @@
+@import 'variables';
+
+.button-text {
+	@include typo-ButtonLarge();
+	display: flex;
+	gap: var(--Radius-and-Spacing-xs, 2px);
+	padding: var(--Radius-and-Spacing-s, 4px);
+	justify-content: center;
+	align-items: center;
+	border-radius: var(--Radius-and-Spacing-s, 4px);
+	color: var(--Colors-Primary-1, #655BFF);
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	
+	//TODO: ikonky
+
+	&--small {
+		@include typo-ButtonSmall();
+		padding: var(--Radius-and-Spacing-xs, 2px);
+		gap: var(--Radius-and-Spacing-xs, 2px);
+	}
+}

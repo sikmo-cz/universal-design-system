@@ -1,0 +1,55 @@
+@import 'variables';
+
+.menus-vertical {
+	display: flex;
+	flex-flow: column;
+	width: 276px;
+	padding: var(--Radius-and-Spacing-l, 16px);
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--Radius-and-Spacing-xs, 2px);
+	border-radius: var(--Radius-and-Spacing-m, 8px);
+	background: var(--Colors-Primary-2, #FFF);
+
+
+	ul {
+		display: flex;
+		flex-flow: column;
+	}
+
+	li {
+		list-style-type: none;
+
+		&.prev a,
+		&.next a {
+
+		}
+
+		&.next a {
+
+		}
+
+		a {
+			display: flex;
+			min-width: rem( 48px );
+			text-align: center;
+
+			padding: var(--Radius-and-Spacing-m-l, 12px) var(--Radius-and-Spacing-xl, 24px);
+			justify-content: center;
+			align-items: center;
+			gap: var(--Radius-and-Spacing-xs, 2px);
+			text-decoration: none;
+			@include typo-ButtonLarge();
+		}
+
+		& a.active {
+
+		}
+	}
+
+	&--small {
+		@include typo-ButtonSmall();
+		padding: var(--Radius-and-Spacing-xs, 2px);
+		gap: var(--Radius-and-Spacing-xs, 2px);
+	}
+}
