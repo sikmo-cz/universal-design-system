@@ -6,7 +6,8 @@
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
 
-
+	$ComponentLoader->preload( 'forms/helper' );
+	
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;
 	if ( empty( $data ) ) {
@@ -15,30 +16,12 @@
 
 	$base_class = 'forms-textarea';
 
-	if( isset( $data['size'] ) && $data['size'] == 'small' ) {
-		$data['class'] .= "{$base_class}--small";
-	}
-
-	if( !isset( $data['type'] ) && empty( data['type'] ) ) {
-		$data['type'] = "text";
-	}
-
-
 ?>
-<label class="<?php echo $base_class; ?> <?php echo isset($data['class']) ? $data['class'] : ''; ?>">
-	<?php echo $data['text']; ?>
-	<div <?php echo isset($data['input-icon']) ? "data-icon-before='" . $data['input-icon'] . "'" : ''; ?>>
-		<textarea type="text" class="<?php echo isset($data['input-class']) ? $data['input-class'] : ''; ?>"
-			<?php echo isset($data['id']) ? "id='" . $data['id'] . "'" : ''; ?>
-			<?php echo isset($data['name']) ? "name='" . $data['name'] . "'" : ''; ?>
-			<?php echo isset($data['value']) ? "value='" . $data['value'] . "'" : ''; ?>
-			<?php echo isset($data['extra-attr']) ? $data['extra-attr'] : ''; ?>
-		>
-			<?php echo isset($data['value']) ? $data['value'] : ''; ?>
-		</textarea>
+<label class="<?php echo $base_class; ?>">
+	<span>Label</span>
+	<div data-icon-before="" data-icon-after="">
+		<textarea></textarea>
 	</div>
 
-	<div class="<?php echo $base_class; ?>__helperText <?php echo isset($data['helper-type']) ? $data['helper-type'] : ''; ?>">
-		<?php echo isset($data['helper-text']) ? $data['helper-text'] : ''; ?>
-	</div>
+	<?php $ComponentLoader->load( 'forms/helper', [], true ); ?>
 </label>

@@ -20,32 +20,25 @@
 	}
 
 ?>
-<nav class="<?php echo $base_class; ?> <?php echo isset($data['class']) ? $data['class'] : ''; ?>"
-		<?php echo isset($data['id']) ? "id='" . $data['id'] . "'" : ''; ?>
-		<?php echo isset($data['extra-attr']) ? $data['extra-attr'] : ''; ?>
-	>
-	<?php if ( isset( $data['caption'] ) ) { ?>
-		<p><?php echo $data['caption']; ?></p>
-	<?php } ?>
-
+<nav class="<?php echo $base_class; ?>">
+	<p><?php echo $data['caption']; ?></p>
 	<ul>
-		<?php foreach (  $data['items']  as $key => $item) {
-			?> 
-				<li <?php if ( isset( $item['active'] )) { echo 'class="active"'; } ?>>
-					<a href="<?php echo $item['href']; ?>">
-						<?php echo $item['text']; ?>
+		<?php for ($i=0; $i < 3; $i++) { ?> 
+				<li class="active">
+					<a href="#">
+						?emi
 					</a>
-					<?php if ( isset( $item['subItems'] )) { ?>
+					
 					<ul>
-						<?php foreach (  $item['subItems']  as $key => $sub_item) { 	?> 
-									<li <?php if ( isset( $sub_item['active'] )) { echo 'class="active"'; } ?>>
-										<a href="<?php echo $sub_item['href']; ?>">
-											<?php echo $sub_item['text']; ?>
+						<?php for ($i=0; $i < 3; $i++) {  ?>
+									<li class="active">
+										<a href="#">
+											Submenu
 										</a>
 									</li>
 						<?php } ?>	
 					</ul>
-					<?php } ?>	
+
 				</li>
 			<?php
 		}

@@ -6,7 +6,6 @@
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
 
-
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;
 	if ( empty( $data ) ) {
@@ -19,30 +18,13 @@
 		$data['class'] .= "{$base_class}--small";
 	}
 	if( isset( $data['big'] ) && $data['size'] == 'big' ) {
-		$data['class'] .= "{$base_class}--small";
+		$data['class'] .= "{$base_class}--big";
 	}
 ?>
-<?php
-	if( !isset( $data['href'] ) ) {
-		echo "<div";
-	}
-	else {
-		echo "<a href='" . $data['href'] . "' ";
-	}
-?>
-	class="<?php echo $base_class; ?> <?php echo isset($data['class']) ? $data['class'] : ''; ?>"
-	<?php echo isset($data['id']) ? "id='" . $data['id'] . "'" : ''; ?>
-	<?php echo isset($data['extra-attr']) ? $data['extra-attr'] : ''; ?>
->
-<?php if( isset( $data['text'] ) ) { echo "<span>" . $data['text'] . "</span>"; } else { $data['text'] = ""; } ?>
-<?php if( isset( $data['image'] ) ) { 
-	echo "<img src='{$data['image']}' title='{$data['text']}'>"; } 
-?>
-<?php
-	if( !isset( $data['href'] ) ) {
-		echo "</div>";
-	}
-	else {
-		echo "</a>";
-	}
-?>
+<a href="#" class="<?php echo $base_class; ?>">
+<!-- <div> -->
+	HS
+	<img src='{$data['image']}' title='{$data['text']}'>
+</a>
+<!-- </div> -->
+

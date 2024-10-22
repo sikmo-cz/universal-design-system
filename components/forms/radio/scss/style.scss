@@ -1,0 +1,41 @@
+@import 'variables';
+
+.forms-radio {
+	display: flex;
+	align-items: center;
+	gap: var(--Radius-and-Spacing-m-l, 12px);
+	
+	@include typo-BodyLarge();
+
+	cursor: pointer;
+
+	input {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		appearance: none;
+
+		border-radius: 50%;
+		background-color: var(--Colors-Primary-4, #DBDBE4);
+		border: 7px solid var(--Colors-Primary-4, #DBDBE4);
+
+		width: 26px;
+		height: 26px;
+
+		&:checked {
+			background: var(--Colors-Primary-2, #FFF);
+			border-color: var(--Colors-Primary-1, #655BFF);
+		}
+	}
+	&--small {
+		@include typo-BodySmall();
+
+		input {
+			width: 20px;
+			height: 20px;	
+			border-width: 5px;
+		}
+	}
+}
+

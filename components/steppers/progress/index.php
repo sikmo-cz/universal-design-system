@@ -20,19 +20,8 @@
 	}
 
 ?>
-	<ul class="<?php echo $base_class; ?> <?php echo isset($data['class']) ? $data['class'] : ''; ?>"
-		<?php echo isset($data['id']) ? "id='" . $data['id'] . "'" : ''; ?>
-		<?php echo isset($data['extra-attr']) ? $data['extra-attr'] : ''; ?>
-	>
-		<?php foreach (  $data['items']  as $key => $item) {
-			?> 
-				<li <?php if ( isset( $item['active'] )) { echo 'class="active"'; } ?>>
-					<a href="<?php echo $item['href']; ?>">
-						<?php echo $item['text']; ?>
-					</a>
-				</li>
-			<?php
-		}
-		?>
-	</ul>
-</div>
+<ul class="<?php echo $base_class; ?>">
+	<li><a href="#" class="done">1</a></li>
+	<li><a href="#" class="done">2</a></li>
+	<li><a href="#">3</a></li>
+</ul>

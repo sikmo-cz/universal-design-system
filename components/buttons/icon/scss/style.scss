@@ -1,6 +1,6 @@
 @import 'variables';
 
-.button-icon {
+.buttons-icon {
 	@include typo-ButtonLarge();
 	display: flex;
 	padding: var(--Radius-and-Spacing-m-l, 12px) var(--Radius-and-Spacing-xl, 24px);

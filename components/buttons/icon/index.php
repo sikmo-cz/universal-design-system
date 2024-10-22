@@ -13,7 +13,7 @@
 		return false; // Bail if no data
 	}
 
-	$base_class = 'button-icon';
+	$base_class = 'buttons-icon';
 
 	if( isset( $data['size'] ) && $data['size'] == 'small' ) {
 		$data['class'] .= "{$base_class}--small";
@@ -21,26 +21,8 @@
 
 
 ?>
-<?php
-	if( $data['type'] == 'button' ) {
-		echo "<button type='submit' ";
-	}
-	else {
-		echo "<a href='" . $data['href'] . "' ";
-	}
-?>
-	class="<?php echo $base_class; ?> <?php echo isset($data['class']) ? $data['class'] : ''; ?>"
-	<?php echo isset($data['id']) ? "id='" . $data['id'] . "'" : ''; ?>
-	<?php echo isset($data['target']) ? "target='" . $data['target'] . "'" : ''; ?>
-	<?php echo isset($data['icon']) ? "data-icon-before='" . $data['icon'] . "'" : ''; ?>
-	<?php echo isset($data['extra-attr']) ? $data['extra-attr'] : ''; ?>
->
-
-<?php
-	if( $data['type'] == 'button' ) {
-		echo "</button>";
-	}
-	else {
-		echo "</a>";
-	}
-?>
+<a href="#" data-icon-before="" data-icon-after="" class="<?php echo $base_class; ?>">
+<!-- <button type="submit"> -->
+	Text
+</a>
+<!-- </button> -->

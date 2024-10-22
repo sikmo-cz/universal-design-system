@@ -1,6 +1,6 @@
 @import 'variables';
 
-.button-text {
+.buttons-text {
 	@include typo-ButtonLarge();
 	display: flex;
 	gap: var(--Radius-and-Spacing-xs, 2px);

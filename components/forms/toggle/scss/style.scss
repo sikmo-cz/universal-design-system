@@ -1,39 +1,44 @@
 @import 'variables';
 
 .forms-toggle {
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	position: relative;
-	font-size: inherit;
-	width: 2em;
-	height: 1em;
-	box-sizing: content-box;
-	border: 1px solid;
-	border-radius: 1em;
-	vertical-align: text-bottom;
-	margin: auto;
-	color: inherit;
-	cursor: pointer;
-	
-	&:before {
-		content: "";
-		position: absolute;
-		top: 50%;
-		left: 0;
-		transform: translate(0, -50%);
-		box-sizing: border-box;
-		width: 0.7em;
-		height: 0.7em;
-		margin: 0 0.15em;
-		border: 1px solid;
-		border-radius: 50%;
-		background: currentcolor;
-		transition: all 0.3s ease;
-	}
 
-	&:checked::before {
-		left: 1em;
+	input {
+		appearance: none;
+		position: relative;
+		font-size: inherit;
+		width: rem( 55px );
+		height: rem( 32px );
+		box-sizing: content-box;
+		border: 2px solid  var(--Colors-Primary-4, #DBDBE4);
+		border-radius: rem( 18px );
+		vertical-align: text-bottom;
+		margin: auto;
+		background-color: var(--Colors-Primary-4, #DBDBE4);
+		cursor: pointer;
+		
+		&:before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translate(0, -50%);
+			box-sizing: border-box;
+			width: rem( 28px );
+			height: rem( 28px );
+			margin: 0 0.15em;
+			border-radius: 50%;
+			background-color: var(--Colors-Primary-2, #FFF);
+			transition: all 0.3s ease;
+		}
+
+		&:checked {	
+			border-color: var(--Colors-Primary-1, #655BFF);
+			background-color: var(--Colors-Primary-1, #655BFF);
+
+			&:before {
+				left: rem( 22px );
+			}
+		}
 	}
 }
   
