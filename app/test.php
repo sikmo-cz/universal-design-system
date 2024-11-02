@@ -31,16 +31,6 @@
 	include 'header.php';
 ?>
 	<main>
-<div class="container">
-<div class="row">
-	<div class="col-md-6">
-asd
-	</div>
-	<div class="col-md-6">
-		sad
-	</div>
-		</div>
-</div>
 		<div class="container">
 			<?php
 			/*
