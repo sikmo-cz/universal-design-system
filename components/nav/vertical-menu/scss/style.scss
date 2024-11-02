@@ -1,0 +1,59 @@
+@import 'variables';
+
+.nav-vertical-menu {
+	display: flex;
+	flex-flow: column;
+	width: 276px;
+	padding: var(--Radius-and-Spacing-l, 16px);
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--Radius-and-Spacing-xs, 2px);
+	border-radius: var(--Radius-and-Spacing-m, 8px);
+	background: var(--Colors-Primary-2, #FFF);
+
+	& > p {
+		position: relative;
+		display: block;
+		color: var(--Colors-Dark-300, #8E8EA8);
+		@include typo-Caption();
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+
+	ul {
+		display: flex;
+		flex-flow: column;
+		margin: 0;
+		padding: 0;
+		flex: 1;
+		width: 100%;
+
+		& > li {
+			flex: 1;
+			
+			& > a {
+				display: block;
+				padding: var(--Radius-and-Spacing-s-m, 6px) var(--Radius-and-Spacing-m, 8px);
+				color: var(--Colors-Dark-200, #646482);
+				text-decoration: none;
+				@include typo-ButtonLarge();
+				border-radius: var(--Radius-and-Spacing-s, 4px);
+
+				&:hover {
+					background: var(--Colors-Purple-1000, #F4F4FF);
+					color: var(--Colors-Primary-1, #655BFF);
+				}
+			}
+
+			ul {
+				padding-left: var(--Radius-and-Spacing-s-m, 6px);
+			}
+		}
+	}
+
+	li {
+		list-style-type: none;
+
+	}
+}

@@ -1,0 +1,88 @@
+@import 'variables';
+
+.nav-progress {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: rem( 87px );
+
+
+	li {
+		position: relative;
+		list-style-type: none;
+
+		&:before {
+			position: absolute;
+			top: var(--Radius-and-Spacing-l, 16px);
+			left: 100%;
+			margin-left: rem( 16px );
+			width: rem( 55px );
+			height: rem( 1px );
+			background: var(--Colors-Primary-4, #DBDBE4);
+
+			content: "";
+		}
+
+		&:last-of-type:before {
+			display: none;
+		}
+
+		a {
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			text-decoration: none;
+			@include typo-BodySmall();
+			gap: var(--Radius-and-Spacing-l, 16px);
+
+
+			span {
+				display: flex;
+				text-align: center;
+	
+				text-decoration: none;
+				
+				border-radius: var(--Radius-and-Spacing-ultra, 500px);
+				background: var(--Colors-Primary-1, #655BFF);
+				color: var(--Colors-Primary-2, #FFF);
+	
+				display: flex;
+				width: var(--32, 32px);
+				height: var(--32, 32px);
+	
+				align-items: center;
+				justify-content: center;
+
+			}
+		}
+
+		& a.done span {
+			background: var(--Colors-Dark-300, #8E8EA8);
+			font-size: 0;
+		}
+
+		& a.innactive span {
+			background: var(--Colors-Primary-4, #DBDBE4);
+			color: var(--Colors-Dark-300, #8E8EA8);
+		}
+	}
+
+	&--small {
+		
+		li {
+			&:before {
+				top: rem( 11px );
+			}
+			a {
+				@include typo-BodyExtraSmall();
+				gap: var(--Radius-and-Spacing-s-m, 6px);
+
+				span {
+					width: 24px;
+					height: 24px;
+				}
+			}
+		}
+
+	}
+}

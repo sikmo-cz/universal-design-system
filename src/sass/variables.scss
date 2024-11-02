@@ -3,15 +3,6 @@
 @function rem( $size ) {
     @return calc( ($size / 16px) * 1rem );
 }
-body {
-    background-color: silver !important;
-}
-.container {
-    position: relative;
-    display: block;
-    max-width: 960px;
-    margin: 0 auto;
-}
 
 :root {
     --mainFont: "SF Pro", "Arial", sans-serif;
@@ -44,6 +35,12 @@ body {
     --Radius-and-Spacing-Ultra: 500px;
 
     --Shadow-Level-1: 0px 2px 4px 0px rgba(48, 48, 62, 0.12);
+
+    --container-sm: 600px;
+    --container-md: 800px;
+    --container-lg: 1000px;
+    --container-xl: 1200px;
+    --container-xxl: 1400px;
 }
 
 
@@ -68,6 +65,7 @@ body {
     letter-spacing: -0.66px;
     color: var(--Colors-Primary-3, #30303E);
 }
+
 
 @mixin typo-H3 {
     font-family: var( --mainFont );
@@ -216,6 +214,7 @@ body {
     letter-spacing: -0.26px;
     color: var(--Colors-Primary-3, #30303E);
 }
+
 
 
 

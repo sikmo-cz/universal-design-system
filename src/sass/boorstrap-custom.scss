@@ -1,0 +1,29 @@
+@include media-breakpoint-up(sm) {
+  .container {
+    max-width: var(--container-sm);
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .container {
+    max-width: var(--container-md);
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .container {
+    max-width: var(--container-lg);
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .container {
+    max-width: var(--container-xl);
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .container {
+    max-width: var(--container-xxl);
+  }
+}

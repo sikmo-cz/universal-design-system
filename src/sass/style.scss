@@ -1,33 +1,21 @@
-/*!
-Theme Name: {{ themeName }}
-Theme URI: {{ themeURL }}
-Author: metait.
-Author URI: metait.cz
-Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: {{ themeTextdomain }}, minimal, flexible, simple
-Text Domain: {{ themeTextdomain }}
-*/
-
 //  -----------------------------
 //  Define charset
 //  -----------------------------
 @charset 'utf-8';
 
 //  -----------------------------
-//  Variables / mixins
+//  Base
 //  -----------------------------
 @import 'functions';
 @import 'mixins';
 @import 'variables';
 
+@import 'bootstrap/bootstrap-grid';
 
-//  -----------------------------
-//  Bootstrap
-//  -----------------------------
+@import 'boorstrap-custom';
 
-//  -----------------------------
-//  Core
-//  -----------------------------
+
+@import 'helpers';
+
 @import 'core/reset';
+@import 'core/base';

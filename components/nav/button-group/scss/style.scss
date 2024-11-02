@@ -1,0 +1,78 @@
+@import 'variables';
+
+.nav-button-group {
+	border-radius: var(--Radius-and-Spacing-s-m, 6px);
+	background: rgba(219, 219, 228, 0.40);
+	display: inline-flex;
+	padding: var(--Radius-and-Spacing-xs, 2px);
+	align-items: center;
+	gap: var(--Radius-and-Spacing-s-m, 6px);
+	align-self: center;
+	
+	li {
+		list-style: none;
+		display: flex;
+		align-items: stretch;
+		gap: var(--Radius-and-Spacing-s-m, 6px);
+
+		&:after {
+			position: relative;
+			content: '';
+			display: inline-flex;
+			width: 1px;
+			height: auto;
+			align-self: stretch;
+			background: var(--Colors-Primary-4, #DBDBE4);
+			top: 0;
+			bottom: 0;
+		}
+
+		a, button {
+			display: flex;
+			padding: var(--Radius-and-Spacing-m-l, 12px) var(--Radius-and-Spacing-xl, 24px);
+			justify-content: center;
+			align-items: center;
+			gap: var(--Radius-and-Spacing-xs, 2px);
+			border-radius: 4px;
+			border: 1px solid transparent;
+			text-decoration: none;
+			color: var(--Colors-Primary-3, #30303E);
+			@include typo-ButtonSmall();
+			vertical-align: middle;
+		}
+
+		&.active {
+		 	a, button {
+				background: var(--Colors-Primary-2, #FFF);
+				border: 1px solid var(--Colors-Primary-4, #DBDBE4);
+				box-shadow: var( --Shadow-Level-1 );
+			}
+
+			&:after {
+				display: none;
+			}
+
+
+		}
+		&:has( + .active ) {
+			&:after {
+				display: none;
+			}
+		}
+
+		&:last-of-type {
+			&::after {
+				display: none !important;
+			}
+		}
+	}
+
+	&--small {
+		li {
+			a {
+				padding: var(--Radius-and-Spacing-s, 4px) var(--Radius-and-Spacing-m, 8px);
+
+			}
+		}
+	}
+}
