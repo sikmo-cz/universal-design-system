@@ -123,6 +123,17 @@
 				echo '<script src="' . $js_file . '"></script>' . PHP_EOL;
 			}
 		}
+
+		// Function to render HTML attributes from an array
+		public function render_attributes( $attributes ) {
+			$attr_strings = array();
+
+			foreach ( (array) $attributes as $key => $value ) {
+				$attr_strings[] = htmlspecialchars( $key ) . '="' . htmlspecialchars( $value ) . '"';
+			}
+
+			return implode( ' ', $attr_strings );
+		}
 	}
 
 	function ComponentLoader() {

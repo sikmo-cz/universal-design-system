@@ -1,13 +1,16 @@
 <?php
-$demo_data = array(
-	'type'         => 'button',
-    'href'         => '#',
-    'class'        => 'js-button',
-    'id'           => 'button-id',
-    'target'       => '_blank',
-    'icon-before'=> 'ARROW',
-    'icon-after' => 'ARROW',
-    'extra-attr'   => 'data-special="custom-data"',
-    'text'         => 'Click me',
-    'size'         => 'small'
-);
+
+	// Demo data for previewing the component
+    $demo_data = array(
+        'type' 			=> 'button', // 'button' or 'link'
+        'button_type' 	=> 'submit', // 'button', 'submit', 'reset' (for <button>)
+        'href' 			=> '#', // Only for 'link' type
+        'icon_before' 	=> 'icon-class-before', // Icon class before content
+        'icon_after' 	=> 'icon-class-after', // Icon class after content
+        'size' 			=> 'small', // 'small', 'medium', 'large'
+        'content' 		=> 'Demo Button', // HTML content inside the button
+        'class' 		=> 'custom-button-class', // Custom CSS classes
+        'attributes' 	=> array(
+            'data-demo' => 'true', // Additional attributes
+        ),
+    );

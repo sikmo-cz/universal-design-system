@@ -2,7 +2,11 @@
 
 	// DO LOGIC
 
-	$ComponentLoader->preload( 'nav/pagination', [], true );
+	$ComponentLoader->preload( 'buttons/base' );
+	$ComponentLoader->preload( 'buttons/icon' );
+	$ComponentLoader->preload( 'buttons/text' );
+
+	$ComponentLoader->preload( 'nav/pagination' );
 	$ComponentLoader->preload( 'nav/tab' );
 	$ComponentLoader->preload( 'nav/progress' );
 	$ComponentLoader->preload( 'nav/vertical-menu' );
@@ -32,7 +36,18 @@
 ?>
 	<main>
 		<div class="container">
-			<?php
+		<?php
+			$ComponentLoader->load( 'buttons/base', [], true );
+
+			$ComponentLoader->load( 'buttons/base', array(
+				'type' 			=> 'link', // 'button' or 'link'
+				'href' 			=> '#', // Only for 'link' type
+				'content'		=> 'Hehe button', // HTML content inside the button
+				'attributes' 	=> array(
+					'target'		=> '_blank'
+				)
+			));
+
 			/*
 			echo "Nav<br>";
 			 $ComponentLoader->load( 'nav/pagination', [], true );
@@ -71,8 +86,7 @@
 			 $ComponentLoader->load( 'input/time', [], true );
 			 $ComponentLoader->load( 'input/textarea', [], true );
 			 */
-			?>
-			
+		?>		
 		</div>
 	</main>
 	
