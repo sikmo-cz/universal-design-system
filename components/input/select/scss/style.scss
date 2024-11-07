@@ -1,0 +1,79 @@
+@import 'variables';
+
+.input-select {
+	display: flex;
+	flex-flow: column;
+	gap: var(--Radius-and-Spacing-s-m, 6px);
+
+	& > span {
+		color: var(--Colors-Dark-200, #646482);
+		@include typo-Caption();
+	}
+
+	.custom-select { 
+		background-color: red;
+		position: relative; 
+		padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+		border-radius: var(--Radius-and-Spacing-s, 4px);
+		background: var(--Colors-Dark-1000, #E8E8EE);
+		border: 0;	
+		color: var(--Colors-Dark-200, #646482);
+		@include typo-ButtonLarge();
+		width: 100%;
+		cursor: pointer;
+	}
+	.options-container { 
+		position: absolute; 
+		left: 0;
+		top: 100%; 
+		width: 100%; 
+		z-index: 1;
+		border-radius: var(--Radius-and-Spacing-s-m, 6px);
+		border: var(--0, 1px) solid var(--Colors-Dark-1000, #E8E8EE);
+		background: var(--Colors-Primary-2, #FFF);
+		padding: var(--Radius-and-Spacing-m, 8px);
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--Radius-and-Spacing-xs, 2px);
+		box-shadow: var( --Shadow-Level-1 );
+		max-height: 250px;
+		overflow: auto;
+
+		.search-input {
+			border-radius: var(--Radius-and-Spacing-s, 4px);
+			background: var(--Colors-Dark-1000, #E8E8EE);
+			width: 100%;
+			@include typo-ButtonLarge();
+			padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+		}
+	}
+
+	.hidden { display: none; }
+
+	.option-item { 
+		cursor: pointer;
+		display: block;
+		border-radius: var(--Radius-and-Spacing-s, 4px);
+		@include typo-ButtonLarge();
+		padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+		color: var(--Colors-Dark-200, #646482);
+
+		&:hover, &.selected {			
+			background: var(--Colors-Purple-1000, #F4F4FF);
+		}
+	}
+
+	[type="checkbox"],
+	[type="radio"] { 
+		position: absolute;
+		left: -99999px;
+		opacity: 0;
+		pointer-events: none;
+	}
+}
+
+
+
+
+
+

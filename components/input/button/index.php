@@ -13,15 +13,9 @@
 		return false; // Bail if no data
 	}
 
-	$base_class = 'buttons-base';
+	$base_class = 'input-button input-button--primary input-button--small';
 
-	if( isset( $data['size'] ) && $data['size'] == 'small' ) {
-		$data['class'] .= "{$base_class}--small";
-	}
-
-	$type_class = "primary, secondary, tertiary"; 
-
-
+	$type_class = "primary, secondary, tertiary, text, icon"; 
 ?>
 <a href="#" data-icon-before="" data-icon-after="" class="<?php echo $base_class; ?>">
 <!-- <button type="submit"> -->

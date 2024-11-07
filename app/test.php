@@ -2,10 +2,6 @@
 
 	// DO LOGIC
 
-	$ComponentLoader->preload( 'buttons/base' );
-	$ComponentLoader->preload( 'buttons/icon' );
-	$ComponentLoader->preload( 'buttons/text' );
-
 	$ComponentLoader->preload( 'nav/pagination' );
 	$ComponentLoader->preload( 'nav/tab' );
 	$ComponentLoader->preload( 'nav/progress' );
@@ -25,7 +21,8 @@
 	$ComponentLoader->preload( 'input/checkbox' );
 	$ComponentLoader->preload( 'input/radio' );
 	$ComponentLoader->preload( 'input/toggle' );
-	$ComponentLoader->preload( 'input/base-input' );
+	$ComponentLoader->preload( 'input/text' );
+	$ComponentLoader->preload( 'input/toggle-input' );
 	$ComponentLoader->preload( 'input/date' );
 	$ComponentLoader->preload( 'input/time' );
 	$ComponentLoader->preload( 'input/textarea' );
@@ -37,16 +34,25 @@
 	<main>
 		<div class="container">
 		<?php
-			$ComponentLoader->load( 'buttons/base', [], true );
+			$ComponentLoader->load( 'input/checkbox', [], true );
+			$ComponentLoader->load( 'input/radio', [], true );
+			$ComponentLoader->load( 'input/toggle', [], true );
+			$ComponentLoader->load( 'input/text', [], true );	
+			$ComponentLoader->load( 'input/date', [], true );	
+			$ComponentLoader->load( 'input/time', [], true );
+			$ComponentLoader->load( 'input/textarea', [], true );
+			$ComponentLoader->load( 'input/select', [], true );
 
-			$ComponentLoader->load( 'buttons/base', array(
-				'type' 			=> 'link', // 'button' or 'link'
-				'href' 			=> '#', // Only for 'link' type
-				'content'		=> 'Hehe button', // HTML content inside the button
-				'attributes' 	=> array(
-					'target'		=> '_blank'
-				)
-			));
+
+			// $ComponentLoader->load( 'buttons/base', [], true );
+			// $ComponentLoader->load( 'buttons/base', array(
+			// 	'type' 			=> 'link', // 'button' or 'link'
+			// 	'href' 			=> '#', // Only for 'link' type
+			// 	'content'		=> 'Hehe button', // HTML content inside the button
+			// 	'attributes' 	=> array(
+			// 		'target'		=> '_blank'
+			// 	)
+			// ));
 
 			/*
 			echo "Nav<br>";
@@ -77,14 +83,8 @@
 			 echo "<br><br><br><br>";
 			
 			 echo "Input<br>";
-			 $ComponentLoader->load( 'input/button', [], true );
-			 $ComponentLoader->load( 'input/checkbox', [], true );
-			 $ComponentLoader->load( 'input/radio', [], true );
-			 $ComponentLoader->load( 'input/toggle', [], true );
-			 $ComponentLoader->load( 'input/base-input', [], true );	
-			 $ComponentLoader->load( 'input/date', [], true );	
-			 $ComponentLoader->load( 'input/time', [], true );
-			 $ComponentLoader->load( 'input/textarea', [], true );
+			 
+
 			 */
 		?>		
 		</div>

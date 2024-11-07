@@ -15,7 +15,7 @@
 		return false; // Bail if no data
 	}
 
-	$base_class = 'forms-toggle';
+	$base_class = 'input-toggle';
 
 	if( isset( $data['size'] ) && $data['size'] == 'small' ) {
 		$data['class'] .= "{$base_class}--small";

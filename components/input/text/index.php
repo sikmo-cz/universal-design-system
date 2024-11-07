@@ -15,7 +15,7 @@
 	// Preload any components that this component relies on
 	$ComponentLoader->preload( 'forms/helper' );
 
-	$base_class = 'forms-base-input';
+	$base_class = 'input-text';
 
 ?>
 <label class="<?php echo $base_class; ?>">

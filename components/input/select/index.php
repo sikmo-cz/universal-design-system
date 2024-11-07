@@ -13,27 +13,482 @@
 		return false; // Bail if no data
 	}
 
-	$base_class = 'forms-select';
-
-	if( isset( $data['size'] ) && $data['size'] == 'small' ) {
-		$data['class'] .= "{$base_class}--small";
-	}
-
-	if( !isset( $data['type'] ) && empty( data['type'] ) ) {
-		$data['type'] = "text";
-	}
+	$base_class = 'input-select';
 
 
 ?>
-<label class="<?php echo $base_class; ?>">
-	Label
-	<div>
-		<select>
-			<?php for ($i=0; $i < 4; $i++) { ?> 
-				<option>Option</option>
-			<?php } ?>
-		</select>
+<div class="<?php echo $base_class; ?>">
+	<span>Label</span>
+	<div class="custom-select">
+		<div class="selected-options" onclick="toggleOptions()">Vyberte...</div>
+		<div class="options-container hidden">
+			<input type="text" class="search-input" onkeyup="filterOptions()" placeholder="Vyhledat...">
+			
+			<!-- Jednotlivé položky s checkboxy -->
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 1">
+			<span>Možnost 1</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 2">
+			<span>Možnost 2</span>
+			</div>
+			<div class="option-item"  onclick="selectOption(this)">
+			<input type="checkbox" class="hidden-checkbox" name="options[]" value="Možnost 3">
+			<span>Možnost 3</span>
+			</div>
+		</div>
 	</div>
-
 	<?php $ComponentLoader->load( 'forms/helper', [], true ); ?>
-</label>
+</div>

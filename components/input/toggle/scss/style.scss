@@ -1,6 +1,6 @@
 @import 'variables';
 
-.forms-toggle {
+.input-toggle {
 
 	input {
 		appearance: none;
@@ -29,6 +29,7 @@
 			border-radius: 50%;
 			background-color: var(--Colors-Primary-2, #FFF);
 			transition: all 0.3s ease;
+			box-shadow: var( --Shadow-Level-1 );
 		}
 
 		&:checked {	
