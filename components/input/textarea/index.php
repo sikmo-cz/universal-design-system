@@ -14,7 +14,7 @@
 		return false; // Bail if no data
 	}
 
-	$base_class = 'forms-textarea';
+	$base_class = 'input-textarea';
 
 ?>
 <label class="<?php echo $base_class; ?>">

@@ -14,24 +14,24 @@
 	}
 
 	$base_class = 'input-select';
-	//<div class="options-containerScroll">
+	//
 
 ?>
 <div class="<?php echo $base_class; ?>">
 	<span>Label</span>
-
-
-	<div class="custom-select" data-multi="true">
+	<div class="custom-select" data-multi="true" data-search="true">
 		<div class="selected-options">Vyberte...</div>
 		<div class="options-container hidden">
 			<input type="text" class="search-input" placeholder="Vyhledat...">
-			<div class="option-item">
-				<input type="checkbox" class="hidden-checkbox" name="options1[]" value="Možnost 1">
-				Možnost 1
-			</div>
-			<div class="option-item">
-				<input type="checkbox" class="hidden-checkbox" name="options1[]" value="Možnost 2">
-				Možnost 2
+			<div class="options-containerScroll">
+				<div class="option-item">
+					<input type="checkbox" class="hidden-checkbox" name="options1[]" value="Možnost 1">
+					Možnost 1
+				</div>
+				<div class="option-item">
+					<input type="checkbox" class="hidden-checkbox" name="options1[]" value="Možnost 2">
+					Možnost 2
+				</div>
 			</div>
 		</div>
 	</div>

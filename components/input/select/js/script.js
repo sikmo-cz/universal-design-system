@@ -38,6 +38,7 @@ function toggleOptions(customSelect) {
 function selectOption(option, customSelect) {
   const selectedOptions = customSelect.querySelector('.selected-options');
   const multiSelect = customSelect.getAttribute('data-multi') === 'true';
+  const searchSelect = customSelect.getAttribute('data-search') === 'true';
   const optionText = option.innerText;
   const checkbox = option.querySelector('.hidden-checkbox'); // Přístup k checkboxu nebo radio uvnitř .option-item
 
