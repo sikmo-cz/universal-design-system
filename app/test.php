@@ -50,10 +50,22 @@
 
 		<div class="container">
 
-		<svg class="d-block" width="24" height="24"><use href="/dist/images/icons-sprite.svg#3d-arc-center-pt"></svg>
+		<svg class="d-block" width="24" height="24"><use href="https://design-system.test/dist/images/icons-sprite.svg#3d-arc-center-pt"></svg>
 		<svg class="d-block" width="28" height="20"><use href="/dist/images/flags-sprite.svg#cz"></svg>
 
 		<?php
+		$ComponentLoader->load( 'nav/breadcrumb', [], true ); 
+
+		echo "<br><br><br><br>";
+		echo "<br><br><br><br>";
+		echo "<br><br><br><br>";
+		echo "<br><br><br><br>";
+		echo "<br><br><br><br>";
+		echo "<br><br><br><br>";
+		echo "<br><br><br><br>";
+		echo "<br><br><br><br>";
+
+
 			// PAVLOVA UKÁZKA BUTTONŮ - ALE BUTTONU JSOU POTÉ AŽ V INPUTECH
 			// $ComponentLoader->load( 'buttons/base', [], true );
 			// $ComponentLoader->load( 'buttons/base', array(
@@ -102,10 +114,7 @@
 			$ComponentLoader->load( 'input/select', [], true );
 			$ComponentLoader->load( 'input/time', [], true ); //Vlastně bude stejný jakO SELECT, jen správně generovat data
 			$ComponentLoader->load( 'input/textarea', [], true );
-			$ComponentLoader->load( 'input/date', [], true ); //ten ještě dělám
-			
-			 
-
+			$ComponentLoader->load( 'input/date', [], true ); 
 			*/
 		?>		
 		</div>

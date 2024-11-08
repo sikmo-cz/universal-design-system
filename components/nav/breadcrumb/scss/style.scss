@@ -24,11 +24,27 @@
 
 
 		&:after {
-			display: block;
-			width: 20px;
-			height: 20px;
+			// width: 24px;
+			// height: 24px;
+			// background-color: currentColor; /* nastaví barvu ikony */
+			// -webkit-mask-image: url("https://design-system.test/dist/images/icons-sprite.svg#3d-arc-center-pt");
+			// mask-image: url("https://design-system.test/dist/images/icons-sprite.svg#3d-arc-center-pt");
+			// mask-size: contain;
+			// mask-repeat: no-repeat;
+
+
+			display: inline-block;
+			width: 500px; /* Set dimensions */
+			height: 500px;
+			background-color: currentColor; /* Sets background to match current color */
+			-webkit-mask: url('https://design-system.test/dist/images/icons-sprite.svg#3d-arc-center-pt') no-repeat center;
+			mask: url('https://design-system.test/dist/images/icons-sprite.svg#3d-arc-center-pt') no-repeat center;
+			-webkit-mask-size: contain;
+			mask-size: contain;
+			
 			content: "";
-			background-color: red;
+			position: relative;
+
 		}
 
 		&:last-of-type {
