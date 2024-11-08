@@ -8,6 +8,7 @@
 
 	// maybe prepare icon set
 	$ComponentLoader->maybe_prepare_icon_set( 'icons' );
+	$ComponentLoader->maybe_prepare_icon_set( 'flags' );
 
 	// testing app
 	include 'test.php';
