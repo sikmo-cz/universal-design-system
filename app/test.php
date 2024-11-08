@@ -31,9 +31,27 @@
 ?>
 	<main>
 		<div class="container">
+			<div class="component">
+				<div class="row">
+					<div class="col-12">
+						<span class="super-heading">Headings and text</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-6"><span class="component-heading">H1</span></div><div class="col-6"><h1>Nadpis H1</h1></div>
+					<div class="col-6"><span class="component-heading">H2</span></div><div class="col-6"><h2>Nadpis H2</h2></div>
+					<div class="col-6"><span class="component-heading">H3</span></div><div class="col-6"><h3>Nadpis H3</h3></div>
+					<div class="col-6"><span class="component-heading">H4</span></div><div class="col-6"><h4>Nadpis H4</h4></div>
+					<div class="col-6"><span class="component-heading">H5</span></div><div class="col-6"><h5>Nadpis H5</h5></div>
+					<div class="col-6"><span class="component-heading">H1</span></div><div class="col-6"><h1>Nadpis H1</h1></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
 
 		<svg class="d-block" width="24" height="24"><use href="/dist/images/icons-sprite.svg#3d-arc-center-pt"></svg>
-		<svg class="d-block" width="24" height="24"><use href="/dist/images/flags-sprite.svg#cz"></svg>
+		<svg class="d-block" width="28" height="20"><use href="/dist/images/flags-sprite.svg#cz"></svg>
 
 		<?php
 			// PAVLOVA UKÁZKA BUTTONŮ - ALE BUTTONU JSOU POTÉ AŽ V INPUTECH
