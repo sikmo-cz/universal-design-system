@@ -34,13 +34,12 @@
 
 
 			display: inline-block;
-			width: 500px; /* Set dimensions */
-			height: 500px;
+			width: 24px; /* Set dimensions */
+			height: 24px;
 			background-color: currentColor; /* Sets background to match current color */
-			-webkit-mask: url('https://design-system.test/dist/images/icons-sprite.svg#3d-arc-center-pt') no-repeat center;
-			mask: url('https://design-system.test/dist/images/icons-sprite.svg#3d-arc-center-pt') no-repeat center;
-			-webkit-mask-size: contain;
-			mask-size: contain;
+			-webkit-mask-image: url("/dist/images/icons-sprite.svg?v=10.0#3d-arc-center-pt");
+    		-webkit-mask-size: cover;
+			-webkit-mask-repeat: no-repeat;
 			
 			content: "";
 			position: relative;

@@ -167,7 +167,7 @@
 
 			$icons_source_dir 	= $this->base_path . '/src/assets/' . $icon_set; // Directory with SVG files
 			$icons_dist_file 	= $this->base_path . '/dist/images/'. $icon_set .'-sprite.svg'; // Output sprite file
-			$sprite_content 		= '<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">';
+			$sprite_content 	= '<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg"><defs><style>g{display: none;}g:target{display: inline;}</style></defs>';
 
 			// Step 1: Load all SVG files in the directory
 			$files = glob( $icons_source_dir . '/*.svg' );
@@ -178,26 +178,23 @@
 				$file_id		= strtolower( $filename );
 				$svg_content 	= file_get_contents( $file );
 			
-				// Step 2: Replace `id="STRING"` in each file with lowercase filename
-				$svg_content = preg_replace_callback(
-					'/id="([^"]+)"/',
-					function ( $matches ) use ( $file_id ) 
-					{
-						return 'id="' . strtolower( $file_id ) . '"';
-					},
-					$svg_content
-				);
+				// Remove outer <svg> tags and add to sprite
+				$svg_content = preg_replace( '/<svg[^>]*>|<\/svg>/', '', $svg_content );
+
+				// Remove all <g> tags and their closing tags, but keep the content inside
+				$svg_content = preg_replace( '/<\/?g[^>]*>/', '', $svg_content );
+
+				// Remove <clipPath> and <defs> tags and their contents
+				$svg_content = preg_replace( '/<defs>.*?<\/defs>/s', '', $svg_content );
+				$svg_content = preg_replace( '/<clipPath[^>]*>.*?<\/clipPath>/s', '', $svg_content );
 			
-				// Step 3: Minify SVG content (removing whitespace and comments)
+				// Minify SVG content (removing whitespace and comments)
 				$svg_content = preg_replace('/\s{2,}/', ' ', $svg_content ); // Remove excess whitespace
 				$svg_content = preg_replace('/<!--.*?-->/', '', $svg_content ); // Remove comments
 				$svg_content = preg_replace('/\n/', '', $svg_content ); // Remove all newline characters
 			
-				// Remove outer <svg> tags and add to sprite
-				$svg_content = preg_replace( '/<svg[^>]*>|<\/svg>/', '', $svg_content );
-			
 				// Add cleaned-up SVG content to sprite
-				$sprite_content .= "<symbol id=\"$file_id\">$svg_content</symbol>";
+				$sprite_content .= '<g id="'. $file_id .'">'. $svg_content .'</g>';
 			}
 			
 			// Close the sprite file content
