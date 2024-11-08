@@ -35,7 +35,7 @@
 		<div class="container">
 
 		<svg class="d-block" width="24" height="24"><use href="/dist/images/icons-sprite.svg#3d-arc-center-pt"></svg>
-		<svg class="d-block" width="24" height="24"><use href="/dist/images/flags-sprite.svg#cz"></svg>
+		<svg class="d-block" width="28" height="20"><use href="/dist/images/flags-sprite.svg#cz"></svg>
 
 		<?php
 			$ComponentLoader->load( 'input/checkbox', [], true );
