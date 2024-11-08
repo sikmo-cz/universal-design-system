@@ -1,42 +1,107 @@
-let multiSelect = true; // Nastavte false pro jedno vybrání
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.custom-select').forEach(select => {
+    const selectedOptions = select.querySelector('.selected-options');
+    const searchInput = select.querySelector('.search-input');
 
-function toggleOptions() {
-  document.querySelector('.options-container').classList.toggle('hidden');
+    // Nastavení akcí pro kliknutí na vybranou oblast a pro vyhledávání
+    selectedOptions.addEventListener('click', () => toggleOptions(select));
+    searchInput.addEventListener('keyup', () => filterOptions(select));
+
+    // Přednačtení vybraných hodnot a aktualizace placeholderu
+    preloadSelectedOptions(select);
+    updatePlaceholder(select);
+
+    // Nastavení akce pro každý .option-item v selectu
+    select.querySelectorAll('.option-item').forEach(option => {
+      option.addEventListener('click', () => selectOption(option, select));
+    });
+  });
+
+  // Zavírá všechny otevřené selecty při kliknutí mimo
+  document.addEventListener('click', (event) => {
+    document.querySelectorAll('.custom-select').forEach(select => {
+      if (!select.contains(event.target)) {
+        const optionsContainer = select.querySelector('.options-container');
+        if (!optionsContainer.classList.contains('hidden')) {
+          optionsContainer.classList.add('hidden');
+        }
+      }
+    });
+  });
+});
+
+function toggleOptions(customSelect) {
+  const container = customSelect.querySelector('.options-container');
+  container.classList.toggle('hidden');
 }
 
-function selectOption(element) {
-  const selectedOptions = document.querySelector('.selected-options');
-  const optionText = element.innerText;
-  const checkbox = element.previousElementSibling; // Přístup k checkboxu
+function selectOption(option, customSelect) {
+  const selectedOptions = customSelect.querySelector('.selected-options');
+  const multiSelect = customSelect.getAttribute('data-multi') === 'true';
+  const optionText = option.innerText;
+  const checkbox = option.querySelector('.hidden-checkbox'); // Přístup k checkboxu nebo radio uvnitř .option-item
 
   if (multiSelect) {
-    checkbox.checked = !checkbox.checked; // Přepněte stav checkboxu
+    checkbox.checked = !checkbox.checked;
 
     if (checkbox.checked) {
-      // Přidejte vybranou položku do textu
       selectedOptions.innerText += ` ${optionText}`;
-      element.classList.add('selected');
+      option.classList.add('selected');
     } else {
-      // Odeberte položku z textu
       selectedOptions.innerText = selectedOptions.innerText.replace(optionText, '').trim();
-      element.classList.remove('selected');
+      option.classList.remove('selected');
     }
   } else {
-    // Pokud není multiSelect, proveďte jednorázový výběr
-    document.querySelectorAll('.hidden-checkbox').forEach(cb => cb.checked = false); // Zrušte všechny
-    checkbox.checked = true; // Nastavte aktuální checkbox
-    selectedOptions.innerText = optionText; // Nastavte text na vybranou položku
-    element.classList.add('selected');
-    toggleOptions();
+    customSelect.querySelectorAll('.hidden-checkbox').forEach(cb => cb.checked = false);
+    checkbox.checked = true;
+    selectedOptions.innerText = optionText;
+    customSelect.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
+    option.classList.add('selected');
+
+    // Zavře single-select po výběru
+    toggleOptions(customSelect);
+  }
+
+  updatePlaceholder(customSelect);
+}
+
+function preloadSelectedOptions(customSelect) {
+  const selectedOptions = customSelect.querySelector('.selected-options');
+  const preloadCheckboxes = customSelect.querySelectorAll('.hidden-checkbox:checked');
+
+  preloadCheckboxes.forEach(checkbox => {
+    const option = checkbox.closest('.option-item');
+    const optionText = option.innerText;
+    selectedOptions.innerText += ` ${optionText}`;
+    option.classList.add('selected');
+  });
+
+  updatePlaceholder(customSelect);
+}
+
+function updatePlaceholder(customSelect) {
+  const selectedOptions = customSelect.querySelector('.selected-options');
+  const placeholderText = customSelect.getAttribute('data-placeholder') || 'Vyberte...';
+
+  if (selectedOptions.innerText.trim() === '' || selectedOptions.innerText.trim() === placeholderText) {
+    selectedOptions.innerText = placeholderText;
+  } else {
+    if (selectedOptions.innerText.includes(placeholderText)) {
+      selectedOptions.innerText = selectedOptions.innerText.replace(placeholderText, '').trim();
+    }
   }
 }
 
-function filterOptions() {
-  const input = document.querySelector('.search-input').value.toLowerCase();
-  const options = document.querySelectorAll('.option-item');
+function removeDiacritics(text) {
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+function filterOptions(customSelect) {
+  const input = removeDiacritics(customSelect.querySelector('.search-input').value.toLowerCase());
+  const options = customSelect.querySelectorAll('.option-item');
 
   options.forEach(option => {
-    const text = option.innerText.toLowerCase();
+    const text = removeDiacritics(option.innerText.toLowerCase());
     option.style.display = text.includes(input) ? '' : 'none';
   });
 }
