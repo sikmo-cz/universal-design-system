@@ -1,0 +1,14 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="triangle">
+<g clip-path="url(#clip0_232_13168)">
+<g id="Weight=Dynamic">
+<path id="Polygon (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M10.8193 2.58325C11.3334 1.65584 12.6669 1.65585 13.1809 2.58325L22.5546 19.4956C23.0533 20.3953 22.4026 21.5 21.3739 21.5H2.62635C1.59759 21.5 0.946873 20.3954 1.44559 19.4956L10.8193 2.58325ZM12.0001 3.54712L2.88099 20H21.1192L12.0001 3.54712Z" fill="black"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_232_13168">
+<rect width="24" height="24" rx="5" fill="white"/>
+</clipPath>
+</defs>
+</svg>

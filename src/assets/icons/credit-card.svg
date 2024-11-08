@@ -1,0 +1,14 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="credit-card">
+<g clip-path="url(#clip0_232_7535)">
+<g id="Weight=Dynamic">
+<path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M1.25 7C1.25 5.48122 2.48122 4.25 4 4.25H20C21.5188 4.25 22.75 5.48122 22.75 7V17C22.75 18.5188 21.5188 19.75 20 19.75H4C2.48122 19.75 1.25 18.5188 1.25 17V7ZM4 5.75C3.30964 5.75 2.75 6.30964 2.75 7V17C2.75 17.6904 3.30964 18.25 4 18.25H20C20.6904 18.25 21.25 17.6904 21.25 17V9.75H6C5.58579 9.75 5.25 9.41421 5.25 9C5.25 8.58579 5.58579 8.25 6 8.25H21.25V7C21.25 6.30964 20.6904 5.75 20 5.75H4Z" fill="black"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_232_7535">
+<rect width="24" height="24" rx="5" fill="white"/>
+</clipPath>
+</defs>
+</svg>

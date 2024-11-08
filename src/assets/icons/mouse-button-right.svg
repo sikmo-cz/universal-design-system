@@ -1,0 +1,14 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="mouse-button-right">
+<g clip-path="url(#clip0_232_14886)">
+<g id="Weight=Dynamic">
+<path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M11.25 2.78832C7.59833 3.16362 4.75 6.24918 4.75 10V14C4.75 18.0041 7.99594 21.25 12 21.25C16.0041 21.25 19.25 18.0041 19.25 14V9.75H12.6C11.8544 9.75 11.25 9.14559 11.25 8.4V2.78832ZM12.75 2.75V8.25H19.2055C18.8349 5.15183 16.198 2.75 13 2.75H12.75ZM3.25 10C3.25 5.16751 7.16751 1.25 12 1.25H13C17.2802 1.25 20.75 4.71979 20.75 9V14C20.75 18.8325 16.8325 22.75 12 22.75C7.16751 22.75 3.25 18.8325 3.25 14V10Z" fill="black"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_232_14886">
+<rect width="24" height="24" rx="5" fill="white"/>
+</clipPath>
+</defs>
+</svg>

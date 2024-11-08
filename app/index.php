@@ -6,5 +6,8 @@
 	// Get the singleton instance of ComponentLoader
 	$ComponentLoader = ComponentLoader();
 
+	// maybe prepare icon set
+	$ComponentLoader->maybe_prepare_icon_set( 'icons' );
+
 	// testing app
 	include 'test.php';
