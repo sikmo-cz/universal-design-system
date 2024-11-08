@@ -1,0 +1,39 @@
+body {
+	background-color: #E9E9E9 !important;
+}
+
+.component {
+	padding: 80px 100px;
+	background-color: #FFF;
+}
+
+.super-heading {
+	color: #30303E;
+	font-size: 48px;
+	line-height: 1.2;
+
+	padding: 24px 0;
+	margin-bottom: 40px;
+
+	border-bottom: 2px solid #30303E;
+
+	display: block;
+}
+
+.component-heading {
+	color: #30303E;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+.component .row > .col-6 {
+	display: flex;
+	align-items: center;
+
+	padding-top: 32px;	
+	padding-bottom: 32px;	
+
+	&:nth-child(2n + 2) {
+		justify-content: flex-end;
+	}
+}
