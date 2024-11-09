@@ -13,6 +13,6 @@
 		<!-- Output registered CSS here -->
 		<?php $CL->output_css(); ?>
 
-		<link rel="stylesheet" href="/app/style.css">
+		<link rel="stylesheet" href="/app/assets/css/style.css">
 	</head>
 	<body>
