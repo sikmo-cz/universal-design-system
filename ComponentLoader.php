@@ -1,4 +1,4 @@
-<?php
+<?php declare( strict_types = 1 );
 
 	class ComponentLoader 
 	{
@@ -38,7 +38,7 @@
 		 * @param bool $demo Whether to load demo data.
 		 * @return bool Returns false if the component does not exist.
 		 */
-		public function load( $component_path, $args = [], $demo = false ) 
+		public function load( str $component_path, array $args = [], bool $demo = false ) 
 		{
 			$full_path = "{$this->base_path}/components/{$component_path}/index.php";
 
@@ -70,12 +70,12 @@
 			return true;
 		}
 
-		public function preload( $component_path ) 
+		public function preload( string $component_path ) 
 		{
 			$this->load( $component_path );
 		}
 
-		public function prepare_dependencies( $dependence_list ) 
+		public function prepare_dependencies( array $dependence_list = array() ) 
 		{
 			foreach( (array) $dependence_list as $component_path ) 
 			{
@@ -90,7 +90,7 @@
 		 * Registers a CSS file automatically based on the component's folder structure.
 		 * @param string $css_file The name of the CSS file (e.g., 'style').
 		 */
-		public function register_css($css_file) 
+		public function register_css( str $css_file ) 
 		{
 			$css_path = "/components/{$this->current_component}/dist/{$css_file}.css";
 
@@ -108,7 +108,7 @@
 		 * Registers a JS file automatically based on the component's folder structure.
 		 * @param string $js_file The name of the JS file (e.g., 'script').
 		 */
-		public function register_js($js_file) 
+		public function register_js( str $js_file ) 
 		{
 			$js_path = "/components/{$this->current_component}/js/{$js_file}.js";
 
@@ -145,7 +145,7 @@
 		}
 
 		// Function to render HTML attributes from an array
-		public function render_attributes( $attributes ) 
+		public function render_attributes( array $attributes = array() ) 
 		{
 			$attr_strings = array();
 
@@ -157,7 +157,8 @@
 			return implode( ' ', $attr_strings );
 		}
 
-		public function get_list_of_icons( $icon_set ) {
+		public function get_list_of_icons( str $icon_set ) 
+		{
 			$icons_source_dir 	= $this->base_path . '/src/assets/' . $icon_set; // Directory with SVG files
 			$files 				= glob( $icons_source_dir . '/*.svg' );
 			$files_validated 	= array();
