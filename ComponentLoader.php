@@ -157,6 +157,20 @@
 			return implode( ' ', $attr_strings );
 		}
 
+		public function get_list_of_icons( $icon_set ) {
+			$icons_source_dir 	= $this->base_path . '/src/assets/' . $icon_set; // Directory with SVG files
+			$files 				= glob( $icons_source_dir . '/*.svg' );
+			$files_validated 	= array();
+
+			foreach ( (array) $files as $file ) 
+			{
+				$filename 		= pathinfo( $file, PATHINFO_FILENAME );
+				$files_validated[ $filename ] = "/src/assets/{$icon_set}/{$filename}.svg";
+			}
+
+			return $files_validated;
+		}
+
 		public function maybe_prepare_icon_set() 
 		{
 			$icon_set = $_GET[ 'prepare_icon_set' ] ?? false;

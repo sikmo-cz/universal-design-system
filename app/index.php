@@ -11,4 +11,4 @@
 	$ComponentLoader->maybe_prepare_icon_set( 'flags' );
 
 	// testing app
-	include 'test.php';
+	include ( $_GET[ 'cm' ] ?? false ) ? 'components.php' : 'test.php';
