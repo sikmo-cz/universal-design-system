@@ -152,6 +152,8 @@ main {
 		align-items: center;
 		justify-content: center;
 		gap: var( --app-size-s );
+
+		padding: var( --app-size-sm );
 		
 		font-size: calc( var( --app-size-m ) - var( --app-size-s ) );;
 		line-height: 1;
