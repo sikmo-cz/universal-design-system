@@ -38,7 +38,7 @@
 		 * @param bool $demo Whether to load demo data.
 		 * @return bool Returns false if the component does not exist.
 		 */
-		public function load( str $component_path, array $args = [], bool $demo = false ) 
+		public function load( string $component_path, array $args = [], bool $demo = false ) 
 		{
 			$full_path = "{$this->base_path}/components/{$component_path}/index.php";
 
@@ -90,7 +90,7 @@
 		 * Registers a CSS file automatically based on the component's folder structure.
 		 * @param string $css_file The name of the CSS file (e.g., 'style').
 		 */
-		public function register_css( str $css_file ) 
+		public function register_css( string $css_file ) 
 		{
 			$css_path = "/components/{$this->current_component}/dist/{$css_file}.css";
 
@@ -108,7 +108,7 @@
 		 * Registers a JS file automatically based on the component's folder structure.
 		 * @param string $js_file The name of the JS file (e.g., 'script').
 		 */
-		public function register_js( str $js_file ) 
+		public function register_js( string $js_file ) 
 		{
 			$js_path = "/components/{$this->current_component}/js/{$js_file}.js";
 
@@ -157,7 +157,7 @@
 			return implode( ' ', $attr_strings );
 		}
 
-		public function get_list_of_icons( str $icon_set ) 
+		public function get_list_of_icons( string $icon_set ) 
 		{
 			$icons_source_dir 	= $this->base_path . '/src/assets/' . $icon_set; // Directory with SVG files
 			$files 				= glob( $icons_source_dir . '/*.svg' );
