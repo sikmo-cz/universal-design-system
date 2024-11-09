@@ -1,6 +1,7 @@
 <?php
 
 	// Load the ComponentLoader class
+	include 'functions.php';
 	include './../ComponentLoader.php';
 
 	// Get the singleton instance of ComponentLoader
