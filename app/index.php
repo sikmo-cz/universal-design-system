@@ -13,7 +13,7 @@
 ?>
 	<main class="container pt-4">
 		<div class="row">
-			<aside class="col-2">
+			<aside class="col-12 col-lg-2">
 				<ul class="sidebar">
 				<?php foreach( (array) $components as $component ) { ?>
 					<?php if( $component == '-' ) { ?>
@@ -25,7 +25,7 @@
 				</ul>
 			</aside>
 
-			<article class="col-10">
+			<article class="col-12 col-lg-10">
 				<?php 
 					foreach( (array) $components as $component ) {
 						$slug = slugify( $component );
