@@ -3,7 +3,7 @@
 ?>
 
 	<!-- Output registered JS here (if any) -->
-	<?php $ComponentLoader->output_js(); ?>
+	<?php $CL->output_js(); ?>
 
 	</body>
 </html>

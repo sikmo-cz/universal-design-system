@@ -2,30 +2,30 @@
 
 	// DO LOGIC
 
-	$ComponentLoader->preload( 'nav/pagination' );
-	$ComponentLoader->preload( 'nav/tab' );
-	$ComponentLoader->preload( 'nav/progress' );
-	$ComponentLoader->preload( 'nav/vertical-menu' );
-	$ComponentLoader->preload( 'nav/breadcrumb' );
-	$ComponentLoader->preload( 'nav/button-group' );
+	$CL->preload( 'nav/pagination' );
+	$CL->preload( 'nav/tab' );
+	$CL->preload( 'nav/progress' );
+	$CL->preload( 'nav/vertical-menu' );
+	$CL->preload( 'nav/breadcrumb' );
+	$CL->preload( 'nav/button-group' );
 
-	$ComponentLoader->preload( 'data/table' );
-	$ComponentLoader->preload( 'data/accordion' );
+	$CL->preload( 'data/table' );
+	$CL->preload( 'data/accordion' );
 
-	$ComponentLoader->preload( 'util/avatar' );
-	$ComponentLoader->preload( 'util/avatars' );
-	$ComponentLoader->preload( 'util/helper' );
-	$ComponentLoader->preload( 'util/chip' );
+	$CL->preload( 'util/avatar' );
+	$CL->preload( 'util/avatars' );
+	$CL->preload( 'util/helper' );
+	$CL->preload( 'util/chip' );
 
-	$ComponentLoader->preload( 'input/button' );
-	$ComponentLoader->preload( 'input/checkbox' );
-	$ComponentLoader->preload( 'input/radio' );
-	$ComponentLoader->preload( 'input/toggle' );
-	$ComponentLoader->preload( 'input/text' );
-	$ComponentLoader->preload( 'input/time' );
-	$ComponentLoader->preload( 'input/textarea' );
-	$ComponentLoader->preload( 'input/select' );
-	$ComponentLoader->preload( 'input/date' );
+	$CL->preload( 'input/button' );
+	$CL->preload( 'input/checkbox' );
+	$CL->preload( 'input/radio' );
+	$CL->preload( 'input/toggle' );
+	$CL->preload( 'input/text' );
+	$CL->preload( 'input/time' );
+	$CL->preload( 'input/textarea' );
+	$CL->preload( 'input/select' );
+	$CL->preload( 'input/date' );
 	
 	include 'header.php';
 ?>
@@ -36,7 +36,7 @@
 			<svg class="d-block" width="28" height="20"><use href="/dist/images/flags-sprite.svg?v=10.0#cz"></svg>
 
 		<?php
-			$ComponentLoader->load( 'nav/breadcrumb', [], true ); 
+			$CL->load( 'nav/breadcrumb', [], true ); 
 
 			echo "<br><br><br><br>";
 			echo "<br><br><br><br>";
@@ -48,8 +48,8 @@
 			echo "<br><br><br><br>";
 
 			// PAVLOVA UKÁZKA BUTTONŮ - ALE BUTTONU JSOU POTÉ AŽ V INPUTECH
-			// $ComponentLoader->load( 'buttons/base', [], true );
-			// $ComponentLoader->load( 'buttons/base', array(
+			// $CL->load( 'buttons/base', [], true );
+			// $CL->load( 'buttons/base', array(
 			// 	'type' 			=> 'link', // 'button' or 'link'
 			// 	'href' 			=> '#', // Only for 'link' type
 			// 	'content'		=> 'Hehe button', // HTML content inside the button
@@ -60,42 +60,42 @@
 
 			/*
 			echo "Nav<br>";
-			$ComponentLoader->load( 'nav/pagination', [], true );
-			$ComponentLoader->load( 'nav/tab', [], true );
-			$ComponentLoader->load( 'nav/progress', [], true );
-			$ComponentLoader->load( 'nav/vertical-menu', [], true ); 
-			$ComponentLoader->load( 'nav/breadcrumb', [], true ); 
-			$ComponentLoader->load( 'nav/button-group', [], true ); 
+			$CL->load( 'nav/pagination', [], true );
+			$CL->load( 'nav/tab', [], true );
+			$CL->load( 'nav/progress', [], true );
+			$CL->load( 'nav/vertical-menu', [], true ); 
+			$CL->load( 'nav/breadcrumb', [], true ); 
+			$CL->load( 'nav/button-group', [], true ); 
 			
 
 			echo "<br><br><br><br>";
 
 			
 			echo "Data<br>";
-			$ComponentLoader->load( 'data/table', [], true ); 
-			$ComponentLoader->load( 'data/accordion', [], true );
+			$CL->load( 'data/table', [], true ); 
+			$CL->load( 'data/accordion', [], true );
 		
 
 			echo "<br><br><br><br>";
 			
 			echo "Util<br>";
-			$ComponentLoader->load( 'util/chip', [], true ); 
-			$ComponentLoader->load( 'util/avatar', [], true ); 
-			$ComponentLoader->load( 'util/helper', [], true ); 
+			$CL->load( 'util/chip', [], true ); 
+			$CL->load( 'util/avatar', [], true ); 
+			$CL->load( 'util/helper', [], true ); 
 
 
 			echo "<br><br><br><br>";
 			
 			echo "Input<br>";
-			$ComponentLoader->load( 'input/button', [], true );
-			$ComponentLoader->load( 'input/checkbox', [], true );
-			$ComponentLoader->load( 'input/radio', [], true );
-			$ComponentLoader->load( 'input/toggle', [], true );
-			$ComponentLoader->load( 'input/text', [], true );	
-			$ComponentLoader->load( 'input/select', [], true );
-			$ComponentLoader->load( 'input/time', [], true ); //Vlastně bude stejný jakO SELECT, jen správně generovat data
-			$ComponentLoader->load( 'input/textarea', [], true );
-			$ComponentLoader->load( 'input/date', [], true ); 
+			$CL->load( 'input/button', [], true );
+			$CL->load( 'input/checkbox', [], true );
+			$CL->load( 'input/radio', [], true );
+			$CL->load( 'input/toggle', [], true );
+			$CL->load( 'input/text', [], true );	
+			$CL->load( 'input/select', [], true );
+			$CL->load( 'input/time', [], true ); //Vlastně bude stejný jakO SELECT, jen správně generovat data
+			$CL->load( 'input/textarea', [], true );
+			$CL->load( 'input/date', [], true ); 
 			*/
 		?>		
 		</div>

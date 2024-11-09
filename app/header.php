@@ -12,6 +12,6 @@
 		<link rel="stylesheet" href="/app/style.css">
 
 		<!-- Output registered CSS here -->
-		<?php $ComponentLoader->output_css(); ?>
+		<?php $CL->output_css(); ?>
 	</head>
 	<body>

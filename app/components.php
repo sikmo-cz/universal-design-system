@@ -1,7 +1,7 @@
 <?php	
 	include 'header.php';
 
-	$icon_list = $ComponentLoader->get_list_of_icons( 'icons' );
+	$icon_list = $CL->get_list_of_icons( 'icons' );
 ?>
 
 	<main>
