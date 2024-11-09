@@ -1,16 +1,38 @@
 <?php declare( strict_types = 1 );
 
+	/**
+	 * ComponentLoader Class
+	 * 
+	 * A singleton class responsible for loading, managing and rendering UI components.
+	 * Handles component dependencies, asset registration (CSS/JS), and SVG icon management.
+	 * 
+	 * @since 1.0.0
+	 */
+
 	class ComponentLoader 
 	{
-		private static $instance 	= null; // Singleton instance
-		private $base_path 			= ''; // Base path for components
-		private $css_files 			= array(); // Registered CSS files
-		private $js_files 			= array();  // Registered JS files
+		/** @var ComponentLoader|null Singleton instance of the class */
+		private static $instance = null;
 
-		private $current_component 	= ''; // To store the currently loaded component
-		private $dependece_loading 	= false; // To store the currently loaded component
+		/** @var string Base file system path for component operations */
+		private $base_path = '';
+		
+		/** @var array Array of registered CSS file paths */
+		private $css_files = array();
+		
+		/** @var array Array of registered JavaScript file paths */
+		private $js_files = array();
 
-		// Private constructor to prevent direct instantiation
+		/** @var string Currently active component being processed */
+		private $current_component = '';
+		
+		/** @var bool Flag indicating if dependencies are being loaded */
+		private $dependece_loading = false;
+
+		/**
+		 * Private constructor to enforce singleton pattern
+		 * Sets the base path for component operations using the current directory
+		 */
 		private function __construct() 
 		{
 			$this->base_path = rtrim( __DIR__, '/' ); // Define the absolute base path
@@ -19,6 +41,7 @@
 		/**
 		 * Get the singleton instance of the ComponentLoader.
 		 * Initializes the instance if it doesn't exist.
+		 * 
 		 * @return ComponentLoader The single instance of ComponentLoader.
 		 */
 		public static function get_instance() 
@@ -33,6 +56,7 @@
 
 		/**
 		 * Loads a component and passes arguments to it.
+		 * 
 		 * @param string $component_path The relative path to the component.
 		 * @param array $args The arguments to pass to the component.
 		 * @param bool $demo Whether to load demo data.
@@ -70,11 +94,21 @@
 			return true;
 		}
 
+		/**
+		 * Preloads a component without additional processing
+		 * 
+		 * @param string $component_path Path to the component to preload
+		 */
 		public function preload( string $component_path ) 
 		{
 			$this->load( $component_path );
 		}
 
+		/**
+		 * Prepares and loads multiple component dependencies
+		 * 
+		 * @param array $dependence_list List of component paths to load as dependencies
+		 */
 		public function prepare_dependencies( array $dependence_list = array() ) 
 		{
 			foreach( (array) $dependence_list as $component_path ) 
@@ -87,8 +121,9 @@
 		}
 
 		/**
-		 * Registers a CSS file automatically based on the component's folder structure.
-		 * @param string $css_file The name of the CSS file (e.g., 'style').
+		 * Registers a CSS file for the current component
+		 * 
+		 * @param string $css_file Name of the CSS file without extension
 		 */
 		public function register_css( string $css_file ) 
 		{
@@ -105,8 +140,9 @@
 		}
 
 		/**
-		 * Registers a JS file automatically based on the component's folder structure.
-		 * @param string $js_file The name of the JS file (e.g., 'script').
+		 * Registers a JavaScript file for the current component
+		 * 
+		 * @param string $js_file Name of the JavaScript file without extension
 		 */
 		public function register_js( string $js_file ) 
 		{
@@ -123,7 +159,7 @@
 		}
 
 		/**
-		 * Outputs all registered CSS files.
+		 * Outputs HTML link tags for all registered CSS files
 		 */
 		public function output_css() 
 		{
@@ -134,7 +170,7 @@
 		}
 
 		/**
-		 * Outputs all registered JS files.
+		 * Outputs HTML link tags for all registered JavaScript files
 		 */
 		public function output_js() 
 		{
@@ -144,7 +180,12 @@
 			}
 		}
 
-		// Function to render HTML attributes from an array
+		/**
+		 * Converts an array of attributes into HTML attribute string
+		 * 
+		 * @param array $attributes Array of attribute key-value pairs
+		 * @return string HTML-safe attribute string
+		 */
 		public function render_attributes( array $attributes = array() ) 
 		{
 			$attr_strings = array();
@@ -157,6 +198,12 @@
 			return implode( ' ', $attr_strings );
 		}
 
+		/**
+		 * Retrieves a list of available icons from a specified icon set
+		 * 
+		 * @param string $icon_set Name of the icon set directory
+		 * @return array Associative array of icon names and their paths
+		 */
 		public function get_list_of_icons( string $icon_set ) 
 		{
 			$icons_source_dir 	= $this->base_path . '/src/assets/' . $icon_set; // Directory with SVG files
@@ -172,6 +219,12 @@
 			return $files_validated;
 		}
 
+		/**
+		 * Processes and combines SVG icons into a sprite file
+		 * Triggered by GET parameter 'prepare_icon_set'
+		 * 
+		 * @return bool False if invalid icon set specified
+		 */
 		public function maybe_prepare_icon_set() 
 		{
 			$icon_set = $_GET[ 'prepare_icon_set' ] ?? false;
@@ -180,11 +233,10 @@
 				return false;
 			}
 
-			$icons_source_dir 	= $this->base_path . '/src/assets/' . $icon_set; // Directory with SVG files
-			$icons_dist_file 	= $this->base_path . '/dist/images/'. $icon_set .'-sprite.svg'; // Output sprite file
+			$icons_source_dir 	= $this->base_path . '/src/assets/' . $icon_set;
+			$icons_dist_file 	= $this->base_path . '/dist/images/'. $icon_set .'-sprite.svg';
 			$sprite_content 	= '<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg"><defs><style>g{display: none;}g:target{display: inline;}</style></defs>';
 
-			// Step 1: Load all SVG files in the directory
 			$files = glob( $icons_source_dir . '/*.svg' );
 
 			foreach ( (array) $files as $file ) 
@@ -212,14 +264,17 @@
 				$sprite_content .= '<g id="'. $file_id .'">'. $svg_content .'</g>';
 			}
 			
-			// Close the sprite file content
 			$sprite_content .= "</svg>";
 			
-			// Step 4: Save sprite to output file
 			file_put_contents( $icons_dist_file, $sprite_content );
 		}
 	}
 
+	/**
+	 * Helper function to get ComponentLoader instance
+	 * 
+	 * @return ComponentLoader Singleton instance of ComponentLoader
+	 */
 	function ComponentLoader() 
 	{
 		return ComponentLoader::get_instance();
