@@ -14,7 +14,7 @@
 ?>
 <div class="col-4 col-lg-2">
 	<div class="icon-tile" data-icon="<?php echo $filename; ?>">
-		<img loading="lazy" src="<?php echo $filepath; ?>" alt="<?php echo $filename; ?>">
+		<?php $CL->load( 'util/icon', array( 'name' => $filename ) ); ?>
 		<p ><?php echo $filename; ?></p>
 	</div>
 </div>
