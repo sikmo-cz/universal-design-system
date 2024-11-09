@@ -1,7 +1,5 @@
 <?php
 
-	$CL->preload( 'input/text' );
-
 	$icon_list = $CL->get_list_of_icons( 'icons' );
 
 	if( ! $icon_list ) 

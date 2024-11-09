@@ -1,4 +1,8 @@
 <?php	
+
+	// preloading
+	$CL->preload( 'input/text' );
+
 	include 'header.php';
 
 	$components = array(
