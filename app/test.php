@@ -32,10 +32,11 @@
 	<main>
 		<div class="container">
 
-			<svg class="d-block" width="24" height="24"><use href="/dist/images/icons-sprite.svg?v=10.0#3d-arc-center-pt"></svg>
-			<svg class="d-block" width="28" height="20"><use href="/dist/images/flags-sprite.svg?v=10.0#cz"></svg>
-
 		<?php
+			$CL->load( 'util/icon', [], true );
+			$CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) );
+			$CL->load( 'util/flag', [], true );
+
 			$CL->load( 'nav/breadcrumb', [], true ); 
 
 			echo "<br><br><br><br>";
