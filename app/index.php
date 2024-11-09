@@ -1,19 +1,15 @@
 <?php	
 
+	define( 'APP_DIR', __DIR__ );
+
+	include APP_DIR . '/functions.php';
+
 	// preloading
 	$CL->preload( 'input/text' );
 
-	include 'header.php';
+	$components = component_list();
 
-	$components = array(
-		'Typography', 'Colors', 'Styles',
-		'-',
-		'Buttons', 'Paginaton', 'Tabs', 'Checkboxes & Radio buttons', 'Toggle', 'Menu items',
-		'-',
-		'Inputs', 'Avatars', 'Chips', 'Tables', 'Breadcrumbs', 'Stepper / Progress', 'Accordions',
-		'-',
-		'Icons', 'Flags',
-	);
+	include 'header.php';
 ?>
 	<main class="container pt-4">
 		<div class="row">
@@ -34,7 +30,7 @@
 					foreach( (array) $components as $component ) {
 						$slug = slugify( $component );
 
-						if( $component == '-' || ! file_exists( "./app/components/{$slug}.php" ) ) 
+						if( $component == '-' || ! file_exists( APP_DIR . "/components/{$slug}.php" ) ) 
 						{
 							continue;
 						}						
@@ -42,7 +38,7 @@
 				<div class="component component--<?php echo $slug; ?> mb-4" id="<?php echo $slug; ?>">
 					<h2 class="super-heading"><?php echo $component; ?></h2>
 					<div class="row">
-						<?php include "./app/components/{$slug}.php"; ?>
+						<?php include APP_DIR . "/components/{$slug}.php"; ?>
 					</div>
 				</div>
 				<?php } ?>

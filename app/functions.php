@@ -9,3 +9,15 @@
 		// return in lowercase
 		return strtolower( $string );
 	}
+
+	function component_list() {
+		return array(
+			'Typography', 'Colors', 'Styles',
+			'-',
+			'Buttons', 'Paginaton', 'Tabs', 'Checkboxes & Radio buttons', 'Toggle', 'Menu items',
+			'-',
+			'Inputs', 'Avatars', 'Chips', 'Tables', 'Breadcrumbs', 'Stepper / Progress', 'Accordions',
+			'-',
+			'Icons', 'Flags',
+		);
+	}
