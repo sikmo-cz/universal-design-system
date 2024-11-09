@@ -17,17 +17,14 @@ body {
 	background-color: var( --app-light-background-color );
 }
 
-main > .row {
-	--bs-gutter-y: var( --app-size-m );
-}
+main {
+	padding-left: var( --app-size-m );
+	padding-right: var( --app-size-m );
 
-@media screen and (max-width: 1023px) {
-	main {
-		padding-left: var( --app-size-m );
-		padding-right: var( --app-size-m );
-	}	
+	& > .row {
+		--bs-gutter-y: var( --app-size-m );
+	}
 }
-
 .component {
 	padding: var( --app-size-sm ) var( --app-size-m );
 	border-radius: var( --app-size-sm );
@@ -164,17 +161,20 @@ main > .row {
 
 		border-radius: var( --app-size-s );
 
+		background-color: rgba( var( --app-color-dark ), 0.04 );
+
 		img {
 			display: block;
 		}
 
 		&:hover {
-			background-color: rgba( var( --app-color-dark ), 0.1 );
+			background-color: rgba( var( --app-color-dark ), 0.12 );
 			cursor: pointer;
 		}
 	}
 
 	.row {
+		--bs-gutter-x: var( --app-size-m );
 		--bs-gutter-y: var( --app-size-m );
 	}
 }
