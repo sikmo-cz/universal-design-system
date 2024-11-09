@@ -1,8 +1,6 @@
 <?php
 
-	// Load the ComponentLoader class
-	include 'functions.php';
-	include './../ComponentLoader.php';
+	include 'ComponentLoader.php';
 
 	// Get the singleton instance of ComponentLoader
 	$CL = ComponentLoader();
@@ -11,5 +9,8 @@
 	$CL->maybe_prepare_icon_set( 'icons' );
 	$CL->maybe_prepare_icon_set( 'flags' );
 
+	// Load the ComponentLoader class
+	include './app/functions.php';
+
 	// testing app
-	include ( $_GET[ 'cm' ] ?? false ) ? 'components.php' : 'test.php';
+	include ( $_GET[ 'dev' ] ?? false ) ? './app/test.php' : './app/components.php';

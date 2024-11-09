@@ -34,7 +34,7 @@
 					foreach( (array) $components as $component ) {
 						$slug = slugify( $component );
 
-						if( $component == '-' || ! file_exists("./components/{$slug}.php"  ) ) 
+						if( $component == '-' || ! file_exists( "./app/components/{$slug}.php" ) ) 
 						{
 							continue;
 						}						
@@ -42,7 +42,7 @@
 				<div class="component component--<?php echo $slug; ?> mb-4" id="<?php echo $slug; ?>">
 					<h2 class="super-heading"><?php echo $component; ?></h2>
 					<div class="row">
-						<?php include "./components/{$slug}.php"; ?>
+						<?php include "./app/components/{$slug}.php"; ?>
 					</div>
 				</div>
 				<?php } ?>
