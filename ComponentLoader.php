@@ -248,9 +248,17 @@
 				return false;
 			}
 
+			$sizes = array(
+				'icons' => array( 24, 24 ),
+				'flags' => array( 28, 20 ),
+			);
+
+			$width = $sizes[ $icon_set ][0];
+			$height = $sizes[ $icon_set ][0];
+
 			$icons_source_dir 	= $this->base_path . '/src/assets/' . $icon_set;
 			$icons_dist_file 	= $this->base_path . '/dist/images/'. $icon_set .'-sprite.svg';
-			$sprite_content 	= '<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg"><defs><style>g{display: none;}g:target{display: inline;}</style></defs>';
+			$sprite_content 	= '<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '. $width .' '. $height .'"><defs><style>g{display: none;}g:target{display: inline;}</style></defs>';
 
 			$files = glob( $icons_source_dir . '/*.svg' );
 
