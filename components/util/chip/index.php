@@ -13,11 +13,77 @@
 		return false; // Bail if no data
 	}
 
+
+	// Default values
+	$defaults = array(
+		'class'         => '',
+		'id'            => '',
+		'attributes'    => array(),
+		'href'					=> '',
+		'text'          => '',
+		'type'          => '',
+	);
+ 
+	$data 			= is_array( $data ) ? array_merge( $defaults, $data ) : $defaults; // Merge provided data with defaults
+	$attributes = array(); //init
 	$base_class = 'util-chip'; //--info, --warning, --danger, --success
+
+	// Classes
+	$extra_classes = $ComponentLoader->render_classes( $data["class"] );
+	$attributes["class"] = !empty($extra_classes) ? $base_class . ' ' . $extra_classes : $base_class;
+
+	// Id
+	if (!empty($data["id"])) $attributes["id"] = strval( $data["id"] );
+
+	// Attributes
+	if ( is_array( $data[ 'attributes' ] ) ) {
+		$attributes = array_merge( $attributes, $data[ 'attributes' ] );
+	}
+
+	/*
+		=============================
+		===			SPECIFIC DATA			===
+		=============================
+	*/
+
+	//Checks
+	if (!is_string($data['text'])) throw new Exception('Data "text" must by type string.');
+	if (!is_string($data['type'])) throw new Exception('Data "type" must by type string.');
+
+	if ($data['type'] === "info") {
+		$attributes["class"] .= " " . $base_class . "--info";
+	} elseif ($data['type'] === "warning") {
+		$attributes["class"] .= " " . $base_class . "--warning";
+	} elseif ($data['type'] === "danger") {
+		$attributes["class"] .= " " . $base_class . "--danger";
+	} elseif ($data['type'] === "success") {
+		$attributes["class"] .= " " . $base_class . "--success";
+	}
 ?>
-<a href="#" class="<?php echo $base_class; ?>">
-<!-- <div> -->
-	Text
-	<img src='#' >
-</a>
-<!-- </div> -->
+
+<?php
+if (empty($data['href'])) {
+?>
+	<div <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
+<?php
+} else {
+?>
+	<a href="<?php echo esc_attr($data['href']) ?>" <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
+<?php
+}
+?>
+
+	<?php echo esc_html($data['text']) ?>
+	<!-- <img src='<?php echo esc_html($data['text']) ?>' alt=''> -->
+
+<?php
+if (empty($data['href'])) {
+?>
+	</div>
+<?php
+} else {
+?>
+	</a>
+<?php
+}
+?>

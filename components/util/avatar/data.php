@@ -1,13 +1,13 @@
 <?php
 $demo_data = array(
-    'href'         => '#',
-    'class'        => 'js-avatar',
-    'id'           => 'avatar-id',
-    'extra-attr'   => 'data-special="custom-data"',
-    'text'         => 'h',
-    'size'         => 'small',
-    'image'        => 'https://www.w3schools.com/howto/img_avatar.png', 
-    'icon-before'=> 'icon',
-    'color'        => 'primary-3'
+  //Globals
+  'class'         => 'example-class example-class-2', //(string|array default:'') extra classes separated by a space OR classes in array
+  'id'            => 'id-avatar', //(string default:'')
+  'attributes'    => array("data-example" => "true"), //(array default:array()) Array with extra attributes
 
+  //Specific
+  'href'          => '#profile1', //(string default:'')
+  'text'          => 'Franta', //(string default:'')
+  'size'          => 'small', //(string default:'') small / big / ''
+  'image'         => 'https://www.w3schools.com/howto/img_avatar.png', //(string default:'')
 );

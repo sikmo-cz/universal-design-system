@@ -16,14 +16,14 @@
 			'-',
 			'Buttons', 'Pagination', 'Tabs', 'Vertical menu', 'Checkboxes & Radio buttons', 'Toggle', 'Menu items',
 			'-',
-			'Inputs', 'Avatars', 'Chips', 'Tables', 'Breadcrumbs', 'Stepper / Progress', 'Accordions',
+			'Inputs', 'Avatars', 'Chips', 'Tables', 'Breadcrumbs', 'Button group', 'Stepper / Progress', 'Accordions',
 			'-',
-			'Icons', 'Flags',
+			'Icons', 'Flags', 'Helper',
 		);
 	}
 
 	function esc_html($string) {
-		return $string;
+		return htmlspecialchars($string); //TODO make it better
 	}
 
 	function esc_attr($string) {

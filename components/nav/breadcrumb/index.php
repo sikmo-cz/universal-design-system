@@ -13,14 +13,63 @@
 		return false; // Bail if no data
 	}
 
+
+	// Default values
+	$defaults = array(
+		'class'         => '',
+		'id'            => '',
+		'attributes'    => array(),
+		'items'         => array(),
+	);
+ 
+	$data 			= is_array( $data ) ? array_merge( $defaults, $data ) : $defaults; // Merge provided data with defaults
+	$attributes = array(); //init
 	$base_class = 'nav-breadcrumb';
 
-	if( isset( $data['size'] ) && $data['size'] == 'small' ) {
-		$data['class'] .= "{$base_class}--small";
+
+	// Classes
+	$extra_classes = $ComponentLoader->render_classes( $data["class"] );
+	$attributes["class"] = !empty($extra_classes) ? $base_class . ' ' . $extra_classes : $base_class;
+
+	// Id
+	if (!empty($data["id"])) $attributes["id"] = strval( $data["id"] );
+
+	// Attributes
+	if ( is_array( $data[ 'attributes' ] ) ) {
+		$attributes = array_merge( $attributes, $data[ 'attributes' ] );
 	}
+
+	/*
+		=============================
+		===			SPECIFIC DATA			===
+		=============================
+	*/
+
+	//Checks
+	if (!is_array($data['items'])) throw new Exception('Data "items" must by type array.');
 ?>
-<ul class="<?php echo $base_class; ?>">
-	<li><a href="#">Domů</a></li>
-	<li><a href="#">Products</a></li>
-	<li>Page</li>
+<ul <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
+  <?php
+  foreach ($data['items'] as $item) {
+  ?>
+  <li>
+    <?php
+    if (!empty($item["href"])) {
+    ?>
+      <a href="<?php echo esc_attr($item["href"]) ?>">
+    <?php
+    }
+    ?>
+      <?php echo esc_html($item["text"] ?? "") ?>
+    <?php
+    if (!empty($item["href"])) {
+    ?>
+      </a>
+    <?php
+    }
+    ?>
+  </li>
+  <?php
+  }
+  ?>
 </ul>
