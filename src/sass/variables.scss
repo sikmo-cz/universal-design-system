@@ -4,6 +4,14 @@
     @return calc( ($size / 16px) * 1rem );
 }
 
+@mixin icon($icon-name) {
+    background-color: currentColor;
+    mask-image: url("/dist/images/icons-sprite.svg?v=10.0##{$icon-name}");
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-position: center;
+}
+
 :root {
     --mainFont: "SF Pro", "Arial", sans-serif;
 

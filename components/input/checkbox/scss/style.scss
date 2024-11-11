@@ -25,7 +25,20 @@
 		&:checked {
 			background-color: var(--Colors-Primary-1, #655BFF);
 		}
+
+		&:after {
+			display: block;
+			width: 12px;
+			height: 12px;
+	
+			@include icon('nav-arrow-right');
+	
+			content: "";
+		}
 	}
+
+
+
 
 	&--small {
 		@include typo-BodySmall();

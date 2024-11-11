@@ -1,5 +1,4 @@
 <?php
-
 	// DO LOGIC
 
 	$CL->preload( 'nav/pagination' );
@@ -38,6 +37,18 @@
 			$CL->load( 'util/flag', [], true );
 
 			$CL->load( 'nav/breadcrumb', [], true ); 
+
+			$CL->load( 'input/checkbox', [], true );
+			$CL->load( 'input/toggle', [], true );
+			$CL->load( 'input/select', [], true );
+			$CL->load( 'input/text', [], true );
+			$CL->load( 'input/button', [], true );	
+			$CL->load( 'nav/button-group', [], true ); 
+			$CL->load( 'nav/pagination', [], true );
+			$CL->load( 'nav/vertical-menu', [], true ); 
+			$CL->load( 'util/chip', [], true ); 
+			$CL->load( 'nav/progress', [], true );
+			$CL->load( 'data/accordion', [], true );
 
 			echo "<br><br><br><br>";
 			echo "<br><br><br><br>";
