@@ -6,7 +6,12 @@
 
 	// preloading
 	$CL->preload( 'nav/pagination' );
-	
+	$CL->preload( 'nav/tab' );
+	$CL->preload( 'nav/progress' );
+	$CL->preload( 'nav/vertical-menu' );
+	//$CL->preload( 'nav/breadcrumb' );
+	//$CL->preload( 'nav/button-group' );
+
 	$CL->preload( 'input/text' );
 
 	$components = component_list();

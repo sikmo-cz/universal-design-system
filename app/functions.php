@@ -14,10 +14,18 @@
 		return array(
 			'Typography', 'Colors', 'Styles',
 			'-',
-			'Buttons', 'Pagination', 'Tabs', 'Checkboxes & Radio buttons', 'Toggle', 'Menu items',
+			'Buttons', 'Pagination', 'Tabs', 'Vertical menu', 'Checkboxes & Radio buttons', 'Toggle', 'Menu items',
 			'-',
 			'Inputs', 'Avatars', 'Chips', 'Tables', 'Breadcrumbs', 'Stepper / Progress', 'Accordions',
 			'-',
 			'Icons', 'Flags',
 		);
+	}
+
+	function esc_html($string) {
+		return $string;
+	}
+
+	function esc_attr($string) {
+		return $string;
 	}

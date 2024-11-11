@@ -48,12 +48,12 @@
 	*/
 
 	//Checks
-	if (!is_string($data['url']))																			throw new Exception('Data "url" must by type string.');
-	if (!is_int($data['pages']) OR $data['pages'] < 0)								throw new Exception('Data "pages" must by type integer and greater than 0.');
-	if (!is_int($data['page_current']) OR $data['page_current'] < 0)	throw new Exception('Data "page_current" must by type integer and greater than 0.');
-	if (!is_string($data['size']))																		throw new Exception('Data "size" must by type string.');
-	if (!is_int($data['range']) OR $data['range'] < 0)								throw new Exception('Data "range" must by type integer and greater than 0.');
-	if (!is_bool($data['show_arrows']))																throw new Exception('Data "show_arrows" must by type boolean.');
+	if (!is_string($data['url'])) throw new Exception('Data "url" must by type string.');
+	if (!is_int($data['pages']) OR $data['pages'] < 0) throw new Exception('Data "pages" must by type integer and greater than 0.');
+	if (!is_int($data['page_current']) OR $data['page_current'] < 0) throw new Exception('Data "page_current" must by type integer and greater than 0.');
+	if (!is_string($data['size'])) throw new Exception('Data "size" must by type string.');
+	if (!is_int($data['range']) OR $data['range'] < 0) throw new Exception('Data "range" must by type integer and greater than 0.');
+	if (!is_bool($data['show_arrows'])) throw new Exception('Data "show_arrows" must by type boolean.');
 
 	if( $data['size'] === 'small' ) {
 		$attributes["class"] .= $base_class . "--small";
@@ -99,12 +99,19 @@
 	}
 
 	foreach ($pagination as $page) {
-	?> 
-		<li<?php if ($page == $data['page_current']) echo ' class="active"'; elseif ($page == '...') echo ' class="dots"';?>>
+		
+		$li_class = '';
+		if ($page == $data['page_current']) {
+			$li_class = ' class="active"';
+		} elseif ($page == '...') {
+			$li_class = ' class="dots"';
+		}
+	?>
+		<li<?php echo $li_class ?>>
 			<?php if (is_int($page)) { ?>
 			<a href="<?php echo sprintf($data['url'], $page) ?>">
 			<?php } ?>
-				<?php echo $page ?>
+				<span><?php echo $page ?></span>
 			<?php if (is_int($page)) { ?>
 			</a>
 			<?php } ?>
