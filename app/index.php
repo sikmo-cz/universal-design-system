@@ -5,6 +5,8 @@
 	include APP_DIR . '/functions.php';
 
 	// preloading
+	$CL->preload( 'nav/pagination' );
+	
 	$CL->preload( 'input/text' );
 
 	$components = component_list();

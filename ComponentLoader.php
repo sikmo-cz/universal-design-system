@@ -198,6 +198,21 @@
 			return implode( ' ', $attr_strings );
 		}
 
+		
+		/**
+		 * Convert an array of classes to string separated by a space
+		 *
+		 * @param  array|string $classes
+		 * @return string
+		 */
+		public function render_classes( array|string $classes = array() ) {
+			if (is_array($classes)) {
+				return implode(" ", $classes);
+			}
+
+			return trim($classes);
+		}
+
 		/**
 		 * Retrieves a list of available icons from a specified icon set
 		 * 
