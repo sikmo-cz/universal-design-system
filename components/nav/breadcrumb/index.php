@@ -18,7 +18,6 @@
 	if( isset( $data['size'] ) && $data['size'] == 'small' ) {
 		$data['class'] .= "{$base_class}--small";
 	}
-
 ?>
 <ul class="<?php echo $base_class; ?>">
 	<li><a href="#">Domů</a></li>

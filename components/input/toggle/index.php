@@ -15,19 +15,9 @@
 		return false; // Bail if no data
 	}
 
-	$base_class = 'input-toggle';
-
-	if( isset( $data['size'] ) && $data['size'] == 'small' ) {
-		$data['class'] .= "{$base_class}--small";
-	}
-
-
+	$base_class = 'input-toggle input-toggle--small';
 ?>
 <div class="<?php echo $base_class; ?>">
-	Label text
-	<div>
-		<input type="checkbox">
-	</div>
-	<?php $ComponentLoader->load( 'forms/helper', [], true ); ?>
-
+	<input type="checkbox">
 </div>
+
