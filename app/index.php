@@ -4,6 +4,8 @@
 
 	include APP_DIR . '/functions.php';
 
+	$get_current_component_page = current_component_page();
+
 	// preloading
 	$CL->preload( 'nav/pagination' );
 	$CL->preload( 'nav/tab' );
@@ -35,7 +37,7 @@
 					<?php if( $component == '-' ) { ?>
 						<li class="spacer"></li>
 					<?php } else { ?>
-						<li><a href="#<?php echo slugify( $component ); ?>"><?php echo $component; ?></a></li>
+						<li><a href="/<?php echo slugify( $component ); ?>/"><?php echo $component; ?></a></li>
 					<?php } ?>
 				<?php } ?>
 				</ul>
@@ -49,7 +51,12 @@
 						if( $component == '-' || ! file_exists( APP_DIR . "/components/{$slug}.php" ) ) 
 						{
 							continue;
-						}						
+						}
+						
+						if( $slug != $get_current_component_page ) 
+						{
+							continue;
+						}
 				?>
 				<div class="component component--<?php echo $slug; ?> mb-4" id="<?php echo $slug; ?>">
 					<h2 class="super-heading"><?php echo $component; ?></h2>
