@@ -23,6 +23,8 @@
 		'text'          => '',
 		'image'         => '',
 	);
+
+	//TODO: mají i size, big a small
  
 	$data 			= is_array( $data ) ? array_merge( $defaults, $data ) : $defaults; // Merge provided data with defaults
 	$attributes = array(); //init
@@ -67,7 +69,7 @@ if (empty($data['href'])) {
 <?php
 }
 ?>
-	<?php echo esc_html($data['text']) ?>
+	<span><?php echo esc_html($data['text']) ?></span>
 	<img src='<?php echo esc_attr($data['image']) ?>' alt=''>
 <?php
 if (empty($data['href'])) {

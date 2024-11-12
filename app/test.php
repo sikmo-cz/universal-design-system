@@ -38,7 +38,7 @@ echo "============";
 $CL->load( 'util/avatars', [], true ); 
 
 
-echo "============";
+
 
 			// PAVLOVA UKÁZKA BUTTONŮ - ALE BUTTONU JSOU POTÉ AŽ V INPUTECH
 			// $CL->load( 'buttons/base', [], true );

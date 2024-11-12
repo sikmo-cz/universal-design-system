@@ -63,7 +63,7 @@
   ?>
   <li<?php echo $li_class ?>>
     <a href="<?php echo esc_attr($item["href"] ?? "#") ?>">
-      <?php echo esc_html($item["text"] ?? "") ?>
+		<?php $CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) ); ?> <?php echo esc_html($item["text"] ?? "") ?>
     </a>
   </li>
   <?php

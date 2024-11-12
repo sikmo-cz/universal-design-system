@@ -17,8 +17,8 @@
 
 	$type_class = "primary, secondary, tertiary, text, icon"; 
 ?>
-<a href="#" data-icon-before="" data-icon-after="" class="<?php echo $base_class; ?>">
+<a href="#" class="<?php echo $base_class; ?>">
 <!-- <button type="submit"> -->
-	Text
+	<?php $CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) ); ?> Text <?php $CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) ); ?>
 </a>
 <!-- </button> -->
