@@ -7,7 +7,7 @@ $demo_data = array(
     'text'         => 'h',
     'size'         => 'small',
     'image'        => 'https://www.w3schools.com/howto/img_avatar.png', 
-    'icon-before'=> 'icon',
+    'icon-before'  => 'icon',
     'color'        => 'primary-3'
 
 );

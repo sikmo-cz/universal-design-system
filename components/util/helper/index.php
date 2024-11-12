@@ -13,8 +13,52 @@
 		return false; // Bail if no data
 	}
 
-	$base_class = 'util-helper'; //--info, --warning, --danger, --success
+
+	// Default values
+	$defaults = array(
+		'class'         => '',
+		'id'            => '',
+		'attributes'    => array(),
+		'text'          => '',
+		'type'          => '',
+	);
+ 
+	$data 			= is_array( $data ) ? array_merge( $defaults, $data ) : $defaults; // Merge provided data with defaults
+	$attributes = array(); //init
+	$base_class = 'util-helper';
+
+	// Classes
+	$extra_classes = $ComponentLoader->render_classes( $data["class"] );
+	$attributes["class"] = !empty($extra_classes) ? $base_class . ' ' . $extra_classes : $base_class;
+
+	// Id
+	if (!empty($data["id"])) $attributes["id"] = strval( $data["id"] );
+
+	// Attributes
+	if ( is_array( $data[ 'attributes' ] ) ) {
+		$attributes = array_merge( $attributes, $data[ 'attributes' ] );
+	}
+
+	/*
+		=============================
+		===			SPECIFIC DATA			===
+		=============================
+	*/
+
+	//Checks
+	if (!is_string($data['text'])) throw new Exception('Data "text" must by type string.');
+	if (!is_string($data['type'])) throw new Exception('Data "type" must by type string.');
+
+	if ($data['type'] === "info") {
+		$attributes["class"] .= " " . $base_class . "--info";
+	} elseif ($data['type'] === "warning") {
+		$attributes["class"] .= " " . $base_class . "--warning";
+	} elseif ($data['type'] === "danger") {
+		$attributes["class"] .= " " . $base_class . "--danger";
+	} elseif ($data['type'] === "success") {
+		$attributes["class"] .= " " . $base_class . "--success";
+	}
 ?>
-<p class="<?php echo $base_class; ?>">
-	Loren ipsum
+<p <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
+	<?php echo esc_html($data['text']) ?>
 </p>

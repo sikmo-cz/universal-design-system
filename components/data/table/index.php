@@ -13,37 +13,59 @@
 		return false; // Bail if no data
 	}
 
-	$base_class = 'data-table data-table--small';
+
+	// Default values
+	$defaults = array(
+		'class'                   => '',
+		'id'                      => '',
+		'attributes'              => array(),
+		'first_row_is_table_head' => false,
+    'html_escape'             => true,
+		'data'                    => array(),
+	);
+ 
+	$data 			= is_array( $data ) ? array_merge( $defaults, $data ) : $defaults; // Merge provided data with defaults
+	$attributes = array(); //init
+	$base_class = 'data-table';
+
+	// Classes
+	$extra_classes = $ComponentLoader->render_classes( $data["class"] );
+	$attributes["class"] = !empty($extra_classes) ? $base_class . ' ' . $extra_classes : $base_class;
+
+	// Id
+	if (!empty($data["id"])) $attributes["id"] = strval( $data["id"] );
+
+	// Attributes
+	if ( is_array( $data[ 'attributes' ] ) ) {
+		$attributes = array_merge( $attributes, $data[ 'attributes' ] );
+	}
+
+	/*
+		=============================
+		===			SPECIFIC DATA			===
+		=============================
+	*/
+
+	//Checks
+	if (!is_array($data['data'])) throw new Exception('Data "data" must by type array.');
 ?>
 <div class="<?php echo $base_class; ?>">
-	<table class="<?php echo $base_class; ?>">
-		<tr>
-			<th>Created by</th>
-			<th>Date</th>
-			<th>Assigned</th>
-			<th>State</th>
-			<th>Actions</th>
-		</tr>
-		<tr>
-			<td>Data</td>
-			<td>Data</td>
-			<td>Data</td>
-			<td>Data</td>
-			<td>Data</td>
-		</tr>
-		<tr>
-			<td>Data</td>
-			<td>Data</td>
-			<td>Data</td>
-			<td>Data</td>
-			<td>Data</td>
-		</tr>
-		<tr>
-			<td>Data</td>
-			<td>Data</td>
-			<td>Data</td>
-			<td>Data</td>
-			<td>Data</td>
-		</tr>
+	<table>
+		<?php
+    $i = 0;
+    foreach ($data['data'] as $table_row) {
+      echo '<tr>';
+
+      foreach ($table_row as $table_cell) {
+        echo ($data['first_row_is_table_head'] && $i === 0 ? '<th>' : '<td>');
+          echo ($data['html_escape'] ? esc_html($table_cell) : $table_cell);
+        echo ($data['first_row_is_table_head'] && $i === 0 ? '</th>' : '</td>');
+      }
+      
+      echo '</tr>';
+
+      $i++;
+    }
+    ?>
 	</table>
 </div>

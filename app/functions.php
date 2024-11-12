@@ -14,10 +14,30 @@
 		return array(
 			'Typography', 'Colors', 'Styles',
 			'-',
-			'Buttons', 'Pagination', 'Tabs', 'Checkboxes & Radio buttons', 'Toggle', 'Menu items',
+			'Buttons', 'Pagination', 'Tabs', 'Vertical menu', 'Checkboxes & Radio buttons', 'Toggle', 'Menu items',
 			'-',
-			'Inputs', 'Avatars', 'Chips', 'Tables', 'Breadcrumbs', 'Stepper / Progress', 'Accordions',
+			'Inputs', 'Avatars', 'Chips', 'Tables', 'Breadcrumbs', 'Button group', 'Stepper / Progress', 'Accordions',
 			'-',
-			'Icons', 'Flags',
+			'Icons', 'Flags', 'Helper',
 		);
+	}
+
+	function esc_html($string) {
+		return htmlspecialchars($string); //TODO make it better
+	}
+
+	function esc_attr($string) {
+		return $string;
+	}
+
+	function current_component_page() {
+		// Remove leading/trailing slashes and split the URI by '/'
+		$segments = explode( '/', trim( $_SERVER[ 'REQUEST_URI' ], '/' ) );
+		
+		// Match only allowed characters (alphanumeric, hyphen, underscore)
+		if ( preg_match( '/^[a-zA-Z0-9_-]+$/', $segments[0] ) ) {
+			return $segments[0];
+		}
+		
+		return 'typography'; // Return default
 	}
