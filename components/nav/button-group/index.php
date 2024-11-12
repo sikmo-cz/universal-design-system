@@ -6,6 +6,8 @@
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
 
+	// Preload any components that this component relies on
+	$ComponentLoader->preload( 'util/icon' );
 
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;
@@ -21,6 +23,7 @@
 		'attributes'    => array(),
 		'size'          => '',
 		'items'         => array(),
+		'icon'          => '',
 	);
  
 	$data 			= is_array( $data ) ? array_merge( $defaults, $data ) : $defaults; // Merge provided data with defaults
@@ -52,6 +55,7 @@
 
 	//Checks
 	if (!is_array($data['items'])) throw new Exception('Data "items" must by type array.');
+	if (!is_string($data['icon'])) throw new Exception('Data "icon" must by type string.');
 ?>
 <ul <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
 	<?php
@@ -63,7 +67,11 @@
   ?>
   <li<?php echo $li_class ?>>
     <a href="<?php echo esc_attr($item["href"] ?? "#") ?>">
-		<?php $CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) ); ?> 
+		<?php
+		if (!empty($data['icon'])) {
+			$ComponentLoader->load( 'util/icon', array( 'name' => $data['icon'] ) );
+		}
+		?>
 		<?php echo esc_html($item["text"] ?? "") ?>
     </a>
   </li>

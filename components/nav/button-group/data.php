@@ -22,4 +22,5 @@ $demo_data = array(
       'text'         => 'Contact',
     ),
   ),
+  'icon'         => '3d-arc-center-pt', //(string default:'') icon name
 );

@@ -1,16 +1,16 @@
 <?php
 $demo_data =  array(
-	'id'    => 'checkbox-id',
-	'name'  => 'checkbox-name',
-	'extra-attr'   => 'data-special="custom-data"',
-	'class' => 'checkbox-custom-class',
-	'input-class' => 'checkbox-custom-class',
-	'text'  => 'label',
-	'size'         => 'small',
-	'type'         => 'text',
-	'helper-text'  => 'helper text',
-	'helper-type'  => 'info',
-	'value'		=> 'value',
-	'input-icon'	=> 'icon',
+  //Globals
+  'class'         => 'example-class example-class-2', //(string|array default:'') extra classes separated by a space OR classes in array
+  'id'            => 'id-textarea', //(string default:'')
+  'attributes'    => array("data-example" => "true"), //(array default:array()) Array with extra attributes
+  'size'          => '', //(string default:'') small / big / ''
 
+  //Specific
+	'label'         => 'My textarea', //(string default:'')
+  'name'          => 'textarea', //(string default:'') input name attribute
+  'value'         => '', //(string default:'') textarea default value
+  'input_attributes' => array("required" => "required"), //(array default:array()) Array with extra textarea attributes
+	'helper_text'   => 'Some informative text under textarea.', //(string default:'') Information helper text under input (Inherit from component util/helper)
+	'helper_type'   => '', //(string default:'') info / warning / danger / success / '' (Inherit from component util/helper)
 );

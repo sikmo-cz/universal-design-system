@@ -22,8 +22,15 @@
 	$CL->preload( 'util/helper' );
 	$CL->preload( 'util/chip' );
 
-
+	$CL->preload( 'input/button' );
+	$CL->preload( 'input/checkbox' );
+	$CL->preload( 'input/radio' );
+	$CL->preload( 'input/toggle' );
 	$CL->preload( 'input/text' );
+	$CL->preload( 'input/textarea' );
+	$CL->preload( 'input/select' );
+	$CL->preload( 'input/time' );
+	$CL->preload( 'input/date' );
 
 	$components = component_list();
 

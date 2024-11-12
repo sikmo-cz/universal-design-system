@@ -8,6 +8,7 @@ $demo_data = array(
 
   //Specific
   'caption'      => 'Dashboard', //(string default:'') menu headline
+  'icon'         => '3d-arc-center-pt', //(string default:'') icon name
   'items'        => array( //(array default:array()) Array with progress items
     array(
       'href'         => '#item1',

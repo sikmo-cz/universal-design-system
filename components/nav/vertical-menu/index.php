@@ -6,6 +6,8 @@
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
 
+	// Preload any components that this component relies on
+	$ComponentLoader->preload( 'util/icon' );
 
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;
@@ -19,6 +21,8 @@
 		'id'            => '',
 		'attributes'    => array(),
 		'size'          => '',
+		'caption'       => '',
+		'icon'          => '',
 		'items'         => array(),
 	);
  
@@ -50,6 +54,7 @@
 	*/
 
 	//Checks
+	if (!is_string($data['icon'])) throw new Exception('Data "icon" must by type string.');
 	if (!is_array($data['items'])) throw new Exception('Data "items" must by type array.');
 ?>
 <nav <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
@@ -70,7 +75,11 @@
 		?>
 		<li<?php echo $item_active_class ?>>
 			<a href="<?php echo esc_attr($item["href"] ?? "#") ?>">
-				<?php $CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) ); ?>
+				<?php
+				if (!empty($data['icon'])) {
+					$ComponentLoader->load( 'util/icon', array( 'name' => $data['icon'] ) );
+				}
+				?>
 				<?php echo esc_html($item["text"] ?? "") ?>
 			</a>
 			<?php
