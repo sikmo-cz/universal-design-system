@@ -14,8 +14,9 @@
 	& > p {
 		position: relative;
 		display: block;
-		color: var(--Colors-Dark-300, #8E8EA8);
 		@include typo-Caption();
+		color: var(--Colors-Dark-300, #8E8EA8);
+		
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
@@ -71,9 +72,10 @@
 			& > a {
 				display: block;
 				padding: var(--Radius-and-Spacing-s-m, 6px) var(--Radius-and-Spacing-m, 8px);
+				@include typo-ButtonLarge();
 				color: var(--Colors-Dark-200, #646482);
 				text-decoration: none;
-				@include typo-ButtonLarge();
+				
 				border-radius: var(--Radius-and-Spacing-s, 4px);
 
 				&:hover {

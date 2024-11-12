@@ -32,32 +32,13 @@
 		<div class="container">
 
 		<?php
-			$CL->load( 'util/icon', [], true );
-			$CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) );
-			$CL->load( 'util/flag', [], true );
 
-			$CL->load( 'nav/breadcrumb', [], true ); 
+echo "============";
 
-			$CL->load( 'input/checkbox', [], true );
-			$CL->load( 'input/toggle', [], true );
-			$CL->load( 'input/select', [], true );
-			$CL->load( 'input/text', [], true );
-			$CL->load( 'input/button', [], true );	
-			$CL->load( 'nav/button-group', [], true ); 
-			$CL->load( 'nav/pagination', [], true );
-			$CL->load( 'nav/vertical-menu', [], true ); 
-			$CL->load( 'util/chip', [], true ); 
-			$CL->load( 'nav/progress', [], true );
-			$CL->load( 'data/accordion', [], true );
+$CL->load( 'util/avatars', [], true ); 
 
-			echo "<br><br><br><br>";
-			echo "<br><br><br><br>";
-			echo "<br><br><br><br>";
-			echo "<br><br><br><br>";
-			echo "<br><br><br><br>";
-			echo "<br><br><br><br>";
-			echo "<br><br><br><br>";
-			echo "<br><br><br><br>";
+
+echo "============";
 
 			// PAVLOVA UKÁZKA BUTTONŮ - ALE BUTTONU JSOU POTÉ AŽ V INPUTECH
 			// $CL->load( 'buttons/base', [], true );

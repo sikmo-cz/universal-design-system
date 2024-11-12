@@ -18,7 +18,7 @@
 	$CL->preload( 'data/accordion' );
 
 	$CL->preload( 'util/avatar' );
-	//$CL->preload( 'util/avatars' ); //skipped, not finished yet by design
+	$CL->preload( 'util/avatars' );
 	$CL->preload( 'util/helper' );
 	$CL->preload( 'util/chip' );
 

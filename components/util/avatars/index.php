@@ -2,12 +2,15 @@
 	// Get the singleton instance of ComponentLoader
 	$ComponentLoader = ComponentLoader();
 
+	// Preload dependencies
+	$ComponentLoader->preload( 'util/avatar' );
+
 	// Register CSS/JS for this component (no need to specify full path)
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
 
-	// Preload dependencies
-	$ComponentLoader->preload( 'util/avatar' );
+	
+	
 
 
 	// Load the data ($args or $demo_data)
@@ -16,7 +19,7 @@
 		return false; // Bail if no data
 	}
 
-	$base_class = 'util-avatars util-avatars--small'; //util-avatars--small
+	$base_class = 'util-avatars'; //util-avatars--small
 ?>
 <ul class="<?php echo $base_class; ?>">
 	<?php
@@ -26,7 +29,7 @@
 			echo "</li>";
 		}
 	?>
-	<span >+3</span>
+	<span>+3</span>
 </ul>
 
 
