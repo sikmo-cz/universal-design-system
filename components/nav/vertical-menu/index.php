@@ -18,19 +18,21 @@
 <nav class="<?php echo $base_class; ?>">
 	<p>Dashboard</p>
 	<ul>
+		<li><a href="#">Položka</a></li>
 		<?php for ($i=0; $i < 3; $i++) { ?> 
 				<li class="active">
 					<a href="#">
 						Item
 					</a>
+					<button></button>
 					
 					<ul>
-						<?php for ($i=0; $i < 3; $i++) {  ?>
-									<li class="active">
-										<a href="#">
-											Submenu
-										</a>
-									</li>
+						<?php for ($ii=0; $ii < 3; $ii++) {  ?>
+								<li class="active">
+									<a href="#">
+										Submenu
+									</a>
+								</li>
 						<?php } ?>	
 					</ul>
 
