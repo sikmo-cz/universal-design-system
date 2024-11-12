@@ -17,6 +17,7 @@
 		'class'         => '',
 		'id'            => '',
 		'attributes'    => array(),
+		'size'          => '',
 		'items'         => array(),
 	);
  
@@ -27,6 +28,11 @@
 	// Classes
 	$extra_classes = $ComponentLoader->render_classes( $data["class"] );
 	$attributes["class"] = !empty($extra_classes) ? $base_class . ' ' . $extra_classes : $base_class;
+
+	// Class size
+	if (in_array($data['size'], array("small", "big"), true)) {
+		$attributes["class"] .= " " . $base_class . "--" . $data['size'];
+	}
 
 	// Id
 	if (!empty($data["id"])) $attributes["id"] = strval( $data["id"] );

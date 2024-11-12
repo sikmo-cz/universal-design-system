@@ -18,9 +18,9 @@
 		'class'         => '',
 		'id'            => '',
 		'attributes'    => array(),
+		'size'          => '',
 		'href'          => '',
 		'text'          => '',
-		'size'          => '',
 		'image'         => '',
 	);
  
@@ -31,6 +31,11 @@
 	// Classes
 	$extra_classes = $ComponentLoader->render_classes( $data["class"] );
 	$attributes["class"] = !empty($extra_classes) ? $base_class . ' ' . $extra_classes : $base_class;
+
+	// Class size
+	if (in_array($data['size'], array("small", "big"), true)) {
+		$attributes["class"] .= " " . $base_class . "--" . $data['size'];
+	}
 
 	// Id
 	if (!empty($data["id"])) $attributes["id"] = strval( $data["id"] );
@@ -49,15 +54,7 @@
 	//Checks
 	if (!is_string($data['href'])) throw new Exception('Data "href" must by type string.');
 	if (!is_string($data['text'])) throw new Exception('Data "text" must by type string.');
-	if (!is_string($data['size'])) throw new Exception('Data "size" must by type string.');
 	if (!is_string($data['image'])) throw new Exception('Data "image" must by type string.');
-
-	if ($data['size'] === "small") {
-		$attributes["class"] .= " " . $base_class . "--small";
-	}
-	if ($data['size'] === "big") {
-		$attributes["class"] .= " " . $base_class . "--big";
-	}
 ?>
 <?php
 if (empty($data['href'])) {

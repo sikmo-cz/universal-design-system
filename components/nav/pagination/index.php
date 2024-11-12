@@ -17,10 +17,10 @@
 		'class'         => '',
 		'id'            => '',
 		'attributes'    => array(),
+		'size'          => '',
 		'url'           => '?page=%d',
 		'pages'         => 0,
 		'page_current'  => 0,
-		'size'          => '',
 		'range'         => 2,
 		'show_arrows'   => true,
 	);
@@ -32,6 +32,11 @@
 	// Classes
 	$extra_classes = $ComponentLoader->render_classes( $data["class"] );
 	$attributes["class"] = !empty($extra_classes) ? $base_class . ' ' . $extra_classes : $base_class;
+
+	// Class size
+	if (in_array($data['size'], array("small", "big"), true)) {
+		$attributes["class"] .= " " . $base_class . "--" . $data['size'];
+	}
 
 	// Id
 	if (!empty($data["id"])) $attributes["id"] = strval( $data["id"] );
@@ -51,13 +56,8 @@
 	if (!is_string($data['url'])) throw new Exception('Data "url" must by type string.');
 	if (!is_int($data['pages']) OR $data['pages'] < 0) throw new Exception('Data "pages" must by type integer and greater than 0.');
 	if (!is_int($data['page_current']) OR $data['page_current'] < 0) throw new Exception('Data "page_current" must by type integer and greater than 0.');
-	if (!is_string($data['size'])) throw new Exception('Data "size" must by type string.');
 	if (!is_int($data['range']) OR $data['range'] < 0) throw new Exception('Data "range" must by type integer and greater than 0.');
 	if (!is_bool($data['show_arrows'])) throw new Exception('Data "show_arrows" must by type boolean.');
-
-	if( $data['size'] === 'small' ) {
-		$attributes["class"] .= $base_class . "--small";
-	}
 
 	//Prepare pagination
 	$pagination = [];

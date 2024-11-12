@@ -4,6 +4,7 @@ $demo_data = array(
   'class'         => 'example-class example-class-2', //(string|array default:'') extra classes separated by a space OR classes in array
   'id'            => 'id-progress', //(string default:'')
   'attributes'    => array("data-example" => "true"), //(array default:array()) Array with extra attributes
+  'size'          => '', //(string default:'') small / big / ''
 
   //Specific
   'items'        => array( //(array default:array()) Array with progress items
