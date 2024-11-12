@@ -2,16 +2,12 @@
 	// Get the singleton instance of ComponentLoader
 	$ComponentLoader = ComponentLoader();
 
-	// Preload dependencies
-	$ComponentLoader->preload( 'util/avatar' );
-
 	// Register CSS/JS for this component (no need to specify full path)
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
 
-	
-	
-
+	// Preload dependencies
+	$ComponentLoader->preload( 'util/avatar' );
 
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;
