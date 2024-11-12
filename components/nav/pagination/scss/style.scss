@@ -66,7 +66,7 @@
 			content: "";
 		}
 	}
-	&__next a {
+	.nav-pagination__next a {
 		&:after {
 			@include icon('nav-arrow-right');
 		}
