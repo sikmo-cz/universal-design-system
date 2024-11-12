@@ -2,6 +2,8 @@
 	// Get the singleton instance of ComponentLoader
 	$ComponentLoader = ComponentLoader();
 
+	$component_folder_uri = $ComponentLoader->get_component_folder_uri();
+
 	// Register CSS/JS for this component (no need to specify full path)
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
@@ -57,6 +59,10 @@
 	if (!is_string($data['href'])) throw new Exception('Data "href" must by type string.');
 	if (!is_string($data['text'])) throw new Exception('Data "text" must by type string.');
 	if (!is_string($data['image'])) throw new Exception('Data "image" must by type string.');
+
+	if (empty($data['image']) AND empty($data['text'])) {
+		$data['image'] = $component_folder_uri . "/img/avatar_default.png";
+	}
 ?>
 <?php
 if (empty($data['href'])) {
@@ -70,7 +76,13 @@ if (empty($data['href'])) {
 }
 ?>
 	<span><?php echo esc_html($data['text']) ?></span>
-	<img src='<?php echo esc_attr($data['image']) ?>' alt=''>
+	<?php
+	if (!empty($data['image'])) {
+	?>
+	<img src="<?php echo esc_attr($data['image']) ?>" alt="">
+	<?php
+	}
+	?>
 <?php
 if (empty($data['href'])) {
 ?>

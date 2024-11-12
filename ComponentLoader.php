@@ -119,6 +119,16 @@
 
 			$this->dependece_loading = false;
 		}
+		
+		/**
+		 * Return URI folder for current component
+		 *
+		 * @return string URI
+		 */
+		public function get_component_folder_uri() 
+		{
+			return "/components/{$this->current_component}";
+		}
 
 		/**
 		 * Registers a CSS file for the current component
