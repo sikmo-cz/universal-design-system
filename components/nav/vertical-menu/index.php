@@ -70,6 +70,7 @@
 		?>
 		<li<?php echo $item_active_class ?>>
 			<a href="<?php echo esc_attr($item["href"] ?? "#") ?>">
+				<?php $CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) ); ?>
 				<?php echo esc_html($item["text"] ?? "") ?>
 			</a>
 			<?php

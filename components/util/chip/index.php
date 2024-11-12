@@ -78,7 +78,7 @@ if (empty($data['href'])) {
 <?php
 }
 ?>
-
+	<?php $CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) ); ?>
 	<?php echo esc_html($data['text']) ?>
 	<!-- <img src='<?php echo esc_html($data['text']) ?>' alt=''> -->
 

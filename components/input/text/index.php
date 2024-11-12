@@ -20,7 +20,8 @@
 ?>
 <label class="<?php echo $base_class; ?>">
 	<span>Label</span>
-	<div data-icon-before="">
+	<div>
+		<?php $CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) ); ?>
 		<input type="text">
 	</div>
 
