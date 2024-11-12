@@ -31,6 +31,42 @@
 
 		& > li {
 			flex: 1;
+
+			&:has( ul ) {
+				position: relative;
+
+				button {
+					position: absolute;
+					right: 0;
+					width: rem( 30px );
+					top: 0;
+					bottom: 0;
+					height: 100%;
+					background-color: transparent;
+					font-size: 0;
+					border-radius: var(--Radius-and-Spacing-s, 4px);
+					cursor: pointer;
+
+					&:hover {
+						background: var(--Colors-Purple-1000, #F4F4FF);
+					}
+					&:after {
+						position: absolute;
+						right: 50%;
+						left: 50%;
+						transform: translate(-50%, -50%);
+						
+						width: 14px;
+						height: 14px;
+			
+						color: var(--Colors-Primary-3, #30303E);
+			
+						@include icon('nav-arrow-down');
+				
+						content: "";
+					}
+				}
+			}
 			
 			& > a {
 				display: block;
@@ -48,12 +84,18 @@
 
 			ul {
 				padding-left: var(--Radius-and-Spacing-s-m, 6px);
+				display: none;
+			}
+
+			&.open {
+				ul {
+					display: block;
+				}
 			}
 		}
 	}
 
 	li {
 		list-style-type: none;
-
 	}
 }

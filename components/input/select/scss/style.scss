@@ -11,7 +11,6 @@
 	}
 
 	.custom-select { 
-		background-color: red;
 		position: relative; 
 		padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
 		border-radius: var(--Radius-and-Spacing-s, 4px);
@@ -21,6 +20,22 @@
 		@include typo-ButtonLarge();
 		width: 100%;
 		cursor: pointer;
+
+		&:after {
+			position: absolute;
+			right: var(--Radius-and-Spacing-m-l, 12px);
+			top: 50%;
+			transform: translateY(-50%);
+			width: 14px;
+			height: 14px;
+
+			color: var(--Colors-Dark-200, #646482);;
+
+	
+			@include icon('nav-arrow-down');
+	
+			content: "";
+		}
 	}
 	.options-container { 
 		position: absolute; 
@@ -36,6 +51,7 @@
 		align-items: flex-start;
 		gap: var(--Radius-and-Spacing-xs, 2px);
 		box-shadow: var( --Shadow-Level-1 );
+		margin-top: var(--Radius-and-Spacing-s, 4px);
 		
 
 		.search-input {
@@ -44,6 +60,23 @@
 			width: 100%;
 			@include typo-ButtonLarge();
 			padding: var(--Radius-and-Spacing-l, 8px) var(--Radius-and-Spacing-m-l, 12px);
+			
+		}
+
+		&:after {
+			position: absolute;
+			right: calc( var(--Radius-and-Spacing-m-l, 12px) + var(--Radius-and-Spacing-m, 12px) );
+			top: 32px;
+			transform: translateY(-50%);
+			width: 24px;
+			height: 24px;
+
+			color: var(--Colors-Dark-200, #646482);;
+
+	
+			@include icon('search');
+	
+			content: "";
 		}
 	}
 
@@ -55,6 +88,7 @@
 	.hidden { display: none; }
 
 	.option-item { 
+		position: relative;
 		cursor: pointer;
 		display: flex;
 		gap: var(--Radius-and-Spacing-m-l, 12px);
@@ -90,6 +124,17 @@
 				content: "";
 			}
 
+			&:after {
+				position: absolute;
+				left: 24px;
+				top: 13px;
+				color: white;
+				@include icon('check');
+				content: "";
+				width: 10px;
+				height: 10px;
+			}
+
 			&.selected {
 				&:before {
 					background-color: var(--Colors-Primary-1, #655BFF);
@@ -101,6 +146,10 @@
 	[data-searchSelect="true"] {
 		.search-input {
 			display: none;
+		}
+
+		.options-container:after {
+			display: none;;
 		}
 	}
 }

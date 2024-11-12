@@ -57,8 +57,25 @@
 		}
 
 		& a.done span {
+			position: relative;
 			background: var(--Colors-Dark-300, #8E8EA8);
 			font-size: 0;
+
+			&:after {
+				position: absolute;
+
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 14px;
+				height: 14px;
+	
+				color: var(--Colors-Primary-2, #30303E);
+	
+				@include icon('check');
+		
+				content: "";
+			}
 		}
 
 		& a.innactive span {

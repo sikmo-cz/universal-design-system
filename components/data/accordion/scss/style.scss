@@ -18,6 +18,7 @@
 			flex-flow: column;
 			gap:  var(--Radius-and-Spacing-xl, 24px);
 			summary {
+				position: relative;
 				cursor: pointer;
 				@include typo-H2();
 				list-style-type: none; 
@@ -25,6 +26,28 @@
 
 				&::-webkit-details-marker {
 					display: none;
+				}
+
+				&:after {
+					position: absolute;
+					right: var(--Radius-and-Spacing-m-l, 12px);
+					top: 50%;
+					transform: translateY(-50%);
+					
+					width: 24px;
+					height: 24px;
+		
+					color: var(--Colors-Primary-3, #30303E);
+		
+					@include icon('plus');
+			
+					content: "";
+				}
+			}
+
+			&[open] {
+				summary:after {
+					@include icon('minus');
 				}
 			}
 
