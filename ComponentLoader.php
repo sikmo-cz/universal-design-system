@@ -102,6 +102,16 @@
 
 			return true;
 		}
+
+		/**
+		 * Return URI folder for the design system root
+		 *
+		 * @return string URI
+		 */
+		public function get_design_system_folder_uri() 
+		{
+			return self::$base_uri;
+		}
 		
 		/**
 		 * Return URI folder for current component
