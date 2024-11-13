@@ -7,8 +7,8 @@
 	$ComponentLoader->register_js( 'script' );
 
 	// Preload any components that this component relies on
-	$ComponentLoader->preload( 'util/icon' );
-	$ComponentLoader->preload( 'forms/helper' );
+	//$ComponentLoader->preload( 'util/icon' );
+	//$ComponentLoader->preload( 'forms/helper' );
 
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;

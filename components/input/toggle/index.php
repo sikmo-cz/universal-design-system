@@ -6,7 +6,7 @@
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
 
-	$ComponentLoader->preload( 'forms/helper' );
+	//$ComponentLoader->preload( 'forms/helper' );
 
 
 	// Load the data ($args or $demo_data)

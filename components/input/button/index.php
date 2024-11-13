@@ -7,7 +7,7 @@
 	$ComponentLoader->register_js( 'script' );
 
 	// Preload dependencies
-	$ComponentLoader->preload( 'util/icon' );
+	//$ComponentLoader->preload( 'util/icon' );
 
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;

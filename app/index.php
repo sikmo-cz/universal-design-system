@@ -1,4 +1,5 @@
 <?php	
+	$script_start_time = microtime(true);
 
 	define( 'APP_DIR', __DIR__ );
 
@@ -6,6 +7,7 @@
 
 	$get_current_component_page = current_component_page();
 
+	/*
 	// preloading
 	$CL->preload( 'nav/pagination' );
 	$CL->preload( 'nav/tab' );
@@ -31,10 +33,12 @@
 	$CL->preload( 'input/select' );
 	$CL->preload( 'input/time' );
 	$CL->preload( 'input/date' );
+	*/
 
 	$components = component_list();
 
-	include 'header.php';
+	//Starts output buffering before first echo
+	ob_start();
 ?>
 	<main class="container pt-4">
 		<div class="row">
@@ -76,5 +80,11 @@
 		</div>
 	</main>
 <?php
+	$output = ob_get_clean(); //End output buffering
 
+	include 'header.php';
+	echo $output; //Echo output buffering (whole HTML)
 	include 'footer.php';
+
+	$script_end_time = microtime(true);
+	print("Execution time:" . $script_end_time - $script_start_time . " seconds");
