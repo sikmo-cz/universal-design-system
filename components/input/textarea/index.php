@@ -77,7 +77,7 @@
 	}
 	?>
 	<div>
-		<textarea <?php echo $ComponentLoader->render_attributes( $input_attributes ); ?>><?php echo esc_textarea($data['value']) ?></textarea>
+		<textarea <?php echo $ComponentLoader->render_attributes( $input_attributes ); ?>><?php echo esc_html($data['value']) ?></textarea>
 	</div>
 	<?php
 	if (!empty($data['helper_text'])) {

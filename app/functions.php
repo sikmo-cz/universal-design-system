@@ -1,5 +1,4 @@
 <?php
-
 	function slugify( string $string ) {
 		// Remove non-alphanumeric characters, except for hyphens
 		$string = preg_replace( '/[^a-zA-Z0-9- ]/', '', $string );
@@ -20,22 +19,6 @@
 			'-',
 			'Icons', 'Flags', 'Helper',
 		);
-	}
-
-	function esc_html($string) {
-		return htmlspecialchars($string); //TODO make it better
-	}
-
-	function esc_attr($string) {
-		return $string; //TODO
-	}
-
-	function esc_textarea($string) {
-		return $string; //TODO
-	}
-
-	function __($string) {
-		return $string; //TODO
 	}
 
 	function current_component_page() {

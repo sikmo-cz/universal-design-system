@@ -286,3 +286,29 @@
 	{
 		return ComponentLoader::get_instance();
 	}
+
+	if (!function_exists('esc_html')) {
+		function esc_html($string) {
+			if (is_int($string) || is_float($string)) {
+				return $string;
+			}
+
+			return htmlspecialchars($string, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+		}
+	}
+
+	if (!function_exists('esc_attr')) {
+		function esc_attr($string) {
+			if (is_int($string) || is_float($string)) {
+				return $string;
+			}
+
+			return htmlspecialchars( $string, ENT_QUOTES | ENT_HTML5, 'UTF-8', false );
+		}
+	}
+
+	if (!function_exists('__')) {
+		function __($string, $domain = '') {
+			return $string;
+		}
+	}
