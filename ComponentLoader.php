@@ -14,6 +14,9 @@
 		/** @var ComponentLoader|null Singleton instance of the class */
 		private static $instance = null;
 
+		/** @var string Base uri */
+		private static $base_uri = '';
+
 		/** @var string Base file system path for component operations */
 		private $base_path = '';
 		
@@ -44,11 +47,17 @@
 		 * 
 		 * @return ComponentLoader The single instance of ComponentLoader.
 		 */
-		public static function get_instance() 
+		public static function get_instance($app_root_path = '') 
 		{
 			if (self::$instance === null) 
 			{
 				self::$instance = new ComponentLoader();
+
+				//set base uri
+				if (empty($app_root_path)) $app_root_path = __DIR__;
+				$base_uri = str_replace($app_root_path, "", __DIR__); //difference from this instance class
+
+				self::$base_uri = $base_uri;
 			}
 
 			return self::$instance;
@@ -101,7 +110,7 @@
 		 */
 		public function get_component_folder_uri() 
 		{
-			return "/components/{$this->current_component}";
+			return self::$base_uri . "/components/{$this->current_component}";
 		}
 
 		/**
@@ -111,7 +120,7 @@
 		 */
 		public function register_css( string $css_file ) 
 		{
-			$css_path = "/components/{$this->current_component}/dist/{$css_file}.css";
+			$css_path = $this->get_component_folder_uri() . "/dist/{$css_file}.css";
 
 			if ( ! in_array( $css_path, $this->css_files ) ) 
 			{
@@ -130,7 +139,7 @@
 		 */
 		public function register_js( string $js_file ) 
 		{
-			$js_path = "/components/{$this->current_component}/js/{$js_file}.js";
+			$js_path = $this->get_component_folder_uri() . "/js/{$js_file}.js";
 
 			if( ! in_array( $js_path, $this->js_files ) ) 
 			{
@@ -282,9 +291,9 @@
 	 * 
 	 * @return ComponentLoader Singleton instance of ComponentLoader
 	 */
-	function ComponentLoader() 
+	function ComponentLoader($app_root_path = '')
 	{
-		return ComponentLoader::get_instance();
+		return ComponentLoader::get_instance( $app_root_path );
 	}
 
 	if (!function_exists('esc_html')) {

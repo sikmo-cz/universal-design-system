@@ -3,7 +3,7 @@
 	include 'ComponentLoader.php';
 
 	// Get the singleton instance of ComponentLoader
-	$CL = ComponentLoader();
+	$CL = ComponentLoader( __DIR__ );
 
 	// maybe prepare icon set
 	$CL->maybe_prepare_icon_set( 'icons' );
