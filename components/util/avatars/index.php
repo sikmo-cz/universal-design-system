@@ -6,9 +6,6 @@
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
 
-	// Preload dependencies
-	//$ComponentLoader->preload( 'util/avatar' );
-
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;
 	if ( empty( $data ) ) {

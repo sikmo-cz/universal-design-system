@@ -5,9 +5,6 @@
 	// Register CSS/JS for this component (no need to specify full path)
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
-
-	// Preload any components that this component relies on
-	//$ComponentLoader->preload( 'input/select' );
 	
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;

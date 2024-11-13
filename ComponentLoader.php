@@ -93,32 +93,6 @@
 
 			return true;
 		}
-
-		/**
-		 * Preloads a component without additional processing
-		 * 
-		 * @param string $component_path Path to the component to preload
-		 */
-		public function preload( string $component_path ) 
-		{
-			$this->load( $component_path );
-		}
-
-		/**
-		 * Prepares and loads multiple component dependencies
-		 * 
-		 * @param array $dependence_list List of component paths to load as dependencies
-		 */
-		public function prepare_dependencies( array $dependence_list = array() ) 
-		{
-			foreach( (array) $dependence_list as $component_path ) 
-			{
-				$this->dependece_loading = true;
-				$this->preload( $component_path );
-			}
-
-			$this->dependece_loading = false;
-		}
 		
 		/**
 		 * Return URI folder for current component

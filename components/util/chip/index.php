@@ -6,9 +6,6 @@
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
 
-	// Preload any components that this component relies on
-	//$ComponentLoader->preload( 'util/icon' );
-
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;
 	if ( empty( $data ) ) {

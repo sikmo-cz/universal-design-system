@@ -7,34 +7,6 @@
 
 	$get_current_component_page = current_component_page();
 
-	/*
-	// preloading
-	$CL->preload( 'nav/pagination' );
-	$CL->preload( 'nav/tab' );
-	$CL->preload( 'nav/progress' );
-	$CL->preload( 'nav/vertical-menu' );
-	$CL->preload( 'nav/breadcrumb' );
-	$CL->preload( 'nav/button-group' );
-
-	$CL->preload( 'data/table' );
-	$CL->preload( 'data/accordion' );
-
-	$CL->preload( 'util/avatar' );
-	$CL->preload( 'util/avatars' );
-	$CL->preload( 'util/helper' );
-	$CL->preload( 'util/chip' );
-
-	$CL->preload( 'input/button' );
-	$CL->preload( 'input/checkbox' );
-	$CL->preload( 'input/radio' );
-	$CL->preload( 'input/toggle' );
-	$CL->preload( 'input/text' );
-	$CL->preload( 'input/textarea' );
-	$CL->preload( 'input/select' );
-	$CL->preload( 'input/time' );
-	$CL->preload( 'input/date' );
-	*/
-
 	$components = component_list();
 
 	//Starts output buffering before first echo
