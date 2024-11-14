@@ -96,3 +96,9 @@
   .container>footer .footer-buttons>button.apply-button:disabled {
     opacity: 0.4;
   }
+
+  .container:not( .range-plugin ){
+    .calendar>.days-grid>.day.selected:after {
+      display: none !important;
+    }
+  }

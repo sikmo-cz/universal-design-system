@@ -126,13 +126,13 @@
 
 			&:after {
 				position: absolute;
-				left: 24px;
+				left: 16px;
 				top: 13px;
 				color: white;
 				@include icon('check');
 				content: "";
-				width: 10px;
-				height: 10px;
+				width: 12px;
+				height: 12px;
 			}
 
 			&.selected {

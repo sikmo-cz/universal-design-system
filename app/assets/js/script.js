@@ -8,18 +8,20 @@ function filterIcons() {
     const icons = document.querySelectorAll( '.component--icons [data-icon]' );
 
     // Event listener for typing into the input field
-    input.addEventListener('input', function() {
-        const filterText = input.value.trim().toLowerCase();
+    if( input ) {
+        input.addEventListener('input', function() {
+            const filterText = input.value.trim().toLowerCase();
 
-        // Loop through each icon and filter based on input text
-        icons.forEach(icon => {
-            const iconName = icon.getAttribute('data-icon').toLowerCase();
+            // Loop through each icon and filter based on input text
+            icons.forEach(icon => {
+                const iconName = icon.getAttribute('data-icon').toLowerCase();
 
-            if (filterText === '' || iconName.includes(filterText)) {
-                icon.parentElement.style.display = ''; // Show icon
-            } else {
-                icon.parentElement.style.display = 'none'; // Hide icon
-            }
+                if (filterText === '' || iconName.includes(filterText)) {
+                    icon.parentElement.style.display = ''; // Show icon
+                } else {
+                    icon.parentElement.style.display = 'none'; // Hide icon
+                }
+            });
         });
-    });
+    }
 }

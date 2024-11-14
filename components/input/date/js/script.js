@@ -15,24 +15,32 @@ document.addEventListener("DOMContentLoaded", function () {
             ],
             zIndex: 10,
             lang: 'cs',
-            minDate:"2025-11-08",
-            startDate:"2025-11-08",
             autoApply: false,
+            
             locale: {
                 nextMonth: '<svg class="d-block" width="24" height="24"><use href="/dist/images/icons-sprite.svg#nav-arrow-right"></svg>',
                 previousMonth: '<svg class="d-block" width="24" height="24"><use href="/dist/images/icons-sprite.svg#nav-arrow-left"></svg>',
                 cancel: 'Zrušit',
                 apply: 'Nastavit'
                 },
-            plugins: range ? ["RangePlugin"] : [],
-            RangePlugin: range ? { repick: true } : null
+            plugins: ["RangePlugin", "LockPlugin"],
+            RangePlugin: {
+                "repick": true
+            },
+            plugins: ['LockPlugin'],
+            LockPlugin: {
+            //  minDate: new Date(),
+            },
         };
 
-        console.log( minDate, maxDate, startDate, endDate); ;
+        // console.log( minDate, maxDate, startDate, endDate); ;
         if (minDate) pickerConfig.minDate = minDate;
         if (maxDate) pickerConfig.maxDate = maxDate;
+        if (minDate) pickerConfig.LockPlugin.minDate = minDate;
+        if (maxDate) pickerConfig.LockPlugin.maxDate = maxDate;
+        if (startDate) pickerConfig.RangePlugin.startDate = startDate;
         if (startDate) pickerConfig.startDate = startDate;
-        if (range && endDate) pickerConfig.endDate = endDate;
+        if (range && endDate) pickerConfig.RangePlugin.endDate = endDate;
 
         console.log( pickerConfig )
         new easepick.create(pickerConfig);
