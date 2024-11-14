@@ -122,7 +122,7 @@
 	$next_page = $data['page_current'] + 1;
 	if ($data['show_arrows'] AND $next_page <= $data['pages']) {
 	?>
-		<li class="<?php echo $base_class; ?>__prev"><a href="<?php echo sprintf($data['url'], $next_page) ?>">next</a></li>
+		<li class="<?php echo $base_class; ?>__next"><a href="<?php echo sprintf($data['url'], $next_page) ?>">next</a></li>
 	<?php
 	}
 	?>

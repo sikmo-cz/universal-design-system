@@ -6,7 +6,6 @@
 	$ComponentLoader->register_css( 'style' );
 	$ComponentLoader->register_js( 'script' );
 
-
 	// Load the data ($args or $demo_data)
 	$data = $demo ? $demo_data : $args;
 	if ( empty( $data ) ) {
@@ -23,6 +22,7 @@
 		'href'					=> '',
 		'text'          => '',
 		'type'          => '',
+		'icon'          => '',
 	);
  
 	$data 			= is_array( $data ) ? array_merge( $defaults, $data ) : $defaults; // Merge provided data with defaults
@@ -53,8 +53,10 @@
 	*/
 
 	//Checks
+	if (!is_string($data['href'])) throw new Exception('Data "href" must by type string.');
 	if (!is_string($data['text'])) throw new Exception('Data "text" must by type string.');
 	if (!is_string($data['type'])) throw new Exception('Data "type" must by type string.');
+	if (!is_string($data['icon'])) throw new Exception('Data "icon" must by type string.');
 
 	if ($data['type'] === "info") {
 		$attributes["class"] .= " " . $base_class . "--info";
@@ -78,7 +80,11 @@ if (empty($data['href'])) {
 <?php
 }
 ?>
-	<?php $CL->load( 'util/icon', array( 'name' => '3d-arc-center-pt' ) ); ?>
+	<?php
+	if (!empty($data['icon'])) {
+		$ComponentLoader->load( 'util/icon', array( 'name' => $data['icon'] ) );
+	}
+	?>
 	<?php echo esc_html($data['text']) ?>
 	<!-- <img src='<?php echo esc_html($data['text']) ?>' alt=''> -->
 

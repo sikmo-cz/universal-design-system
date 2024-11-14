@@ -14,5 +14,5 @@
 	$title 	= $data[ 'title' ] ?? '';
 ?>
 <svg width="24" height="17" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>">
-	<use href="/dist/images/flags-sprite.svg#<?php echo $data[ 'name' ]; ?>">
+	<use href="<?php echo $ComponentLoader->get_design_system_folder_uri() ?>/dist/images/flags-sprite.svg#<?php echo $data[ 'name' ]; ?>">
 </svg>
