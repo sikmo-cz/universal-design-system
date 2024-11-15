@@ -285,9 +285,13 @@
 				$svg_content = preg_replace('/\s{2,}/', ' ', $svg_content ); // Remove excess whitespace
 				$svg_content = preg_replace('/<!--.*?-->/', '', $svg_content ); // Remove comments
 				$svg_content = preg_replace('/\n/', '', $svg_content ); // Remove all newline characters
+
+				if( $icon_set == 'icons' ) {
+					$svg_content = str_replace( 'fill="black"', 'fill="currentColor"', $svg_content ); // Remove all newline characters
+				}
 			
 				// Add cleaned-up SVG content to sprite
-				$sprite_content .= '<g id="'. $file_id .'">'. $svg_content .'</g>';
+				$sprite_content .= '<symbol id="'. $file_id .'" viewBox="0 0 24 24">'. $svg_content .'</symbol>';
 			}
 			
 			$sprite_content .= "</svg>";

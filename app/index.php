@@ -1,5 +1,5 @@
 <?php	
-	$script_start_time = microtime(true);
+	// $script_start_time = microtime(true);
 
 	define( 'APP_DIR', __DIR__ );
 
@@ -58,5 +58,5 @@
 	echo $output; //Echo output buffering (whole HTML)
 	include 'footer.php';
 
-	$script_end_time = microtime(true);
-	print("Execution time:" . $script_end_time - $script_start_time . " seconds");
+	// $script_end_time = microtime(true);
+	// print("Execution time:" . $script_end_time - $script_start_time . " seconds");
