@@ -18,6 +18,7 @@
 	
 		&.input-button--small {
 			@include typo-ButtonSmall();
+			color: var(--Colors-Primary-2, #FFF);
 			padding: var(--Radius-and-Spacing-s, 4px) var(--Radius-and-Spacing-s-m, 6px);
 			gap: var(--Radius-and-Spacing-xs, 2px);
 		}
@@ -27,12 +28,20 @@
 		color: var(--Colors-Primary-3, #30303E);
 		border: 1px solid var(--Colors-Primary-4, #DBDBE4);
 		background: var(--Colors-Primary-2, #FFF);
+
+		&.input-button--small {
+			color: var(--Colors-Primary-3, #30303E);
+		}
 	}
 
 	&--tertiary {
 		color: var(--Colors-Primary-3, #30303E);
 		border: 1px solid var(--Colors-Primary-4, #DBDBE4);
 		background: transparent;
+
+		&.input-button--small {
+			color: var(--Colors-Primary-3, #30303E);
+		}
 	}
 
 	&--icon {
@@ -47,11 +56,10 @@
 		color: var(--Colors-Primary-3, #30303E);
 		border: 0;
 		cursor: pointer;
-		
-		//TODO: ikonky
 	
 		&.input-button--small {
 			@include typo-ButtonSmall();
+			color: var(--Colors-Primary-3, #30303E);
 			padding: var(--Radius-and-Spacing-xs, 2px);
 			gap: var(--Radius-and-Spacing-xs, 2px);
 		}
@@ -69,10 +77,8 @@
 		background: transparent;
 		border: 0;
 		cursor: pointer;
-		
-		//TODO: ikonky
 	
-		&--small {
+		&.input-button--small  {
 			@include typo-ButtonSmall();
 			padding: var(--Radius-and-Spacing-xs, 2px);
 			gap: var(--Radius-and-Spacing-xs, 2px);
