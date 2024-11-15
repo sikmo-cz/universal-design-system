@@ -96,6 +96,79 @@
     }
   }
 
+
+  @mixin generate-spacing-utilities {
+    @each $name, $value in $radii {
+      // Padding
+      .p-#{$name} { padding: $value !important; }
+      .pt-#{$name} { padding-top: $value !important; }
+      .pb-#{$name} { padding-bottom: $value !important; }
+      .pl-#{$name} { padding-left: $value !important; }
+      .pr-#{$name} { padding-right: $value !important; }
+      .px-#{$name} { 
+        padding-left: $value !important;
+        padding-right: $value !important;
+      }
+      .py-#{$name} {
+        padding-top: $value !important;
+        padding-bottom: $value !important;
+      }
+  
+      // Margin
+      .m-#{$name} { margin: $value !important; }
+      .mt-#{$name} { margin-top: $value !important; }
+      .mb-#{$name} { margin-bottom: $value !important; }
+      .ml-#{$name} { margin-left: $value !important; }
+      .mr-#{$name} { margin-right: $value !important; }
+      .mx-#{$name} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+      }
+      .my-#{$name} {
+        margin-top: $value !important;
+        margin-bottom: $value !important;
+      }
+  
+      // Responsive variants
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        @if $breakpoint != 'xs' {
+          @include media-breakpoint-up($breakpoint) {
+            // Padding
+            .p-#{$breakpoint}-#{$name} { padding: $value !important; }
+            .pt-#{$breakpoint}-#{$name} { padding-top: $value !important; }
+            .pb-#{$breakpoint}-#{$name} { padding-bottom: $value !important; }
+            .pl-#{$breakpoint}-#{$name} { padding-left: $value !important; }
+            .pr-#{$breakpoint}-#{$name} { padding-right: $value !important; }
+            .px-#{$breakpoint}-#{$name} {
+              padding-left: $value !important;
+              padding-right: $value !important;
+            }
+            .py-#{$breakpoint}-#{$name} {
+              padding-top: $value !important;
+              padding-bottom: $value !important;
+            }
+  
+            // Margin
+            .m-#{$breakpoint}-#{$name} { margin: $value !important; }
+            .mt-#{$breakpoint}-#{$name} { margin-top: $value !important; }
+            .mb-#{$breakpoint}-#{$name} { margin-bottom: $value !important; }
+            .ml-#{$breakpoint}-#{$name} { margin-left: $value !important; }
+            .mr-#{$breakpoint}-#{$name} { margin-right: $value !important; }
+            .mx-#{$breakpoint}-#{$name} {
+              margin-left: $value !important;
+              margin-right: $value !important;
+            }
+            .my-#{$breakpoint}-#{$name} {
+              margin-top: $value !important;
+              margin-bottom: $value !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
   // Mixin pro box-shadow
   @mixin generate-box-shadow-utilities {
     @each $name, $value in $shadows {
