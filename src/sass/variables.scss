@@ -6,7 +6,7 @@
 
 @mixin icon($icon-name) {
     background-color: currentColor;
-    mask-image: url("/dist/images/icons-sprite.svg?v=10.0##{$icon-name}");
+    mask-image: url("/design-system/dist/images/icons-sprite.svg?v=10.0##{$icon-name}");
     mask-size: 100% 100%;
     mask-repeat: no-repeat;
     mask-position: center;

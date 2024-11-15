@@ -29,10 +29,17 @@
 				outline: none;
 			}
 		}
+
+		svg {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: var(--Radius-and-Spacing-m-l, 12px);
+		}
 	}
 	
 
-	[data-icon-before] > input {
+	& > div:has( svg + input) input {
 		padding-left: rem( 48px );
 	}
 

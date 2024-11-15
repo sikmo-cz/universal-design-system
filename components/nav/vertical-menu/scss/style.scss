@@ -70,7 +70,8 @@
 			}
 			
 			& > a {
-				display: block;
+				display: flex;
+				gap: var(--Radius-and-Spacing-m-l, 2px);
 				padding: var(--Radius-and-Spacing-s-m, 6px) var(--Radius-and-Spacing-m, 8px);
 				@include typo-ButtonLarge();
 				color: var(--Colors-Dark-200, #646482);

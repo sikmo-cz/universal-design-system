@@ -6,7 +6,7 @@
 	&--primary, &--secondary, &--tertiary {
 		@include typo-ButtonLarge();
 		display: inline-flex;
-		gap: var(--Radius-and-Spacing-xs, 2px);
+		gap: var(--Radius-and-Spacing-m-l, 2px);
 		padding: var(--Radius-and-Spacing-m-l, 12px) var(--Radius-and-Spacing-xl, 24px);
 		justify-content: center;
 		align-items: center;
