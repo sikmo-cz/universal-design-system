@@ -103,6 +103,17 @@
 			return true;
 		}
 
+
+		/**
+		 * Return URI folder for the design system root
+		 *
+		 * @return string URI
+		 */
+		public function get_design_system_folder_path() 
+		{
+			return $this->base_path;
+		}
+
 		/**
 		 * Return URI folder for the design system root
 		 *

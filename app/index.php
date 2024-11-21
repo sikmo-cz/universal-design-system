@@ -42,9 +42,48 @@
 						}
 				?>
 				<div class="component component--<?php echo $slug; ?> mb-4" id="<?php echo $slug; ?>">
-					<h2 class="super-heading"><?php echo $component; ?></h2>
-					<div class="row">
-						<?php include APP_DIR . "/components/{$slug}.php"; ?>
+					<h2 class="super-heading">
+						<span><?php echo $component; ?></span>
+						<div>
+							<div>code</div>
+							<?php
+							$CL->load('input/toggle', array(
+								"size" => "small",
+								"input_attributes" => array("class" => "js-content-switch-checkbox"),
+							));
+							?>
+						</div>
+					</h2>
+
+					<div class="content_switch js-content-switch-examples show">
+						<div class="row">
+							<?php include APP_DIR . "/components/{$slug}.php"; ?>
+						</div>
+					</div>
+
+					<div class="content_switch js-content-switch-code">
+						<div class="row">
+								<?php
+								$content = file_get_contents( APP_DIR . "/components/{$slug}.php" );
+								// Use regex to extract placeholders
+								preg_match_all("/load\\(\\s*'([^']+)'/", $content, $matches);
+								$components_to_load = array_unique($matches[1]);
+
+								$component_loader_base_path = $CL->get_design_system_folder_path();
+
+								foreach ($components_to_load as $component) {
+									$data = file_get_contents($component_loader_base_path . "/components/" . $component . "/data.php");
+
+									$pattern = "/array\\((.*)\\);/s";
+									preg_match($pattern, $data, $matches);
+
+									$innerArray = trim($matches[1], PHP_EOL);
+
+									echo '<p class="mt-5">' . esc_html($component) . '</p>';
+									echo '<pre><code class="php">$CL->load(\''. esc_html($component) .'\', array(' . PHP_EOL . esc_html($innerArray) . PHP_EOL . '));</code></pre>';
+								}
+								?>
+						</div>
 					</div>
 				</div>
 				<?php } ?>
