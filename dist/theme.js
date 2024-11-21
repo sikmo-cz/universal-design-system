@@ -1,2 +1,2 @@
-(()=>{"use strict";window.theme={globals:{isTouch:"undefined"!=typeof window&&"ontouchstart"in window,isTabActive:!0},init:function(){}},document.addEventListener("DOMContentLoaded",(function(){theme.init()}))})();
+(()=>{"use strict";window.theme={globals:{isTouch:"undefined"!=typeof window&&"ontouchstart"in window,isTabActive:!0},init:function(){alert("yes")}},document.addEventListener("DOMContentLoaded",(function(){theme.init()}))})();
 //# sourceMappingURL=maps/theme.js.map
