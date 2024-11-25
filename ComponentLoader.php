@@ -302,7 +302,7 @@
 				}
 			
 				// Add cleaned-up SVG content to sprite
-				$sprite_content .= '<symbol id="'. $file_id .'" viewBox="0 0 24 24">'. $svg_content .'</symbol>';
+				$sprite_content .= '<g id="'. $file_id .'" viewBox="0 0 24 24">'. $svg_content .'</g>';
 			}
 			
 			$sprite_content .= "</svg>";
