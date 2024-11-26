@@ -268,10 +268,12 @@
 			);
 
 			$width = $sizes[ $icon_set ][0];
-			$height = $sizes[ $icon_set ][0];
+			$height = $sizes[ $icon_set ][1];
 
 			$icons_source_dir 	= $this->base_path . '/src/assets/' . $icon_set;
 			$icons_dist_file 	= $this->base_path . '/dist/images/'. $icon_set .'-sprite.svg';
+			$icons_dist_file_s 	= $this->base_path . '/dist/images/'. $icon_set .'-sprite-symbols.svg';
+
 			$sprite_content 	= '<?xml version="1.0" encoding="utf-8"?><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '. $width .' '. $height .'"><defs><style>g{display: none;}g:target{display: inline;}</style></defs>';
 
 			$files = glob( $icons_source_dir . '/*.svg' );
@@ -302,12 +304,14 @@
 				}
 			
 				// Add cleaned-up SVG content to sprite
-				$sprite_content .= '<g id="'. $file_id .'" viewBox="0 0 24 24">'. $svg_content .'</g>';
+				$sprite_content .= '<g id="'. $file_id .'" viewBox="0 0 '. $width .' '. $height .'">'. $svg_content .'</g>';
 			}
 			
 			$sprite_content .= "</svg>";
+			$sprite_content_s = str_replace( array( '<g ', '</g>' ), array( '<symbol ', '</symbol>' ), $sprite_content );
 			
 			file_put_contents( $icons_dist_file, $sprite_content );
+			file_put_contents( $icons_dist_file_s, $sprite_content_s );
 		}
 	}
 

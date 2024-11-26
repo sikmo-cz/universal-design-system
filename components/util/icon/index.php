@@ -15,5 +15,5 @@
 	$width = $data[ 'width' ] ?? 24;
 ?>
 <svg width="<?php echo esc_attr($width) ?>" height="<?php echo esc_attr($width) ?>" alt="<?php echo $alt; ?>" title="<?php echo $title; ?>">
-	<use href="<?php echo $ComponentLoader->get_design_system_folder_uri() ?>/dist/images/icons-sprite.svg#<?php echo $data[ 'name' ]; ?>">
+	<use href="<?php echo $ComponentLoader->get_design_system_folder_uri() ?>/dist/images/icons-sprite-symbols.svg#<?php echo $data[ 'name' ]; ?>">
 </svg>
