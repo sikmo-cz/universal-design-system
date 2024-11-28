@@ -62,13 +62,23 @@
     foreach ($data['data'] as $table_row) {
       echo '<tr>';
 
-      foreach ($table_row as $table_cell) {
+      foreach ($table_row as $rokey => $table_cell) {
         echo ($data['first_row_is_table_head'] && $i === 0 ? '<th>' : '<td>');
           echo ($data['html_escape'] ? esc_html($table_cell) : $table_cell);
         echo ($data['first_row_is_table_head'] && $i === 0 ? '</th>' : '</td>');
       }
       
       echo '</tr>';
+	  //TODO: Martin 
+	  ?>
+		<tr>
+			<td colspan="999">
+				<div class="style-card">
+				Tududu
+				</div>	
+			</td>
+		</tr>
+	  <?php
 
       $i++;
     }

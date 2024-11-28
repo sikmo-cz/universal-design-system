@@ -1,7 +1,7 @@
 @import 'variables';
 
 .data-table {
-	overflow: auto;
+	// overflow: auto;
 
 	table {
 		display: table;
@@ -29,9 +29,17 @@
 	
 		th {
 			@include typo-CaptionBig();
+			color: var(--Colors-Dark-300, #8E8EA8);
+
 		}
 		td {
 			@include typo-BodyLarge();
+
+			&[colspan="999"] {
+				padding-left: 0;
+				padding-right: 0;
+				border-bottom: 0;
+			}
 		}
 	}
 

@@ -25,12 +25,14 @@
 
 		&:after {
 			display: block;
-			width: 12px;
-			height: 12px;
+			width: rem( 14px );
+			height: rem( 14px );
 
 			@include icon('nav-arrow-right');
 
 			content: "";
+
+			margin-top: rem( -1px );
 		}
 
 		&:last-of-type {

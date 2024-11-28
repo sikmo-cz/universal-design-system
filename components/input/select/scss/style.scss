@@ -12,12 +12,15 @@
 
 	.custom-select { 
 		position: relative; 
-		padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+		
 		border-radius: var(--Radius-and-Spacing-s, 4px);
-		background: var(--Colors-Dark-1000, #E8E8EE);
-		border: 0;	
-		color: var(--Colors-Dark-200, #646482);
+		background: var(--Colors-Primary-2, #FFF);
+		border: 1.5px solid var(--Colors-Primary-4, #DBDBE4);
+
+		
 		@include typo-ButtonLarge();
+		
+		color: var(--Colors-Dark-200, #646482);
 		width: 100%;
 		cursor: pointer;
 
@@ -26,8 +29,9 @@
 			right: var(--Radius-and-Spacing-m-l, 12px);
 			top: 50%;
 			transform: translateY(-50%);
-			width: 14px;
-			height: 14px;
+			width: 24px;
+			height: 24px;
+			pointer-events: none;
 
 			color: var(--Colors-Dark-200, #646482);;
 
@@ -36,6 +40,11 @@
 	
 			content: "";
 		}
+	}
+
+	.selected-options {
+		padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+		line-height: rem( 32px );
 	}
 	.options-container { 
 		position: absolute; 
@@ -56,11 +65,13 @@
 
 		.search-input {
 			border-radius: var(--Radius-and-Spacing-s, 4px);
-			background: var(--Colors-Dark-1000, #E8E8EE);
+			border: 1.5px solid var(--Colors-Primary-4, #DBDBE4);
+			background: var(--Colors-Primary-2, #FFF);
 			width: 100%;
-			@include typo-ButtonLarge();
-			padding: var(--Radius-and-Spacing-l, 8px) var(--Radius-and-Spacing-m-l, 12px);
-			
+			@include typo-BodyLarge();
+			line-height: 31px;
+			padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+
 		}
 
 		&:after {
@@ -83,6 +94,10 @@
 	.options-containerScroll {
 		max-height: 220px;
 		overflow: auto;
+		display: flex;
+		flex-flow: column;
+		gap: 2px;
+		margin-top: rem( 2px );
 	}
 
 	.hidden { display: none; }
@@ -90,10 +105,11 @@
 	.option-item { 
 		position: relative;
 		cursor: pointer;
+		align-items: center;
 		display: flex;
 		gap: var(--Radius-and-Spacing-m-l, 12px);
 		border-radius: var(--Radius-and-Spacing-s, 4px);
-		@include typo-ButtonLarge();
+		@include typo-BodyLarge();
 		padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
 		color: var(--Colors-Dark-200, #646482);
 
@@ -127,17 +143,21 @@
 			&:after {
 				position: absolute;
 				left: 16px;
-				top: 13px;
+				top: 14px;
 				color: white;
 				@include icon('check');
 				content: "";
 				width: 12px;
 				height: 12px;
+				display: none;
 			}
 
 			&.selected {
 				&:before {
 					background-color: var(--Colors-Primary-1, #655BFF);
+				}
+				&:after {
+					display: block;
 				}
 			}
 		}
@@ -151,6 +171,43 @@
 		.options-container:after {
 			display: none;;
 		}
+	}
+
+	&--small {
+		 .custom-select {
+			@include typo-BodySmall();
+
+			&:after {
+				width: rem( 16px);
+				height: rem( 16px);
+			}
+			
+
+			.selected-options {
+				line-height: rem( 16px );
+				padding:  var(--Radius-and-Spacing-sm, 8px) var(--Radius-and-Spacing-m, 8px);
+			}
+
+			.option-item:after {
+				top: 12px;
+			}
+
+			.options-container { 
+				&:after {
+					width: rem( 16px);
+					height: rem( 16px );
+					top: rem( 27px );
+				}
+				.search-input {
+					@include typo-BodySmall();
+				}
+
+				.option-item { 
+					@include typo-ButtonSmall();
+					line-height: 14px;
+				}
+			}
+		 }
 	}
 }
 

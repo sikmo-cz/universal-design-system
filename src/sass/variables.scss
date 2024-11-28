@@ -33,6 +33,37 @@
     --Colors-States-Warning: #D26C21FF;
     --Colors-States-Danger: #B5213BFF;
 
+    --Colors-Primary-1: rgba(101, 91, 255, 1);
+    --Colors-Primary-2: rgba(255, 255, 255, 1);
+    --Colors-Primary-3: rgba(48, 48, 62, 1);
+    --Colors-Primary-4: rgba(219, 219, 228, 1);
+    --Colors-Dark-200: rgba(100, 100, 130, 1);
+    --Colors-Dark-300: rgba(142, 142, 168, 1);
+    --Colors-Dark-1000: rgba(232, 232, 238, 1);
+    --Colors-States-Info: rgba(28, 112, 211, 1);
+    --Colors-States-Success: rgba(72, 181, 90, 1);
+    --Colors-States-Warning: rgba(210, 108, 33, 1);
+    --Colors-States-Danger: rgba(181, 33, 59, 1);
+    --Colors-Primary-Primary-1-Shades-800: rgba(209, 206, 255, 1);
+    --Colors-Primary-Primary-1-Shades-600: rgba(178, 173, 255, 1);
+    --Colors-Primary-Primary-1-Shades-400: rgba(132, 124, 255, 1);
+    --Colors-States-Info-Shades-400: rgba(73, 141, 220, 1);
+    --Colors-States-Info-Shades-600: rgba(142, 184, 233, 1);
+    --Colors-States-Info-Shades-800: rgba(187, 212, 242, 1);
+    --Colors-States-Info-Shades-1000: rgba(232, 241, 251, 1);
+    --Colors-States-Success-Shades-400: rgba(109, 196, 123, 1);
+    --Colors-States-Success-Shades-600: rgba(145, 211, 156, 1);
+    --Colors-States-Success-Shades-800: rgba(200, 233, 205, 1);
+    --Colors-States-Success-Shades-1000: rgba(237, 248, 238, 1);
+    --Colors-States-Warning-Shades-400: rgba(219, 137, 78, 1);
+    --Colors-States-Warning-Shades-600: rgba(233, 181, 144, 1);
+    --Colors-States-Warning-Shades-800: rgba(242, 211, 188, 1);
+    --Colors-States-Warning-Shades-1000: rgba(251, 240, 233, 1);
+    --Colors-States-Danger-Shades-400: rgba(196, 77, 99, 1);
+    --Colors-States-Danger-Shades-600: rgba(218, 144, 157, 1);
+    --Colors-States-Danger-Shades-800: rgba(233, 188, 196, 1);
+    --Colors-States-Danger-Shades-1000: rgba(248, 233, 235, 1);
+
     --Radius-and-Spacing-xs: 2px;
     --Radius-and-Spacing-s: 4px;
     --Radius-and-Spacing-s-m: 6px;
@@ -44,6 +75,9 @@
     --Radius-and-Spacing-Ultra: 500px;
 
     --Shadow-Level-1: 0px 2px 4px 0px rgba(48, 48, 62, 0.12);
+    --Shadow-Level-2: 0px 4px 12px 0px rgba(48, 48, 62, 0.12);
+    --Shadow-Level-3: 0px 8px 24px 0px rgba(48, 48, 62, 0.12);
+    --Shadow-Level-4: 0px 2px 48px 0px rgba(48, 48, 62, 0.12);
 
     --container-sm: 600px;
     --container-md: 800px;
@@ -51,8 +85,6 @@
     --container-xl: 1200px;
     --container-xxl: 1400px;
 }
-
-
 
 
 @mixin typo-H1 {
