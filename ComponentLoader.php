@@ -12,7 +12,7 @@
 	class ComponentLoader 
 	{
 		/** @var ComponentLoader|null Singleton instance of the class */
-		private static $instance = null;
+		private static $instance = null; 
 
 		/** @var string Base uri */
 		private static $base_uri = '';
