@@ -59,8 +59,15 @@
 		if ($item["done"] ?? false) {
 			$a_class = ' class="done"';
 		}
+
+		$a_tag_start = "<div". $a_class .">";
+		$a_tag_end = "</div>";
+		if (!empty($item["href"] ?? "")) {
+			$a_tag_start = '<a href="'. esc_attr($item["href"]) .'"'. $a_class .'>';
+			$a_tag_end = "</a>";
+		}
 	?>
-	<li><a href="<?php echo esc_attr($item["href"] ?? "") ?>"<?php echo $a_class ?>><span><?php echo esc_html($item["step"] ?? "") ?></span><?php echo esc_html($item["text"] ?? "") ?></a></li>
+	<li><?php echo $a_tag_start ?><span><?php echo esc_html($item["step"] ?? "") ?></span><?php echo esc_html($item["text"] ?? "") ?><?php echo $a_tag_end ?></li>
 	<?php
 	}
 	?>

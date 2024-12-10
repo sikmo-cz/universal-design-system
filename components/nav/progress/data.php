@@ -10,7 +10,7 @@ $demo_data = array(
   'items'        => array( //(array default:array()) Array with progress items
     array(
       'step'         => "1",
-      'href'         => '#step1',
+      'href'         => '', //can be empty
       'text'         => 'Cart',
       'done'         => true,
     ),
