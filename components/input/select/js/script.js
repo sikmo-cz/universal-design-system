@@ -15,6 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
     select.querySelectorAll('.option-item').forEach(option => {
       option.addEventListener('click', () => selectOption(option, select));
     });
+
+    // Vlastní JS event pro vybrání hodnoty
+    select.addEventListener("selectByValue", function (event) {
+      const select_by_value = event.select_by_value;
+
+      //TODO kód který checkne checkbox (selectne) položku která obsahuje "value" = select_by_value
+    });
+
   });
 
   // Zavírá všechny otevřené selecty při kliknutí mimo
