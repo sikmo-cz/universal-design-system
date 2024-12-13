@@ -16,13 +16,14 @@ $demo_data =  array(
   'multiple'      => true, //(boolean default:false) Allow multiple options select
   'options'       => array( //(array default:array()) Array of all options
   	array(
-  		'value' => '1',
-  		'text' => 'Option 1',
+  		'value'             => '1',
+  		'text'              => 'Option 1',
+      'option_attributes' => array("data-extra" => "hello world"), //(array default:array()) Array with extra option attributes
+      'selected'          => true,
   	),
   	array(
   		'value' => '2',
   		'text' => 'Option 2',
-      'selected' => true,
   	),
   	array(
   		'value' => '3',

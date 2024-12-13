@@ -91,9 +91,25 @@
 			<div class="options-containerScroll">
 				<?php
 				foreach ($data['options'] as $option) {
+					$option_attributes = array();
+
+					if (!empty($data['name'])) {
+						$option_attributes["name"] = $data['name'] . "[]";
+					}
+
+					if (!empty($option['value'])) {
+						$option_attributes["value"] = $option['value'];
+					}
+
+					if ($option["selected"] ?? false) {
+						$option_attributes["checked"] = "checked";
+					}
+
+					// Extra option attributes
+					$option_attributes = array_merge( $option_attributes, $option['option_attributes'] ?? array() );
 				?>
 				<div class="option-item">
-					<input type="checkbox" class="hidden-checkbox" name="<?php echo esc_attr($data['name']) ?>[]" value="<?php echo esc_attr($option["value"]) ?>"<?php echo ($option["selected"] ?? false ? ' checked="checked"' : '') ?>>
+					<input type="checkbox" class="hidden-checkbox" <?php echo $ComponentLoader->render_attributes( $option_attributes ); ?>>
 					<?php echo esc_html($option["text"]) ?>
 				</div>
 				<?php
