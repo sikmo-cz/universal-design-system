@@ -19,6 +19,7 @@
 		'attributes'    => array(),
 		'size'          => '',
 		'label'         => '',
+		'type'          => 'text',
 		'name'          => '',
 		'value'         => '',
 		'input_attributes' => array(),
@@ -56,6 +57,7 @@
 
 	//Checks
 	if (!is_string($data['label'])) throw new Exception('Data "label" must by type string.');
+	if (!is_string($data['type'])) throw new Exception('Data "type" must by type string.');
 	if (!is_string($data['name'])) throw new Exception('Data "name" must by type string.');
 	if (!is_string($data['value'])) throw new Exception('Data "value" must by type string.');
 	if (!is_array($data['input_attributes'])) throw new Exception('Data "input_attributes" must by type array.');
@@ -64,6 +66,9 @@
 	if (!is_string($data['helper_type'])) throw new Exception('Data "helper_type" must by type string.');
 
 	$input_attributes = array();
+
+	$input_attributes["type"] = $data['type'];
+
 	if (!empty($data['name'])) {
 		$input_attributes["name"] = $data['name'];
 	}
@@ -87,7 +92,7 @@
 			$ComponentLoader->load( 'util/icon', array( 'name' => $data['icon'] ) );
 		}
 		?>
-		<input type="text" <?php echo $ComponentLoader->render_attributes( $input_attributes ); ?>>
+		<input <?php echo $ComponentLoader->render_attributes( $input_attributes ); ?>>
 	</div>
 	<?php
 	if (!empty($data['helper_text'])) {

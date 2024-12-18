@@ -8,6 +8,7 @@ $demo_data =  array(
 
   //Specific
 	'label'         => 'My label', //(string default:'')
+  'type'          => 'text', //(string default:'text') input type attribute
   'name'          => 'input-text', //(string default:'') input name attribute
   'value'         => '', //(string default:'') input value attribute
   'input_attributes' => array("required" => "required"), //(array default:array()) Array with extra input attributes
