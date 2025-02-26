@@ -23,6 +23,7 @@
 		'checked'       => false,
 		'value'       	=> '',
 		'input_attributes' => array(),
+		'helper'        => '',
 	);
  
 	$data 			= is_array( $data ) ? array_merge( $defaults, $data ) : $defaults; // Merge provided data with defaults
@@ -57,10 +58,12 @@
 	if (!is_bool($data['checked'])) throw new Exception('Data "checked" must by type boolean.');
 	if (!is_string($data['value'])) throw new Exception('Data "value" must by type string.');
 	if (!is_array($data['input_attributes'])) throw new Exception('Data "input_attributes" must by type array.');
+	if (!is_string($data['helper'])) throw new Exception('Data "helper" must by type string.');
 
 	$input_attributes = array();
 	if (!empty($data['name'])) {
 		$input_attributes["name"] = $data['name'];
+		$input_attributes["id"] = $data['name'];
 	}
 
 	if(!empty($data['value'])) {
@@ -76,4 +79,11 @@
 ?>
 <div <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
 	<input type="checkbox" <?php echo $ComponentLoader->render_attributes( $input_attributes ); ?>>
+	<?php
+	if (!empty($data['helper'])) {
+	?>
+		<label for="<?php echo esc_attr($input_attributes["id"] ?? ""); ?>"><?php echo esc_html($data['helper']); ?></label>
+	<?php
+	}
+	?>
 </div>

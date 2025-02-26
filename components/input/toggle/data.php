@@ -11,4 +11,5 @@ $demo_data =  array(
   'checked'       => false, //(boolean default:false)
   'value'         => 'someval', //(string default:'') input value attribute
   'input_attributes' => array("required" => "required"), //(array default:array()) Array with extra input:checkbox attributes
+  'helper'        => 'Some helper text', //(string default:'') Helper text
 );
