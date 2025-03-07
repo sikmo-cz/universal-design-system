@@ -206,7 +206,7 @@
 
 .style-card {
   box-shadow: var( --Shadow-Level-1 );
-  padding: var(--Radius-and-Spacing-l, 16px);
+  padding: var(--Radius-and-Spacing-m-l, 12px) var(--Radius-and-Spacing-l, 16px);
   border: 1px solid var(--Colors-Primary-4, #DBDBE4);
   border-radius: var(--Radius-and-Spacing-s-m, 6px);
 

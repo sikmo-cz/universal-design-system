@@ -4,7 +4,7 @@
 	display: flex;
 	align-items: center;
 	
-	gap: var(--Radius-and-Spacing-s, 4px);
+	gap: var(--Radius-and-Spacing-m-l, 12px);
 
 	input {
 		appearance: none;
@@ -16,6 +16,7 @@
 		border: 2px solid  var(--Colors-Primary-4, #DBDBE4);
 		border-radius: rem( 18px );
 		vertical-align: text-bottom;
+		flex-shrink: 0;
 		
 		background-color: var(--Colors-Primary-4, #DBDBE4);
 		cursor: pointer;
@@ -94,6 +95,10 @@
 					left: rem( 24px );
 				}
 			}
+		}
+
+		label {
+			@include typo-BodyExtraSmall;
 		}
 	}
 }

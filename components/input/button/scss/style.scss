@@ -77,9 +77,11 @@
 		background: transparent;
 		border: 0;
 		cursor: pointer;
+		text-decoration: underline;
 	
 		&.input-button--small  {
 			@include typo-ButtonSmall();
+			color: var(--Colors-Primary-1, #655BFF);
 			padding: var(--Radius-and-Spacing-xs, 2px);
 			gap: var(--Radius-and-Spacing-xs, 2px);
 		}
