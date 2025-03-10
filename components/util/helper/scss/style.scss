@@ -3,12 +3,16 @@
 .util-helper {
 	display: flex;
 	align-items: center;
-	gap: var(--Radius-and-Spacing-m-l, 12px);
+	gap: var(--Radius-and-Spacing-s, 4px);
 	@include typo-BodySmall();
 	margin: 0;
 	color: var(--Colors-Dark-200, #646482);
 
-
+	img, svg {
+		flex-shrink: 0;
+		width: rem(19px);
+		height: rem(19px);
+	}
 
 	&--info {
 		color: var(--Colors-States-Info, #1C70D3);
@@ -28,6 +32,7 @@
 	&--block {
 		padding: var(--Radius-and-Spacing-m-l, 12px);
 		background: var(--Colors-Dark-1000, #E8E8EE);
+		border-radius: var(--Radius-and-Spacing-s, 4px);
 
 		&.util-helper--small {
 			@include typo-BodyExtraSmall();

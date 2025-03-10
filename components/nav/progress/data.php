@@ -12,18 +12,19 @@ $demo_data = array(
       'step'         => "1",
       'href'         => '', //can be empty
       'text'         => 'Cart',
-      'done'         => true,
+      'done'         => true, //default: false
     ),
     array(
       'step'         => "2",
       'href'         => '#step2',
       'text'         => 'Shipping',
-      'done'         => true,
+      'done'         => true, //default: false
     ),
     array(
       'step'         => "3",
       'href'         => '#step3',
       'text'         => 'Confirmation',
+      'active'       => true, //default: false
     ),
   ),
 );

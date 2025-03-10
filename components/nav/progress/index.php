@@ -58,6 +58,8 @@
 		$a_class = "";
 		if ($item["done"] ?? false) {
 			$a_class = ' class="done"';
+		} elseif (!($item["active"] ?? false)) {
+			$a_class = ' class="innactive"';
 		}
 
 		$a_tag_start = "<div". $a_class .">";

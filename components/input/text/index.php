@@ -96,7 +96,7 @@
 	</div>
 	<?php
 	if (!empty($data['helper_text'])) {
-		$ComponentLoader->load( 'util/helper', array("text" => $data['helper_text'], "type" => $data['helper_type']) );
+		$ComponentLoader->load( 'util/helper', array("text" => $data['helper_text'], "type" => $data['helper_type'], "inline" => true) );
 	}
 	?>
 </label>

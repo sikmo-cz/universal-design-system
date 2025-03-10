@@ -66,13 +66,15 @@
 		$attributes["class"] .= " " . $base_class . "--danger";
 	} elseif ($data['type'] === "success") {
 		$attributes["class"] .= " " . $base_class . "--success";
+	} elseif ($data['type'] === "black") {
+		$attributes["class"] .= " " . $base_class . "--primary-3";
 	}
 ?>
 
 <?php
 if (empty($data['href'])) {
 ?>
-	<div <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
+	<span <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
 <?php
 } else {
 ?>
@@ -91,7 +93,7 @@ if (empty($data['href'])) {
 <?php
 if (empty($data['href'])) {
 ?>
-	</div>
+	</span>
 <?php
 } else {
 ?>

@@ -54,8 +54,10 @@
 
 	//Checks
 	if (!is_array($data['data'])) throw new Exception('Data "data" must by type array.');
+
+	$html_attributes = $ComponentLoader->render_attributes( $attributes );
 ?>
-<div class="<?php echo $base_class; ?>">
+<div <?php echo $html_attributes ?>>
 	<table>
 		<?php
     $i = 0;
@@ -70,6 +72,7 @@
       
       echo '</tr>';
 	  //TODO: Martin 
+		/*
 	  ?>
 		<tr>
 			<td colspan="999">
@@ -79,7 +82,7 @@
 			</td>
 		</tr>
 	  <?php
-
+*/
       $i++;
     }
     ?>

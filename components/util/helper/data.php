@@ -9,4 +9,5 @@ $demo_data = array(
   //Specific
   'text'          => 'Lorem ipsum dolor.', //(string default:'')
   'type'          => 'info', //(string default:'') info / warning / danger / success / ''
+  'inline'        => false, //(bool default:false) inline style without solid background
 );

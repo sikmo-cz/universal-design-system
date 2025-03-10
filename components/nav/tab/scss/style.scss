@@ -6,9 +6,22 @@
 	align-items: center;
 	justify-content: flex-start;
 
-
 	li {
 		list-style-type: none;
+
+		&:last-child {
+			a {
+				padding-right: 0;
+			}
+
+			&.active a {
+				color: var(--Colors-Primary-1, #655BFF);
+	
+				&::after {
+					width: 100%;
+				}
+			}
+		}
 
 		a {
 			position: relative;
@@ -16,14 +29,15 @@
 			min-width: rem( 48px );
 			text-align: center;
 
-			padding: var(--Radius-and-Spacing-m-l, 12px) var(--Radius-and-Spacing-xl, 24px);
+			padding-bottom: var(--Radius-and-Spacing-s-m, 6px);
+			padding-right: var(--Radius-and-Spacing-xl, 24px);
 			justify-content: center;
 			align-items: center;
 			gap: var(--Radius-and-Spacing-xs, 2px);
 			text-decoration: none;
 			@include typo-BodySmall-Bold();
 
-			&:before {
+			&::before {
 				position: absolute;
 				bottom: 0;
 				left: 0;
@@ -37,9 +51,15 @@
 		&.active a {
 			color: var(--Colors-Primary-1, #655BFF);
 
-			&:before {
+			&::after {
+				position: absolute;
+				content: "";
+				bottom: 0;
+				left: 0;
+				right: 0;
 				height: 2px;
 				background: var(--Colors-Primary-1, #655BFF);
+				width: calc(100% - var(--Radius-and-Spacing-xl, 24px));
 			}
 		}
 	}
