@@ -95,4 +95,10 @@
 			height: rem( 17px );
 		}
 	}
+
+	&.open {
+		img, svg {
+			transform: rotate(180deg);
+		}
+	}
 }

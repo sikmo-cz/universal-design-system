@@ -1,6 +1,7 @@
 @import 'variables';
 
 .data-table {
+	$def: &;
 	//overflow: auto;
 
 	table {
@@ -69,4 +70,25 @@
 			}
 		}
 	}
+
+	&__collapse {
+    padding: 0 !important;
+    border-bottom: none !important;
+
+    &.open {
+      #{$def}__collapse-animate {
+        grid-template-rows: 1fr;
+      }
+    }
+  }
+
+  &__collapse-animate {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-in-out;
+  }
+
+  &__collapse-animate-inner {
+    overflow: hidden;
+  }
 }

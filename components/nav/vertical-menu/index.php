@@ -73,8 +73,8 @@
 		<li<?php echo $item_active_class ?>>
 			<a href="<?php echo esc_attr($item["href"] ?? "#") ?>">
 				<?php
-				if (!empty($data['icon'])) {
-					$ComponentLoader->load( 'util/icon', array( 'name' => $data['icon'] ) );
+				if (!empty($item['icon'])) {
+					$ComponentLoader->load( 'util/icon', array( 'name' => $item['icon'] ) );
 				}
 				?>
 				<?php echo esc_html($item["text"] ?? "") ?>
