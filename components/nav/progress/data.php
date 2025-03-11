@@ -27,4 +27,5 @@ $demo_data = array(
       'active'       => true, //default: false
     ),
   ),
+  'justify'       => 'center', //(string default:'center') start / center / end
 );
