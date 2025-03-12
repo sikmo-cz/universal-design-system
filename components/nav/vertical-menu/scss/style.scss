@@ -3,7 +3,8 @@
 .nav-vertical-menu {
 	display: flex;
 	flex-flow: column;
-	width: 276px;
+	width: 100%;
+	max-width: 300px;
 	padding: var(--Radius-and-Spacing-l, 16px);
 	flex-direction: column;
 	align-items: flex-start;

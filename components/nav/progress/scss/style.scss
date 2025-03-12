@@ -2,9 +2,9 @@
 
 .nav-progress {
   display: flex;
-  align-items: center;
   justify-content: center;
   gap: rem(87px);
+  overflow: auto;
 
   li {
     position: relative;
@@ -34,6 +34,7 @@
       text-decoration: none;
       @include typo-BodySmall();
       gap: var(--Radius-and-Spacing-l, 16px);
+      text-align: center;
 
       span {
         display: flex;

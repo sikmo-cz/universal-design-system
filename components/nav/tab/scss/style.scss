@@ -5,6 +5,7 @@
 	gap: 0;
 	align-items: center;
 	justify-content: flex-start;
+	overflow: auto;
 
 	li {
 		list-style-type: none;
@@ -36,6 +37,7 @@
 			gap: var(--Radius-and-Spacing-xs, 2px);
 			text-decoration: none;
 			@include typo-BodySmall-Bold();
+			white-space: nowrap;
 
 			&::before {
 				position: absolute;
