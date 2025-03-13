@@ -17,11 +17,8 @@
 		display: block;
 		@include typo-Caption();
 		color: var(--Colors-Dark-300, #8E8EA8);
-		
 		text-overflow: ellipsis;
-		white-space: nowrap;
 	}
-
 
 	ul {
 		display: flex;
