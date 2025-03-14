@@ -15,6 +15,7 @@
 		color: var(--Colors-Primary-2, #FFF);
 		border: 1px solid var(--Colors-Primary-1, #655BFF);
 		cursor: pointer;
+		text-decoration: none !important;
 	
 		&.input-button--small {
 			@include typo-ButtonSmall();
