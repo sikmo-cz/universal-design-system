@@ -16,11 +16,16 @@ document.addEventListener("DOMContentLoaded", () => {
       option.addEventListener('click', () => selectOption(option, select));
     });
 
-    // Vlastní JS event pro vybrání hodnoty
-    select.addEventListener("selectByValue", function (event) {
-      const select_by_value = event.select_by_value;
+    // Vlastní JS trigger event pro vybrání hodnoty
+    select.closest(".input-select").addEventListener("ds-select-by-value", function (event) {
+      const select_by_value = event.detail.value;
 
-      //TODO kód který checkne checkbox (selectne) položku která obsahuje "value" = select_by_value
+      select.querySelectorAll('.option-item').forEach(option => {
+        if (option.querySelector(".hidden-checkbox").value === select_by_value) {
+          selectOption(option, select);
+        }
+      });
+  
     });
 
   });

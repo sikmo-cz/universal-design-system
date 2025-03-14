@@ -108,10 +108,7 @@
 					// Extra option attributes
 					$option_attributes = array_merge( $option_attributes, $option['option_attributes'] ?? array() );
 				?>
-				<div class="option-item">
-					<input type="checkbox" class="hidden-checkbox" <?php echo $ComponentLoader->render_attributes( $option_attributes ); ?>>
-					<?php echo esc_html($option["text"]) ?>
-				</div>
+				<div class="option-item"><input type="checkbox" class="hidden-checkbox" <?php echo $ComponentLoader->render_attributes( $option_attributes ); ?>><?php echo esc_html($option["text"]) ?></div>
 				<?php
 				}
 				?>
