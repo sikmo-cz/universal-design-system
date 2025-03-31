@@ -27,7 +27,9 @@
 		color: var(--Colors-States-Warning, #D26C21);
 	}
 
-
+	a {
+		text-decoration: underline;
+	}
 
 	&--block {
 		padding: var(--Radius-and-Spacing-m-l, 12px);
