@@ -71,6 +71,22 @@
 		}
 	}
 
+	&--extrasmall {
+		table {
+			th, td {
+				padding: var(--Radius-and-Spacing-s-m, 6px);
+			}
+
+			th {
+				@include typo-Caption();
+			}
+
+			td {
+				@include typo-BodyExtraSmall();
+			}
+		}
+	}
+
 	&__collapse {
     padding: 0 !important;
     border-bottom: none !important;
