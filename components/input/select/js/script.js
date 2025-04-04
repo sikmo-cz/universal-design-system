@@ -72,6 +72,16 @@ function selectOption(option, customSelect) {
     customSelect.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
     option.classList.add('selected');
 
+    // Trigger the custom event "ds-value-change"
+    const event = new CustomEvent("ds-value-change", {
+      detail: {
+        name: checkbox.name,
+        value: checkbox.value,
+        data: checkbox.dataset,
+      }
+    });
+    customSelect.closest(".input-select").dispatchEvent(event);
+
     // Zavře single-select po výběru
     toggleOptions(customSelect);
   }
