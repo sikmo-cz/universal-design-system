@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectedOptions = select.querySelector('.selected-options');
     const searchInput = select.querySelector('.search-input');
 
+    // Vazba containeru k customSelect
+    const container = select.querySelector('.input-select__options-container');
+    container.customSelect = select;
+
     // Nastavení akcí pro kliknutí na vybranou oblast a pro vyhledávání
     selectedOptions.addEventListener('click', () => toggleOptions(select));
     searchInput.addEventListener('keyup', () => filterOptions(select));
@@ -32,23 +36,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Zavírá všechny otevřené selecty při kliknutí mimo
   document.addEventListener('click', (event) => {
-    document.querySelectorAll('.custom-select').forEach(select => {
-      if (!select.contains(event.target)) {
-        const optionsContainer = select.querySelector('.options-container');
-        if (!optionsContainer.classList.contains('hidden')) {
-          optionsContainer.classList.add('hidden');
-        }
+    document.querySelectorAll('.input-select__options-container').forEach(container => {
+      if (!container.customSelect.contains(event.target) && !container.contains(event.target)) {
+        toggleOptions(container.customSelect, true);
       }
     });
   });
 });
 
-function toggleOptions(customSelect) {
-  const container = customSelect.querySelector('.options-container');
-  container.classList.toggle('hidden');
+function toggleOptions(customSelect, forceClose = false) {
+  const containers = document.querySelectorAll('.input-select__options-container');
+
+  //find customSelect in container.customSelect
+  const container = Array.from(containers).find(element => element.customSelect === customSelect);
+  if (!container) {
+    return;
+  }
+
+  if (container.classList.contains('hidden') && !forceClose) {
+    document.body.appendChild(container);
+
+    const rect = customSelect.getBoundingClientRect();
+    
+    container.style.left = `${rect.left + window.scrollX}px`;
+    container.style.top = `${rect.bottom + window.scrollY}px`;
+
+    container.classList.remove('hidden');
+  } else {
+    customSelect.appendChild(container);
+    container.classList.add('hidden');
+  }
 }
 
 function selectOption(option, customSelect) {
+  const containers = document.querySelectorAll('.input-select__options-container');
+
+  //find customSelect in container.customSelect
+  const container = Array.from(containers).find(element => element.customSelect === customSelect);
+  if (!container) {
+    return;
+  }
+
   const selectedOptions = customSelect.querySelector('.selected-options');
   const multiSelect = customSelect.getAttribute('data-multi') === 'true';
   const searchSelect = customSelect.getAttribute('data-search') === 'true';
@@ -66,10 +94,10 @@ function selectOption(option, customSelect) {
       option.classList.remove('selected');
     }
   } else {
-    customSelect.querySelectorAll('.hidden-checkbox').forEach(cb => cb.checked = false);
+    container.querySelectorAll('.hidden-checkbox').forEach(cb => cb.checked = false);
     checkbox.checked = true;
     selectedOptions.innerText = optionText;
-    customSelect.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
+    container.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
     option.classList.add('selected');
 
     // Trigger the custom event "ds-value-change"
@@ -121,8 +149,16 @@ function removeDiacritics(text) {
 }
 
 function filterOptions(customSelect) {
-  const input = removeDiacritics(customSelect.querySelector('.search-input').value.toLowerCase());
-  const options = customSelect.querySelectorAll('.option-item');
+  const containers = document.querySelectorAll('.input-select__options-container');
+
+  //find customSelect in container.customSelect
+  const container = Array.from(containers).find(element => element.customSelect === customSelect);
+  if (!container) {
+    return;
+  }
+
+  const input = removeDiacritics(container.querySelector('.search-input').value.toLowerCase());
+  const options = container.querySelectorAll('.option-item');
 
   options.forEach(option => {
     const text = removeDiacritics(option.innerText.toLowerCase());
