@@ -1,9 +1,12 @@
 @import 'variables';
 
 .input-select {
+	$def: &;
+
 	display: flex;
 	flex-flow: column;
 	gap: var(--Radius-and-Spacing-s-m, 6px);
+	
 
 	& > span {
 		color: var(--Colors-Dark-200, #646482);
@@ -64,6 +67,7 @@
 		margin-top: var(--Radius-and-Spacing-s, 4px);
 
 		.search-input {
+			display: none;
 			border-radius: var(--Radius-and-Spacing-s, 4px);
 			border: 1.5px solid var(--Colors-Primary-4, #DBDBE4);
 			background: var(--Colors-Primary-2, #FFF);
@@ -83,11 +87,12 @@
 			height: 24px;
 
 			color: var(--Colors-Dark-200, #646482);;
-
 	
 			@include icon('search');
 	
 			content: "";
+
+			display: none;
 		}
 	}
 
@@ -126,49 +131,51 @@
 		}
 	}
 
-	&__options-containerScroll[data-multi="true"] {
-		.option-item {
-			&:before {
-				position: relative;
-				display: block;
-				border-radius: var(--Radius-and-Spacing-s, 4px);
-				background-color: var(--Colors-Primary-4, #DBDBE4);
-		
-				width: 20px;
-				height: 20px;
-				content: "";
-			}
-
-			&:after {
-				position: absolute;
-				left: 16px;
-				top: 14px;
-				color: white;
-				@include icon('check');
-				content: "";
-				width: 12px;
-				height: 12px;
-				display: none;
-			}
-
-			&.selected {
+	&__options-container[data-multi="true"] {
+		#{$def}__options-containerScroll {
+			.option-item {
 				&:before {
-					background-color: var(--Colors-Primary-1, #655BFF);
-				}
-				&:after {
+					position: relative;
 					display: block;
+					border-radius: var(--Radius-and-Spacing-s, 4px);
+					background-color: var(--Colors-Primary-4, #DBDBE4);
+			
+					width: 20px;
+					height: 20px;
+					content: "";
+				}
+	
+				&:after {
+					position: absolute;
+					left: 16px;
+					top: 14px;
+					color: white;
+					@include icon('check');
+					content: "";
+					width: 12px;
+					height: 12px;
+					display: none;
+				}
+	
+				&.selected {
+					&:before {
+						background-color: var(--Colors-Primary-1, #655BFF);
+					}
+					&:after {
+						display: block;
+					}
 				}
 			}
 		}
 	}
 
-	&__options-containerScroll[data-searchSelect="true"] {
+	&__options-container[data-search="true"] {
 		&:after {
-			display: none;
+			display: block;
 		}
 
 		.search-input {
-			display: none;
+			display: block;
 		}
 	}
 

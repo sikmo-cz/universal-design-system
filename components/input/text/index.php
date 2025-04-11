@@ -73,7 +73,7 @@
 		$input_attributes["name"] = $data['name'];
 	}
 
-	if(!empty($data['value'])) {
+	if(!empty($data['value']) OR $data['value'] === "0") {
 		$input_attributes["value"] = $data['value'];
 	}
 
