@@ -34,7 +34,7 @@
 	$attributes["class"] = !empty($extra_classes) ? $base_class . ' ' . $extra_classes : $base_class;
 
 	// Class size
-	if (in_array($data['size'], array("small", "big"), true)) {
+	if (in_array($data['size'], array("extrasmall", "small", "big"), true)) {
 		$attributes["class"] .= " " . $base_class . "--" . $data['size'];
 	}
 
