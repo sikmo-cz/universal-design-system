@@ -82,7 +82,7 @@
 	<?php
 	if (!empty($data['helper'])) {
 	?>
-		<label for="<?php echo esc_attr($input_attributes["id"] ?? ""); ?>"><?php echo esc_html($data['helper']); ?></label>
+		<label for="<?php echo esc_attr($input_attributes["id"] ?? ""); ?>"><?php echo $data['helper']; ?></label>
 	<?php
 	}
 	?>
