@@ -12,4 +12,5 @@ $demo_data =  array(
   'value'         => 'someval', //(string default:'') input value attribute
   'input_attributes' => array("required" => "required"), //(array default:array()) Array with extra input:checkbox attributes
   'helper'        => 'Some helper text', //(string default:'') Helper text
+  'helper_allow_html' => true, //(boolean default:false) Allow HTML in helper text
 );

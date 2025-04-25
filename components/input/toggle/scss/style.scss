@@ -101,5 +101,10 @@
 			@include typo-BodyExtraSmall;
 		}
 	}
+
+	a {
+		color: var(--Colors-Primary-1, #655BFF);
+		text-decoration: underline;
+	}
 }
   
