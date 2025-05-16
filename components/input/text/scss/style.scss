@@ -1,0 +1,65 @@
+@import 'variables';
+
+.input-text {
+	display: flex;
+	flex-flow: column;
+	
+	gap: var(--Radius-and-Spacing-s-m, 6px);
+
+	span {
+		color: var(--Colors-Dark-200, #646482);
+		@include typo-Caption();
+	}
+
+	
+
+	div:has( > input) {
+		position: relative;
+
+		input {
+			padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+			border-radius: var(--Radius-and-Spacing-s, 4px);
+			border-radius: var(--Radius-and-Spacing-s, 4px);
+			border: 1.5px solid var(--Colors-Primary-4, #DBDBE4);
+			background: var(--Colors-Primary-2, #FFF);
+			
+			@include typo-BodyLarge();
+			color: var(--Colors-Dark-200, #646482);
+			width: 100%;
+			line-height: 30px;
+	
+			&:focus {
+				outline: none;
+			}
+		}
+
+		svg {
+			position: absolute;
+			top: 50%;
+			width: rem( 28px );
+			height: rem( 28px );
+			transform: translateY(-50%);
+			left: var(--Radius-and-Spacing-m-l, 12px);
+		}
+	}
+	
+
+	& > div:has( svg + input) input {
+		padding-left: rem( 48px );
+	}
+
+	&--small {
+		div:has( > input) { 
+			input {
+				@include typo-BodySmall();
+				padding: var(--Radius-and-Spacing-s-m, 8px) var(--Radius-and-Spacing-m, 8px);
+				color: var(--Colors-Dark-200, #646482);
+				line-height: 12px;
+			}
+			svg {
+				width: rem( 20px );
+				height: rem( 20px );
+			}
+		}
+	}
+}

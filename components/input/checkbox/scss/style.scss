@@ -1,0 +1,66 @@
+@import 'variables';
+
+.forms-checkbox {
+	display: flex;
+	align-items: center;
+	gap: var(--Radius-and-Spacing-m-l, 12px);
+	
+	@include typo-BodyLarge();
+
+	cursor: pointer;
+
+	input {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		appearance: none;
+
+		cursor: pointer;
+
+		border-radius: var(--Radius-and-Spacing-s, 4px);
+		background-color: var(--Colors-Primary-4, #DBDBE4);
+
+		width: 26px;
+		height: 26px;
+
+		&:checked {
+			background-color: var(--Colors-Primary-1, #655BFF);
+
+			&:after {
+				opacity: 1;
+			}
+		}
+
+		&:after {
+			width: 22px;
+			height: 22px;
+
+			color: white;
+
+			opacity: 0;
+	
+			@include icon('check');
+	
+			content: "";
+		}
+	}
+
+
+
+
+	&--small {
+		@include typo-BodySmall();
+
+		input {
+			width: 20px;
+			height: 20px;
+			
+			&:after {
+				width: 11px;
+				height: 11px;
+			}
+		}
+	}
+}
+

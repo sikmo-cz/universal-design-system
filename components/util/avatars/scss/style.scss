@@ -1,0 +1,41 @@
+@import 'variables';
+
+.util-avatars {
+	position: relative;
+	display: flex;
+
+	li:not( :first-of-type ) {
+		margin-left: -20px;
+	}
+
+	li:last-of-type {
+		position: relative;
+		
+		p{
+			position: absolute;
+			left: 0;
+			top: 100%;
+			background-color: black;
+			color: white;
+			display: none;
+			width: 200px;
+		}
+
+		&:hover {
+			p {
+				display: block;
+			}
+		}
+	}
+
+	&--big {
+		li:not( :first-of-type ) {
+			margin-left: -24px;
+		}
+	}
+	&--small {
+		li:not( :first-of-type ) {
+			margin-left: -12px;
+		}
+	}
+}

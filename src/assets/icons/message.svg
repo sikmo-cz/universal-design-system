@@ -1,0 +1,14 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="message">
+<g clip-path="url(#clip0_232_3101)">
+<g id="Weight=Dynamic">
+<path id="Vector (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M5 3.75C4.30964 3.75 3.75 4.30964 3.75 5V19.8619L5.81386 17.2821C6.33573 16.6297 7.12584 16.25 7.96125 16.25H19C19.6904 16.25 20.25 15.6904 20.25 15V5C20.25 4.30964 19.6904 3.75 19 3.75H5ZM2.25 5C2.25 3.48122 3.48122 2.25 5 2.25H19C20.5188 2.25 21.75 3.48122 21.75 5V15C21.75 16.5188 20.5188 17.75 19 17.75H7.96125C7.58152 17.75 7.22238 17.9226 6.98516 18.2191L4.65417 21.1329C3.85699 22.1294 2.25 21.5657 2.25 20.2895V5Z" fill="black"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_232_3101">
+<rect width="24" height="24" rx="5" fill="white"/>
+</clipPath>
+</defs>
+</svg>

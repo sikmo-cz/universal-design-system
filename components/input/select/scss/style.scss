@@ -1,0 +1,218 @@
+@import 'variables';
+
+.input-select {
+	display: flex;
+	flex-flow: column;
+	gap: var(--Radius-and-Spacing-s-m, 6px);
+
+	& > span {
+		color: var(--Colors-Dark-200, #646482);
+		@include typo-Caption();
+	}
+
+	.custom-select { 
+		position: relative; 
+		
+		border-radius: var(--Radius-and-Spacing-s, 4px);
+		background: var(--Colors-Primary-2, #FFF);
+		border: 1.5px solid var(--Colors-Primary-4, #DBDBE4);
+
+		
+		@include typo-ButtonLarge();
+		
+		color: var(--Colors-Dark-200, #646482);
+		width: 100%;
+		cursor: pointer;
+
+		&:after {
+			position: absolute;
+			right: var(--Radius-and-Spacing-m-l, 12px);
+			top: 50%;
+			transform: translateY(-50%);
+			width: 24px;
+			height: 24px;
+			pointer-events: none;
+
+			color: var(--Colors-Dark-200, #646482);;
+
+	
+			@include icon('nav-arrow-down');
+	
+			content: "";
+		}
+	}
+
+	.selected-options {
+		padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+		line-height: rem( 32px );
+	}
+	.options-container { 
+		position: absolute; 
+		left: 0;
+		top: 100%; 
+		width: 100%; 
+		z-index: 1;
+		border-radius: var(--Radius-and-Spacing-s-m, 6px);
+		border: var(--0, 1px) solid var(--Colors-Dark-1000, #E8E8EE);
+		background: var(--Colors-Primary-2, #FFF);
+		padding: var(--Radius-and-Spacing-m, 8px);
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--Radius-and-Spacing-xs, 2px);
+		box-shadow: var( --Shadow-Level-1 );
+		margin-top: var(--Radius-and-Spacing-s, 4px);
+		
+
+		.search-input {
+			border-radius: var(--Radius-and-Spacing-s, 4px);
+			border: 1.5px solid var(--Colors-Primary-4, #DBDBE4);
+			background: var(--Colors-Primary-2, #FFF);
+			width: 100%;
+			@include typo-BodyLarge();
+			line-height: 31px;
+			padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+
+		}
+
+		&:after {
+			position: absolute;
+			right: calc( var(--Radius-and-Spacing-m-l, 12px) + var(--Radius-and-Spacing-m, 12px) );
+			top: 32px;
+			transform: translateY(-50%);
+			width: 24px;
+			height: 24px;
+
+			color: var(--Colors-Dark-200, #646482);;
+
+	
+			@include icon('search');
+	
+			content: "";
+		}
+	}
+
+	.options-containerScroll {
+		max-height: 220px;
+		overflow: auto;
+		display: flex;
+		flex-flow: column;
+		gap: 2px;
+		margin-top: rem( 2px );
+	}
+
+	.hidden { display: none; }
+
+	.option-item { 
+		position: relative;
+		cursor: pointer;
+		align-items: center;
+		display: flex;
+		gap: var(--Radius-and-Spacing-m-l, 12px);
+		border-radius: var(--Radius-and-Spacing-s, 4px);
+		@include typo-BodyLarge();
+		padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+		color: var(--Colors-Dark-200, #646482);
+
+		&:hover, &.selected {			
+			background: var(--Colors-Purple-1000, #F4F4FF);
+		}
+	}
+
+	[type="checkbox"],
+	[type="radio"] { 
+		position: absolute;
+		left: -99999px;
+		opacity: 0;
+		pointer-events: none;
+	}
+
+
+	[data-multi="true"] {
+		.option-item {
+			&:before {
+				position: relative;
+				display: block;
+				border-radius: var(--Radius-and-Spacing-s, 4px);
+				background-color: var(--Colors-Primary-4, #DBDBE4);
+		
+				width: 20px;
+				height: 20px;
+				content: "";
+			}
+
+			&:after {
+				position: absolute;
+				left: 16px;
+				top: 14px;
+				color: white;
+				@include icon('check');
+				content: "";
+				width: 12px;
+				height: 12px;
+				display: none;
+			}
+
+			&.selected {
+				&:before {
+					background-color: var(--Colors-Primary-1, #655BFF);
+				}
+				&:after {
+					display: block;
+				}
+			}
+		}
+	}
+
+	[data-searchSelect="true"] {
+		.search-input {
+			display: none;
+		}
+
+		.options-container:after {
+			display: none;;
+		}
+	}
+
+	&--small {
+		 .custom-select {
+			@include typo-BodySmall();
+
+			&:after {
+				width: rem( 16px);
+				height: rem( 16px);
+			}
+			
+
+			.selected-options {
+				line-height: rem( 16px );
+				padding:  var(--Radius-and-Spacing-sm, 8px) var(--Radius-and-Spacing-m, 8px);
+			}
+
+			.option-item:after {
+				top: 12px;
+			}
+
+			.options-container { 
+				&:after {
+					width: rem( 16px);
+					height: rem( 16px );
+					top: rem( 27px );
+				}
+				.search-input {
+					@include typo-BodySmall();
+				}
+
+				.option-item { 
+					@include typo-ButtonSmall();
+					line-height: 14px;
+				}
+			}
+		 }
+	}
+}
+
+
+
+
+
+

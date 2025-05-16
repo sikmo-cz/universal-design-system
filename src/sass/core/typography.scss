@@ -1,0 +1,12 @@
+
+
+//Fonts
+
+h1 { @include typo-H1; }
+h2 { @include typo-H2; }
+h3 { @include typo-H3; }
+h4 { @include typo-H4; }
+h5 { @include typo-H5; }
+
+body { @include typo-BodyLarge; }
+strong { @include typo-BodyLarge-Bold; }

@@ -1,0 +1,17 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="rhombus">
+<g clip-path="url(#clip0_232_13128)">
+<g id="Weight=Dynamic" clip-path="url(#clip1_232_13128)">
+<path id="Polygon (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M11.0454 0.893941C11.5726 0.366734 12.4274 0.366732 12.9546 0.893941L23.1061 11.0454C23.6333 11.5726 23.6333 12.4274 23.1061 12.9546L12.9546 23.1061C12.4274 23.6333 11.5726 23.6333 11.0454 23.1061L0.893941 12.9546C0.366734 12.4274 0.366732 11.5726 0.893941 11.0454L11.0454 0.893941ZM12 2.06067L2.06067 12L12 21.9393L21.9393 12L12 2.06067Z" fill="black"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_232_13128">
+<rect width="24" height="24" rx="5" fill="white"/>
+</clipPath>
+<clipPath id="clip1_232_13128">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>

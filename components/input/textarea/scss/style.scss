@@ -1,0 +1,47 @@
+@import 'variables';
+
+.input-textarea {
+	display: flex;
+	flex-flow: column;
+	
+	gap: var(--Radius-and-Spacing-s-m, 6px);
+
+	span {
+		color: var(--Colors-Dark-200, #646482);
+		@include typo-Caption();
+	}
+
+	div:has( > textarea) {
+		position: relative;
+
+		textarea {
+			padding: var(--Radius-and-Spacing-m-l, 12px);
+			border-radius: var(--Radius-and-Spacing-s, 4px);
+			border-radius: var(--Radius-and-Spacing-s, 4px);
+			border: 1px solid var(--Colors-Primary-4, #DBDBE4);
+			background: var(--Colors-Primary-2, #FFF);
+			
+			@include typo-BodyLarge();
+			color: var(--Colors-Dark-200, #646482);
+			width: 100%;
+			height: 164px;
+	
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+	
+	[data-icon-before] > input {
+		padding-left: rem( 48px );
+	}
+
+	&--small {
+		div:has( > textarea) {
+			textarea {
+				@include typo-BodySmall();
+				color: var(--Colors-Dark-200, #646482);
+			}
+		}
+	}
+}

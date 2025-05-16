@@ -1,0 +1,97 @@
+@import 'variables';
+
+.input-button {
+
+
+	&--primary, &--secondary, &--tertiary {
+		@include typo-ButtonLarge();
+		display: inline-flex;
+		gap: var(--Radius-and-Spacing-m-l, 2px);
+		padding: var(--Radius-and-Spacing-m-l, 12px) var(--Radius-and-Spacing-xl, 24px);
+		justify-content: center;
+		align-items: center;
+		border-radius: var(--Radius-and-Spacing-s, 4px);
+		background: var(--Colors-Primary-1, #655BFF);
+		color: var(--Colors-Primary-2, #FFF);
+		border: 1px solid var(--Colors-Primary-1, #655BFF);
+		cursor: pointer;
+	
+		&.input-button--small {
+			@include typo-ButtonSmall();
+			color: var(--Colors-Primary-2, #FFF);
+			padding: var(--Radius-and-Spacing-s, 4px) var(--Radius-and-Spacing-s-m, 6px);
+			gap: var(--Radius-and-Spacing-xs, 2px);
+		}
+	}
+
+	&--secondary {
+		color: var(--Colors-Primary-3, #30303E);
+		border: 1px solid var(--Colors-Primary-4, #DBDBE4);
+		background: var(--Colors-Primary-2, #FFF);
+
+		&.input-button--small {
+			color: var(--Colors-Primary-3, #30303E);
+		}
+	}
+
+	&--tertiary {
+		color: var(--Colors-Primary-3, #30303E);
+		border: 1px solid var(--Colors-Primary-4, #DBDBE4);
+		background: transparent;
+
+		&.input-button--small {
+			color: var(--Colors-Primary-3, #30303E);
+		}
+	}
+
+	&--icon {
+		@include typo-ButtonLarge();
+		display: inline-flex;
+		padding: var(--Radius-and-Spacing-m-l, 12px) var(--Radius-and-Spacing-xl, 24px);
+		justify-content: center;
+		align-items: center;
+		gap: var(--Radius-and-Spacing-xs, 2px);
+		border-radius: var(--Radius-and-Spacing-s, 4px);
+		background-color: var(--Colors-Primary-2, #FFF);
+		color: var(--Colors-Primary-3, #30303E);
+		border: 0;
+		cursor: pointer;
+	
+		&.input-button--small {
+			@include typo-ButtonSmall();
+			color: var(--Colors-Primary-3, #30303E);
+			padding: var(--Radius-and-Spacing-xs, 2px);
+			gap: var(--Radius-and-Spacing-xs, 2px);
+		}
+	}
+
+	&--text {
+		@include typo-ButtonLarge();
+		display: inline-flex;
+		gap: var(--Radius-and-Spacing-xs, 2px);
+		padding: var(--Radius-and-Spacing-s, 4px);
+		justify-content: center;
+		align-items: center;
+		border-radius: var(--Radius-and-Spacing-s, 4px);
+		color: var(--Colors-Primary-1, #655BFF);
+		background: transparent;
+		border: 0;
+		cursor: pointer;
+	
+		&.input-button--small  {
+			@include typo-ButtonSmall();
+			padding: var(--Radius-and-Spacing-xs, 2px);
+			gap: var(--Radius-and-Spacing-xs, 2px);
+		}
+	}
+
+	&--small {
+		svg {
+			width: rem( 14px );
+			height: rem( 14px );
+		}
+	}
+
+
+
+}

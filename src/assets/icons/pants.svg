@@ -1,0 +1,14 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="pants">
+<g clip-path="url(#clip0_232_2503)">
+<g id="Weight=Dynamic">
+<path id="Rectangle (Stroke)" fill-rule="evenodd" clip-rule="evenodd" d="M6.79279 3.75L7.70945 20.25H11.25V8C11.25 7.58579 11.5858 7.25 12 7.25C12.4142 7.25 12.75 7.58579 12.75 8V18.25H16.2954L17.2016 3.75H6.79279ZM12.75 19.75H16.4363C17.1492 19.75 17.7392 19.1957 17.7837 18.4842L18.7087 3.68421C18.7572 2.90702 18.14 2.25 17.3613 2.25H6.63422C5.85921 2.25 5.24331 2.90106 5.2863 3.67488L6.21963 20.4749C6.25938 21.1903 6.85107 21.75 7.56756 21.75H11.4C12.1455 21.75 12.75 21.1456 12.75 20.4V19.75Z" fill="black"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_232_2503">
+<rect width="24" height="24" rx="5" fill="white"/>
+</clipPath>
+</defs>
+</svg>

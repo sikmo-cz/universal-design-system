@@ -1,0 +1,229 @@
+  // Mapy barev
+  $colors: (
+    "primary-1": var(--Colors-Primary-1),
+    "primary-2": var(--Colors-Primary-2),
+    "primary-3": var(--Colors-Primary-3),
+    "primary-4": var(--Colors-Primary-4),
+    "dark-200": var(--Colors-Dark-200),
+    "dark-300": var(--Colors-Dark-300),
+    "dark-1000": var(--Colors-Dark-1000),
+    "purple-1000": var(--Colors-Purple-1000),
+    "info": var(--Colors-States-Info),
+    "success": var(--Colors-States-Success),
+    "warning": var(--Colors-States-Warning),
+    "danger": var(--Colors-States-Danger)
+  );
+  
+  // Mapy border-radius
+  $radii: (
+    "xs": var(--Radius-and-Spacing-xs),
+    "s": var(--Radius-and-Spacing-s),
+    "s-m": var(--Radius-and-Spacing-s-m),
+    "m": var(--Radius-and-Spacing-m),
+    "m-l": var(--Radius-and-Spacing-m-l),
+    "l": var(--Radius-and-Spacing-l),
+    "xl": var(--Radius-and-Spacing-xl),
+    "ultra": var(--Radius-and-Spacing-Ultra)
+  );
+  
+  // Box-shadow
+  $shadows: (
+    "level-1": var(--Shadow-Level-1)
+  );
+  
+  // Breakpointy podle Bootstrapu
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+  );
+  
+  
+  // Mixin pro textové barvy
+  @mixin generate-text-color-utilities {
+    @each $name, $value in $colors {
+      .text-#{$name} {
+        color: $value !important;
+      }
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        @if $breakpoint != 'xs' {
+          .text-#{$breakpoint}-#{$name} {
+            @include media-breakpoint-up($breakpoint) {
+              color: $value !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Mixin pro barvy pozadí
+  @mixin generate-bg-color-utilities {
+    @each $name, $value in $colors {
+      .bg-#{$name} {
+        background-color: $value !important;
+      }
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        @if $breakpoint != 'xs' {
+          .bg-#{$breakpoint}-#{$name} {
+            @include media-breakpoint-up($breakpoint) {
+              background-color: $value !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  // Mixin pro border-radius
+  @mixin generate-border-radius-utilities {
+    @each $name, $value in $radii {
+      .rounded-#{$name} {
+        border-radius: $value !important;
+      }
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        @if $breakpoint != 'xs' {
+          .rounded-#{$breakpoint}-#{$name} {
+            @include media-breakpoint-up($breakpoint) {
+              border-radius: $value !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  @mixin generate-spacing-utilities {
+    @each $name, $value in $radii {
+      // Padding
+      .p-#{$name} { padding: $value !important; }
+      .pt-#{$name} { padding-top: $value !important; }
+      .pb-#{$name} { padding-bottom: $value !important; }
+      .pl-#{$name} { padding-left: $value !important; }
+      .pr-#{$name} { padding-right: $value !important; }
+      .px-#{$name} { 
+        padding-left: $value !important;
+        padding-right: $value !important;
+      }
+      .py-#{$name} {
+        padding-top: $value !important;
+        padding-bottom: $value !important;
+      }
+  
+      // Margin
+      .m-#{$name} { margin: $value !important; }
+      .mt-#{$name} { margin-top: $value !important; }
+      .mb-#{$name} { margin-bottom: $value !important; }
+      .ml-#{$name} { margin-left: $value !important; }
+      .mr-#{$name} { margin-right: $value !important; }
+      .mx-#{$name} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+      }
+      .my-#{$name} {
+        margin-top: $value !important;
+        margin-bottom: $value !important;
+      }
+  
+      // Responsive variants
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        @if $breakpoint != 'xs' {
+          @include media-breakpoint-up($breakpoint) {
+            // Padding
+            .p-#{$breakpoint}-#{$name} { padding: $value !important; }
+            .pt-#{$breakpoint}-#{$name} { padding-top: $value !important; }
+            .pb-#{$breakpoint}-#{$name} { padding-bottom: $value !important; }
+            .pl-#{$breakpoint}-#{$name} { padding-left: $value !important; }
+            .pr-#{$breakpoint}-#{$name} { padding-right: $value !important; }
+            .px-#{$breakpoint}-#{$name} {
+              padding-left: $value !important;
+              padding-right: $value !important;
+            }
+            .py-#{$breakpoint}-#{$name} {
+              padding-top: $value !important;
+              padding-bottom: $value !important;
+            }
+  
+            // Margin
+            .m-#{$breakpoint}-#{$name} { margin: $value !important; }
+            .mt-#{$breakpoint}-#{$name} { margin-top: $value !important; }
+            .mb-#{$breakpoint}-#{$name} { margin-bottom: $value !important; }
+            .ml-#{$breakpoint}-#{$name} { margin-left: $value !important; }
+            .mr-#{$breakpoint}-#{$name} { margin-right: $value !important; }
+            .mx-#{$breakpoint}-#{$name} {
+              margin-left: $value !important;
+              margin-right: $value !important;
+            }
+            .my-#{$breakpoint}-#{$name} {
+              margin-top: $value !important;
+              margin-bottom: $value !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  // Mixin pro box-shadow
+  @mixin generate-box-shadow-utilities {
+    @each $name, $value in $shadows {
+      .shadow-#{$name} {
+        box-shadow: $value !important;
+      }
+      @each $breakpoint in map-keys($grid-breakpoints) {
+        @if $breakpoint != 'xs' {
+          .shadow-#{$breakpoint}-#{$name} {
+            @include media-breakpoint-up($breakpoint) {
+              box-shadow: $value !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+.typo-H1 { @include typo-H1; }
+.typo-H2 { @include typo-H2; }
+.typo-H3 { @include typo-H3; }
+.typo-H4 { @include typo-H4; }
+.typo-H5 { @include typo-H5; }
+.typo-BodyLarge { @include typo-BodyLarge; }
+.typo-BodyLarge-Bold { @include typo-BodyLarge-Bold; }
+.typo-BodySmall { @include typo-BodySmall; }
+.typo-BodySmall-Bold { @include typo-BodySmall-Bold; }
+.typo-BodyExtraSmall { @include typo-BodyExtraSmall; }
+.typo-BodyExtraSmall-Bold { @include typo-BodyExtraSmall-Bold; }
+.typo-CaptionBig { @include typo-CaptionBig; }
+.typo-Caption { @include typo-Caption; }
+.typo-CodeSnippets { @include typo-CodeSnippets; }
+.typo-ButtonLarge { @include typo-ButtonLarge; }
+.typo-ButtonSmall { @include typo-ButtonSmall; }
+
+.style-card {
+  box-shadow: var( --Shadow-Level-1 );
+  padding: var(--Radius-and-Spacing-l, 16px);
+  border: 1px solid var(--Colors-Primary-4, #DBDBE4);
+  border-radius: var(--Radius-and-Spacing-s-m, 6px);
+
+
+  &--flow {
+    display: flex;
+    flex-flow: column;
+    gap: var(--Radius-and-Spacing-xl, 12px);
+  }
+
+}
+
+
+
+  // Includujeme mixiny pro generování tříd
+  @include generate-text-color-utilities;
+  @include generate-bg-color-utilities;
+  @include generate-border-radius-utilities;
+  @include generate-box-shadow-utilities;
+  
