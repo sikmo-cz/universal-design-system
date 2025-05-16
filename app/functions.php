@@ -15,7 +15,7 @@
 			'-',
 			'Buttons', 'Pagination', 'Tabs', 'Vertical menu', 'Checkboxes & Radio buttons', 'Toggle', 'Menu items',
 			'-',
-			'Inputs', 'Avatars', 'Chips', 'Tables', 'Breadcrumbs', 'Button group', 'Stepper / Progress', 'Accordions',
+			'Inputs', 'Avatars', 'Chips', 'Tables', 'Lists', 'Breadcrumbs', 'Button group', 'Stepper / Progress', 'Accordions',
 			'-',
 			'Icons', 'Flags', 'Helper',
 		);

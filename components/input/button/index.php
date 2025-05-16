@@ -92,7 +92,11 @@
 		$ComponentLoader->load( 'util/icon', array( 'name' => $data["icon_before"] ) );
 	}
 	?>
-	<span><?php echo esc_html( $data['text'] ) ?></span>
+	<?php
+	if (!empty($data['text']) OR $data['text'] === "0") {
+		echo '<span>' . esc_html( $data['text'] ) . '</span>';
+	}
+	?>
 	<?php
 	if (!empty($data["icon_after"])) {
 		$ComponentLoader->load( 'util/icon', array( 'name' => $data["icon_after"] ) );

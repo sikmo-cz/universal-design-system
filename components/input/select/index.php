@@ -66,13 +66,16 @@
 	if (!is_array($data['options'])) throw new Exception('Data "options" must by type array.');
 
 	$input_attributes = array();
+	$container_attributes = array();
 
 	if ($data['multiple']) {
 		$input_attributes["data-multi"] = "true";
+		$container_attributes["data-multi"] = "true";
 	}
 
 	if ($data['search']) {
 		$input_attributes["data-search"] = "true";
+		$container_attributes["data-search"] = "true";
 	}
 
 	// Extra attributes
@@ -86,9 +89,9 @@
 	?>
 	<div class="custom-select" <?php echo $ComponentLoader->render_attributes( $input_attributes ); ?>>
 		<div class="selected-options"><?php echo esc_html( __("Vyberte...") ) ?></div>
-		<div class="options-container hidden">
+		<div class="<?php echo esc_attr($base_class) ?>__options-container hidden" <?php echo $ComponentLoader->render_attributes( $container_attributes ); ?>>
 			<input type="text" class="search-input" placeholder="<?php echo esc_attr( __("Vyhledat...") ) ?>">
-			<div class="options-containerScroll">
+			<div class="<?php echo esc_attr($base_class) ?>__options-containerScroll">
 				<?php
 				foreach ($data['options'] as $option) {
 					$option_attributes = array();
@@ -108,10 +111,7 @@
 					// Extra option attributes
 					$option_attributes = array_merge( $option_attributes, $option['option_attributes'] ?? array() );
 				?>
-				<div class="option-item">
-					<input type="checkbox" class="hidden-checkbox" <?php echo $ComponentLoader->render_attributes( $option_attributes ); ?>>
-					<?php echo esc_html($option["text"]) ?>
-				</div>
+				<div class="option-item"><input type="checkbox" class="hidden-checkbox" <?php echo $ComponentLoader->render_attributes( $option_attributes ); ?>><?php echo esc_html($option["text"]) ?></div>
 				<?php
 				}
 				?>
@@ -121,7 +121,7 @@
 
 	<?php
 	if (!empty($data['helper_text'])) {
-		$ComponentLoader->load( 'util/helper', array("text" => $data['helper_text'], "type" => $data['helper_type']) );
+		$ComponentLoader->load( 'util/helper', array("text" => $data['helper_text'], "type" => $data['helper_type'], "inline" => true) );
 	}
 	?>
 </div>

@@ -7,7 +7,7 @@
 	padding: var(--Radius-and-Spacing-xs, 2px);
 	align-items: center;
 	gap: var(--Radius-and-Spacing-s-m, 6px);
-	align-self: center;
+	align-self: flex-start;
 	
 	li {
 		list-style: none;

@@ -1,0 +1,72 @@
+@import 'variables';
+
+.data-list {
+	ul {
+		display: flex; 
+		flex-direction: column;
+		gap: var(--Radius-and-Spacing-s, 4px);
+
+		li {
+			display: flex;
+			gap: var(--Radius-and-Spacing-m, 8px);
+
+			img, svg {
+				flex-shrink: 0;
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+
+	&--small {
+		ul {
+			gap: var(--Radius-and-Spacing-s, 4px);
+
+			li {
+				@include typo-BodyExtraSmall();
+				gap: var(--Radius-and-Spacing-s-m, 6px);
+
+				img, svg {
+					width: 19px;
+					height: 19px;
+				}
+
+				> div {
+					margin-top: 2px;
+				}
+			}
+		}
+	}
+
+	&--info {
+		ul li {
+			img, svg {
+				color: var(--Colors-States-Info, #1C70D3);
+			}
+		}
+	}
+
+	&--warning {
+		ul li {
+			img, svg {
+				color: var(--Colors-States-Warning, #D26C21);
+			}
+		}
+	}
+
+	&--danger {
+		ul li {
+			img, svg {
+				color: var(--Colors-States-Danger, #B5213B);
+			}
+		}
+	}
+
+	&--success {
+		ul li {
+			img, svg {
+				color: var(--Colors-States-Success, #48B55A);
+			}
+		}
+	}
+}

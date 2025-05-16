@@ -20,6 +20,7 @@
 		'attributes'    => array(),
 		'size'          => '',
 		'items'         => array(),
+		'justify'       => 'center',
 	);
  
 	$data 			= is_array( $data ) ? array_merge( $defaults, $data ) : $defaults; // Merge provided data with defaults
@@ -33,6 +34,11 @@
 	// Class size
 	if (in_array($data['size'], array("small", "big"), true)) {
 		$attributes["class"] .= " " . $base_class . "--" . $data['size'];
+	}
+
+	// Class justify
+	if (in_array($data['justify'], array("start", "center", "end"), true)) {
+		$attributes["class"] .= " " . $base_class . "--justify-" . $data['justify'];
 	}
 
 	// Id
@@ -58,6 +64,8 @@
 		$a_class = "";
 		if ($item["done"] ?? false) {
 			$a_class = ' class="done"';
+		} elseif (!($item["active"] ?? false)) {
+			$a_class = ' class="innactive"';
 		}
 
 		$a_tag_start = "<div". $a_class .">";

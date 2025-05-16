@@ -15,11 +15,12 @@
 		color: var(--Colors-Primary-2, #FFF);
 		border: 1px solid var(--Colors-Primary-1, #655BFF);
 		cursor: pointer;
+		text-decoration: none !important;
 	
 		&.input-button--small {
 			@include typo-ButtonSmall();
 			color: var(--Colors-Primary-2, #FFF);
-			padding: var(--Radius-and-Spacing-s, 4px) var(--Radius-and-Spacing-s-m, 6px);
+			padding: var(--Radius-and-Spacing-s-m, 6px) var(--Radius-and-Spacing-m-l, 12px);
 			gap: var(--Radius-and-Spacing-xs, 2px);
 		}
 	}
@@ -28,6 +29,7 @@
 		color: var(--Colors-Primary-3, #30303E);
 		border: 1px solid var(--Colors-Primary-4, #DBDBE4);
 		background: var(--Colors-Primary-2, #FFF);
+		box-shadow: 0px 2px 4px 0px rgba(48, 48, 62, 0.12);
 
 		&.input-button--small {
 			color: var(--Colors-Primary-3, #30303E);
@@ -60,7 +62,7 @@
 		&.input-button--small {
 			@include typo-ButtonSmall();
 			color: var(--Colors-Primary-3, #30303E);
-			padding: var(--Radius-and-Spacing-xs, 2px);
+			padding: var(--Radius-and-Spacing-m, 8px);
 			gap: var(--Radius-and-Spacing-xs, 2px);
 		}
 	}
@@ -77,21 +79,27 @@
 		background: transparent;
 		border: 0;
 		cursor: pointer;
+		text-decoration: underline;
 	
 		&.input-button--small  {
 			@include typo-ButtonSmall();
+			color: var(--Colors-Primary-1, #655BFF);
 			padding: var(--Radius-and-Spacing-xs, 2px);
 			gap: var(--Radius-and-Spacing-xs, 2px);
 		}
 	}
 
 	&--small {
-		svg {
-			width: rem( 14px );
-			height: rem( 14px );
+		img, svg {
+			display: block;
+			width: rem( 17px );
+			height: rem( 17px );
 		}
 	}
 
-
-
+	&.open {
+		img, svg {
+			transform: rotate(180deg);
+		}
+	}
 }

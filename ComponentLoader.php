@@ -11,6 +11,9 @@
 
 	class ComponentLoader 
 	{
+		/** @var string Version of the ComponentLoader */
+		private static $version = '1.0.3';
+
 		/** @var ComponentLoader|null Singleton instance of the class */
 		private static $instance = null; 
 
@@ -179,7 +182,7 @@
 		{
 			foreach ( (array) $this->css_files as $css_file) 
 			{
-				echo '<link rel="stylesheet" href="' . $css_file . '">' . PHP_EOL;
+				echo '<link rel="stylesheet" href="' . $css_file . '?v='. self::$version .'">' . PHP_EOL;
 			}
 		}
 
@@ -190,7 +193,7 @@
 		{
 			foreach ( (array) $this->js_files as $js_file) 
 			{
-				echo '<script src="' . $js_file . '"></script>' . PHP_EOL;
+				echo '<script src="' . $js_file . '?v='. self::$version .'"></script>' . PHP_EOL;
 			}
 		}
 

@@ -1,9 +1,12 @@
 @import 'variables';
 
 .input-select {
+	$def: &;
+
 	display: flex;
 	flex-flow: column;
 	gap: var(--Radius-and-Spacing-s-m, 6px);
+	
 
 	& > span {
 		color: var(--Colors-Dark-200, #646482);
@@ -44,13 +47,14 @@
 
 	.selected-options {
 		padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
+		padding-right: 40px;
 		line-height: rem( 32px );
 	}
-	.options-container { 
+
+	&__options-container { 
 		position: absolute; 
 		left: 0;
-		top: 100%; 
-		width: 100%; 
+		top: 100%;
 		z-index: 1;
 		border-radius: var(--Radius-and-Spacing-s-m, 6px);
 		border: var(--0, 1px) solid var(--Colors-Dark-1000, #E8E8EE);
@@ -61,9 +65,9 @@
 		gap: var(--Radius-and-Spacing-xs, 2px);
 		box-shadow: var( --Shadow-Level-1 );
 		margin-top: var(--Radius-and-Spacing-s, 4px);
-		
 
 		.search-input {
+			display: none;
 			border-radius: var(--Radius-and-Spacing-s, 4px);
 			border: 1.5px solid var(--Colors-Primary-4, #DBDBE4);
 			background: var(--Colors-Primary-2, #FFF);
@@ -71,7 +75,7 @@
 			@include typo-BodyLarge();
 			line-height: 31px;
 			padding: var(--Radius-and-Spacing-m, 8px) var(--Radius-and-Spacing-m-l, 12px);
-
+			min-width: 130px;
 		}
 
 		&:after {
@@ -83,15 +87,16 @@
 			height: 24px;
 
 			color: var(--Colors-Dark-200, #646482);;
-
 	
 			@include icon('search');
 	
 			content: "";
+
+			display: none;
 		}
 	}
 
-	.options-containerScroll {
+	&__options-containerScroll {
 		max-height: 220px;
 		overflow: auto;
 		display: flex;
@@ -102,7 +107,7 @@
 
 	.hidden { display: none; }
 
-	.option-item { 
+	&__options-containerScroll .option-item { 
 		position: relative;
 		cursor: pointer;
 		align-items: center;
@@ -116,60 +121,61 @@
 		&:hover, &.selected {			
 			background: var(--Colors-Purple-1000, #F4F4FF);
 		}
+
+		[type="checkbox"],
+		[type="radio"] { 
+			position: absolute;
+			left: -99999px;
+			opacity: 0;
+			pointer-events: none;
+		}
 	}
 
-	[type="checkbox"],
-	[type="radio"] { 
-		position: absolute;
-		left: -99999px;
-		opacity: 0;
-		pointer-events: none;
-	}
-
-
-	[data-multi="true"] {
-		.option-item {
-			&:before {
-				position: relative;
-				display: block;
-				border-radius: var(--Radius-and-Spacing-s, 4px);
-				background-color: var(--Colors-Primary-4, #DBDBE4);
-		
-				width: 20px;
-				height: 20px;
-				content: "";
-			}
-
-			&:after {
-				position: absolute;
-				left: 16px;
-				top: 14px;
-				color: white;
-				@include icon('check');
-				content: "";
-				width: 12px;
-				height: 12px;
-				display: none;
-			}
-
-			&.selected {
+	&__options-container[data-multi="true"] {
+		#{$def}__options-containerScroll {
+			.option-item {
 				&:before {
-					background-color: var(--Colors-Primary-1, #655BFF);
-				}
-				&:after {
+					position: relative;
 					display: block;
+					border-radius: var(--Radius-and-Spacing-s, 4px);
+					background-color: var(--Colors-Primary-4, #DBDBE4);
+			
+					width: 20px;
+					height: 20px;
+					content: "";
+				}
+	
+				&:after {
+					position: absolute;
+					left: 16px;
+					top: 14px;
+					color: white;
+					@include icon('check');
+					content: "";
+					width: 12px;
+					height: 12px;
+					display: none;
+				}
+	
+				&.selected {
+					&:before {
+						background-color: var(--Colors-Primary-1, #655BFF);
+					}
+					&:after {
+						display: block;
+					}
 				}
 			}
 		}
 	}
 
-	[data-searchSelect="true"] {
-		.search-input {
-			display: none;
+	&__options-container[data-search="true"] {
+		&:after {
+			display: block;
 		}
 
-		.options-container:after {
-			display: none;;
+		.search-input {
+			display: block;
 		}
 	}
 

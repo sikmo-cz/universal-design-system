@@ -1,7 +1,8 @@
 @import 'variables';
 
 .data-table {
-	// overflow: auto;
+	$def: &;
+	overflow: auto;
 
 	table {
 		display: table;
@@ -13,18 +14,20 @@
 	
 		tr {
 			display: table-row;
-			
-			
 		}
 	
 		th, td {
 			display: table-cell;
 			text-align: left;
-			
+			align-content: center;
 			align-items: center;
 			padding: var(--Radius-and-Spacing-m-l, 12px);
 			@include typo-BodyLarge();
 			border-bottom: 1px solid var(--Colors-Primary-4, #DBDBE4);
+
+			&.right {
+				text-align: right;
+			}
 		}
 	
 		th {
@@ -35,10 +38,19 @@
 		td {
 			@include typo-BodyLarge();
 
-			&[colspan="999"] {
+			&[colspan="999"], &[colspan="99"] {
 				padding-left: 0;
 				padding-right: 0;
 				border-bottom: 0;
+			}
+
+			a {
+				color: var(--Colors-Primary-1);
+				text-decoration: underline;
+
+				&:hover {
+					text-decoration: none;
+				}
 			}
 		}
 	}
@@ -46,7 +58,7 @@
 	&--small {
 		table {
 			th, td {
-				padding: var(--Radius-and-Spacing-s, 4px) var(--Radius-and-Spacing-m, 8px);
+				padding: var(--Radius-and-Spacing-m, 8px);
 			}
 
 			th {
@@ -58,5 +70,41 @@
 			}
 		}
 	}
-}
 
+	&--extrasmall {
+		table {
+			th, td {
+				padding: var(--Radius-and-Spacing-s-m, 6px);
+			}
+
+			th {
+				@include typo-Caption();
+			}
+
+			td {
+				@include typo-BodyExtraSmall();
+			}
+		}
+	}
+
+	&__collapse {
+    padding: 0 !important;
+    border-bottom: none !important;
+
+    &.open {
+      #{$def}__collapse-animate {
+        grid-template-rows: 1fr;
+      }
+    }
+  }
+
+  &__collapse-animate {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-in-out;
+  }
+
+  &__collapse-animate-inner {
+    overflow: hidden;
+  }
+}

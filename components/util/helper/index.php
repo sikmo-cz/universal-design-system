@@ -22,6 +22,8 @@
 		'size'          => '',
 		'text'          => '',
 		'type'          => '',
+		'inline'        => false,
+		'allow_html'    => false,
 	);
  
 	$data 			= is_array( $data ) ? array_merge( $defaults, $data ) : $defaults; // Merge provided data with defaults
@@ -54,17 +56,40 @@
 	//Checks
 	if (!is_string($data['text'])) throw new Exception('Data "text" must by type string.');
 	if (!is_string($data['type'])) throw new Exception('Data "type" must by type string.');
+	if (!is_bool($data['inline'])) throw new Exception('Data "inline" must by type bool.');
+	if (!is_bool($data['allow_html'])) throw new Exception('Data "allow_html" must by type bool.');
+
+	if (!$data['inline']) {
+		$attributes["class"] .= " " . $base_class . "--block";
+	}
 
 	if ($data['type'] === "info") {
 		$attributes["class"] .= " " . $base_class . "--info";
+		$icon = "info-circle";
 	} elseif ($data['type'] === "warning") {
 		$attributes["class"] .= " " . $base_class . "--warning";
+		$icon = "warning-circle";
 	} elseif ($data['type'] === "danger") {
 		$attributes["class"] .= " " . $base_class . "--danger";
+		$icon = "warning-circle";
 	} elseif ($data['type'] === "success") {
 		$attributes["class"] .= " " . $base_class . "--success";
+		$icon = "check-circle";
+	} else {
+		$icon = "info-circle";
 	}
 ?>
 <p <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
-	<?php echo esc_html($data['text']) ?>
+	<?php
+	if (!empty($icon)) {
+		$ComponentLoader->load( 'util/icon', array( 'name' => $icon ) );
+	}
+	?>
+	<?php
+	if ($data['allow_html']) {
+		echo $data['text'];
+	} else {
+		echo esc_html($data['text']);
+	}
+	?>
 </p>

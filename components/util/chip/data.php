@@ -9,6 +9,6 @@ $demo_data = array(
   //Specific
   'href'          => '#link', //(string default:'')
   'text'          => 'Lorem ipsum dolor.', //(string default:'')
-  'type'          => 'info', //(string default:'') info / warning / danger / success / ''
+  'type'          => 'info', //(string default:'') info / warning / danger / success / black / ''
   'icon'         	=> '3d-arc-center-pt', //(string default:'') icon name
 );
