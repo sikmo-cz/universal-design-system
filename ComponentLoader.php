@@ -12,7 +12,7 @@
 	class ComponentLoader 
 	{
 		/** @var string Version of the ComponentLoader */
-		private static $version = '1.0.3';
+		private static $version = '1.0.4';
 
 		/** @var ComponentLoader|null Singleton instance of the class */
 		private static $instance = null; 
