@@ -58,8 +58,14 @@
 		if ($item["active"] ?? false) {
 			$li_class = ' class="active"';
 		}
+
+		//a attributes
+		$a_attributes = array();
+		if (is_array($item['attributes'] ?? null)) {
+			$a_attributes = $item['attributes'];
+		}
 	?>
-	<li<?php echo $li_class ?>><a href="<?php echo esc_attr($item["href"] ?? "") ?>"><?php echo esc_html($item["text"] ?? "") ?></a></li>
+	<li<?php echo $li_class ?>><a href="<?php echo esc_attr($item["href"] ?? "") ?>" <?php echo $ComponentLoader->render_attributes( $a_attributes ); ?>><?php echo esc_html($item["text"] ?? "") ?></a></li>
 	<?php
 	}
 	?>

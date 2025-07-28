@@ -19,6 +19,7 @@
 		'attributes'    => array(),
 		'size'          => '',
 		'label'         => '',
+		'label_allow_html' => false,
 		'type'          => 'text',
 		'name'          => '',
 		'value'         => '',
@@ -57,6 +58,7 @@
 
 	//Checks
 	if (!is_string($data['label'])) throw new Exception('Data "label" must by type string.');
+	if (!is_bool($data['label_allow_html'])) throw new Exception('Data "label_allow_html" must by type bool.');
 	if (!is_string($data['type'])) throw new Exception('Data "type" must by type string.');
 	if (!is_string($data['name'])) throw new Exception('Data "name" must by type string.');
 	if (!is_string($data['value'])) throw new Exception('Data "value" must by type string.');
@@ -83,7 +85,7 @@
 <label <?php echo $ComponentLoader->render_attributes( $attributes ); ?>>
 	<?php
 	if (!empty($data['label'])) {
-		echo '<span>' . esc_html($data['label']) . '</span>';
+		echo '<span>' . (!$data['label_allow_html'] ? esc_html($data['label']) : $data['label']) . '</span>';
 	}
 	?>
 	<div>

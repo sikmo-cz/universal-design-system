@@ -8,6 +8,7 @@ $demo_data =  array(
 
   //Specific
 	'label'         => 'My textarea', //(string default:'')
+  'label_allow_html' => false, //(bool default:false) Allow HTML in label
   'name'          => 'textarea', //(string default:'') input name attribute
   'value'         => '', //(string default:'') textarea default value
   'input_attributes' => array("required" => "required"), //(array default:array()) Array with extra textarea attributes

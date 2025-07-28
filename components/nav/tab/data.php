@@ -11,11 +11,12 @@ $demo_data = array(
     array(
       'href'         => '#tab1',
       'text'         => 'Tab 1',
+      'attributes'   => array("data-example" => "123"),
+      'active'        => true,
     ),
     array(
       'href'         => '#tab2',
       'text'         => 'Tab 2',
-      'active'        => true,
     ),
     array(
       'href'         => '#tab3',
