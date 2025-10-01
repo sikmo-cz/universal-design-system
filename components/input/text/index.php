@@ -95,6 +95,25 @@
 		}
 		?>
 		<input <?php echo $ComponentLoader->render_attributes( $input_attributes ); ?>>
+		<?php
+		if ($data['type'] === 'password') {
+			echo '<a href="#" class="'. $base_class .'__eye" aria-label="Toggle password visibility">';
+
+			$ComponentLoader->load( 'util/icon', array(
+				'name' => 'eye',
+				'width' => 22,
+				'class' => $base_class .'__eye-icon' . ' ' . $base_class .'__eye-icon--open',
+			));
+
+			$ComponentLoader->load( 'util/icon', array(
+				'name' => 'eye-closed',
+				'width' => 22,
+				'class' => $base_class .'__eye-icon' . ' ' . $base_class .'__eye-icon--closed',
+			));
+
+			echo '</a>';
+		}
+		?>
 	</div>
 	<?php
 	if (!empty($data['helper_text'])) {
