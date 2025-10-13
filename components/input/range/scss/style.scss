@@ -1,0 +1,33 @@
+@import 'variables';
+
+.input-range {
+	display: inline-flex;
+	gap: rem(10px);
+	padding: var(--Radius-and-Spacing-m, 8px);
+	align-items: center;
+	border-radius: var(--Radius-and-Spacing-s-m, 6px);
+	border: 1px solid var(--Colors-Primary-4, #DBDBE4);
+	background: var(--Colors-Primary-2, #FFF);
+
+	&__value-container {
+		line-height: 1;
+		min-width: rem(80px);
+		text-align: center;
+	}
+
+	&__button-minus, &__button-plus {
+		&.disabled {
+			opacity: 0.4;
+			
+			img, svg {
+				color: var(--Colors-Primary-3);
+			}
+		}
+
+		img, svg {
+			display: block;
+			fill: var(--Colors-Primary-1);
+			color: var(--Colors-Primary-1);
+		}
+	}
+}

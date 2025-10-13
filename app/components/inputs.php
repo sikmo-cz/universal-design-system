@@ -27,3 +27,9 @@ $CL->load( 'input/time', [], true );
 $CL->load( 'input/date', [], true );
 ?>
 </div>
+
+<div class="col-12 mt-4">
+<?php
+$CL->load( 'input/range', [], true );
+?>
+</div>
