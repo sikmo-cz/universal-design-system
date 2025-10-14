@@ -102,4 +102,9 @@
 			transform: rotate(180deg);
 		}
 	}
+
+	&[disabled] {
+		opacity: 0.4;
+		pointer-events: none;
+	}
 }
