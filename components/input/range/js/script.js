@@ -22,6 +22,18 @@ document.addEventListener('DOMContentLoaded', function() {
 		let currentValue = initialValue;
 		updateValue(currentValue);
 		
+		// Watch for external changes to the hidden input
+		if (hiddenInput) {
+			hiddenInput.addEventListener('change', function(event) {
+				const newValue = parseFloat(hiddenInput.value);
+				if (!isNaN(newValue) && newValue !== currentValue) {
+					// Ensure the new value is within bounds
+					currentValue = Math.max(min, Math.min(max, newValue));
+					updateValue(currentValue);
+				}
+			});
+		}
+		
 		// Add event listeners
 		plusButton.addEventListener('click', function(event) {
 			event.preventDefault();
