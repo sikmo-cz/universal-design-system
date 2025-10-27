@@ -67,7 +67,7 @@
 				}
 			}
 			
-			& > a {
+			& > a, & > div {
 				display: flex;
 				gap: var(--Radius-and-Spacing-m-l, 2px);
 				padding: var(--Radius-and-Spacing-s-m, 6px) var(--Radius-and-Spacing-m, 8px);
@@ -114,7 +114,7 @@
 	}
 
 	&--small {
-		ul > li > a {
+		ul > li > a, ul > li > div {
 			gap: var(--Radius-and-Spacing-s-m, 6px);
 			@include typo-ButtonSmall();
 
