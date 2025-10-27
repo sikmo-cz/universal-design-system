@@ -88,9 +88,9 @@
 	}
 	?>
 	<div class="custom-select" <?php echo $ComponentLoader->render_attributes( $input_attributes ); ?>>
-		<div class="selected-options"><?php echo esc_html( __("Vyberte...") ) ?></div>
+		<div class="selected-options"><?php echo esc_html( __("Select...") ) ?></div>
 		<div class="<?php echo esc_attr($base_class) ?>__options-container hidden" <?php echo $ComponentLoader->render_attributes( $container_attributes ); ?>>
-			<input type="text" class="search-input" placeholder="<?php echo esc_attr( __("Vyhledat...") ) ?>">
+			<input type="text" class="search-input" placeholder="<?php echo esc_attr( __("Search...") ) ?>">
 			<div class="<?php echo esc_attr($base_class) ?>__options-containerScroll">
 				<?php
 				foreach ($data['options'] as $option) {
