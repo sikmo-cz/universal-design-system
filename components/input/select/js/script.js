@@ -124,7 +124,7 @@ function preloadSelectedOptions(customSelect) {
   preloadCheckboxes.forEach(checkbox => {
     const option = checkbox.closest('.option-item');
     const optionText = option.innerText;
-    selectedOptions.innerText += ` ${optionText}`;
+    selectedOptions.innerText = ` ${optionText}`;
     option.classList.add('selected');
   });
 
